@@ -1,4 +1,4 @@
-import Footer from "./Footer.styled";
+import Footer from "./Footer/Footer.styled";
 
 const Main = () => {
   return (
