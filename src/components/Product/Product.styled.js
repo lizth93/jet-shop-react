@@ -64,6 +64,11 @@ export default styled(Product)`
     padding: 2.4rem;
   }
 
+  .heading--2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
   .product__description-list {
     display: flex;
     flex-direction: column;
