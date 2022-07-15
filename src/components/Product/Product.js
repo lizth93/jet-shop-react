@@ -1,5 +1,3 @@
-import dummyCelphone from "../../img/celular.webp";
-
 const Product = (props) => {
   return (
     <div className={props.className}>
@@ -8,13 +6,13 @@ const Product = (props) => {
           <a className="preview-link" href="/">
             <figure className="product__fig">
               <img
-                src={dummyCelphone}
+                src={props.img}
                 alt="celular dummy"
                 className="product__img"
               />
             </figure>
             <h1 className="product__title">
-              <span>title</span>
+              <span>{props.title}</span>
             </h1>
 
             <div className="descriptions-product">
@@ -36,10 +34,12 @@ const Product = (props) => {
                     />
                   </svg>
 
-                  <label for="description">
+                  <label htmlFor="description">
                     <strong>Description:</strong>
                   </label>
-                  <span className="product__description">description</span>
+                  <span className="product__description">
+                    {props.description}
+                  </span>
                 </li>
                 <li className="product__description">
                   <svg
@@ -57,10 +57,10 @@ const Product = (props) => {
                     />
                   </svg>
 
-                  <label for="Description">
-                    <strong>Brand:</strong>{" "}
+                  <label htmlFor="Description">
+                    <strong>Brand:</strong>
                   </label>
-                  <span className="product__description">brand</span>
+                  <span className="product__description">{props.brand}</span>
                 </li>
 
                 <li className="product__description">
@@ -79,10 +79,10 @@ const Product = (props) => {
                     />
                   </svg>
 
-                  <label for="Description">
+                  <label htmlFor="Description">
                     <strong>On Stock:</strong>{" "}
                   </label>
-                  <span className="product__description">on stock</span>
+                  <span className="product__description">{props.stock}</span>
                 </li>
 
                 <li className="product__description">
@@ -101,19 +101,20 @@ const Product = (props) => {
                     />
                   </svg>
 
-                  <label for="Description">
+                  <label htmlFor="Description">
                     <strong>ID of Product:</strong>{" "}
                   </label>
-                  <span className="id_product">id</span>
+                  <span className="id_product">{props.id}</span>
                 </li>
 
-                <label className="discount" for="discount">
+                <label className="discount" htmlFor="discount">
                   With <strong>discount </strong>of discount:
+                  <span>{props.discount} %</span>
                 </label>
               </ul>
               <p className="product-price">
                 <span>$</span>
-                <strong>price</strong>
+                <strong>{props.price}</strong>
               </p>
             </div>
           </a>
