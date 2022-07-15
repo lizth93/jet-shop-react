@@ -1,10 +1,16 @@
 import Footer from "./Footer/Footer.styled";
+import Product from "./Product/Product.styled";
 
-const Main = () => {
+const Main = (props) => {
   return (
-    <main>
-      <section className="section-products"></section>
+    <main className={props.className}>
+      <section className="section-products">
+        <Product />
+        <Product />
+        <Product />
+      </section>
       <div className="control-pagination"></div>
+
       <Footer />
     </main>
   );
