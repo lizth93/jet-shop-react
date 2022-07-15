@@ -36,6 +36,7 @@ const Product = (props) => {
               <ul className="product__description-list">
                 {properties.map((property) => (
                   <PropertiesProduct
+                    key={property.value}
                     name={property.title}
                     value={property.value}
                   ></PropertiesProduct>

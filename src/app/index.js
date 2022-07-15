@@ -1,7 +1,7 @@
 import "./App.css";
 
 //own
-import Main from "../components/Main.styled";
+import Main from "../components/main/Main.styled";
 import Header from "../components/Header/Header.styled";
 import useInitializeProducts from "./useInitializeProducts";
 

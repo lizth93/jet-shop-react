@@ -24,6 +24,7 @@ export const fetchApi = () => {
           products: productData.products || [],
         })
       );
+      dispatch(productActions.renderSpinner());
     } catch (error) {
       console.log(error);
     }
