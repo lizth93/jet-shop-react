@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { products: [], changed: false, showSpinner: false };
-
 const productSlice = createSlice({
   name: "itemsProducts",
-  initialState,
+  initialState: {
+    products: [],
+    changed: false,
+    showSpinner: false,
+    productDetail: null,
+  },
   reducers: {
     renderSpinner(state) {
       state.showSpinner = !state.showSpinner;
@@ -14,6 +17,10 @@ const productSlice = createSlice({
       if (action.payload.products) {
         state.products = action.payload.products;
       }
+    },
+    setProductDetail(state, action) {
+      state.changed = true;
+      state.productDetail = action.payload;
     },
   },
 });

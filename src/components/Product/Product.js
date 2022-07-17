@@ -19,10 +19,14 @@ const Product = (props) => {
     },
   ];
 
+  const handlerClickProduct = (e) => {
+    e.preventDefault();
+    props.onClickProduct(properties);
+  };
   return (
     <div className={props.className}>
       <div className="container section_product-ppal">
-        <div className="target-product">
+        <div className="target-product" onClick={handlerClickProduct}>
           <a className="preview-link" href="/">
             <figure className="product__fig">
               <img src={props.img} alt="product" className="product__img" />

@@ -2,7 +2,7 @@ import { productActions } from "./product-slice";
 
 const apiUrl = "https://dummyjson.com/products";
 
-export const fetchApi = () => {
+export const getProducts = () => {
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(apiUrl);
@@ -17,11 +17,11 @@ export const fetchApi = () => {
     };
 
     try {
-      const productData = await fetchData();
+      const productsState = await fetchData();
 
       dispatch(
         productActions.replaceProducts({
-          products: productData.products || [],
+          products: productsState.products || [],
         })
       );
       dispatch(productActions.renderSpinner());
