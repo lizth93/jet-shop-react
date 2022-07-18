@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 //own
-import { CATEGORIES } from "../Product/categories";
+import { CATEGORIES } from "../Product/config";
 import { getProducts } from "../../store/get-products";
 import { productActions } from "../../store/product-slice";
 
@@ -10,7 +10,6 @@ const NavigationItems = (props) => {
   const dispatch = useDispatch();
 
   const handleClickCategory = (item) => {
-    console.log("this is the item", item);
     dispatch(getProducts(item));
     dispatch(productActions.renderSpinner());
   };

@@ -4,7 +4,7 @@ import { API_URL } from "./config";
 export const getProducts = (category = "all") => {
   return async (dispatch) => {
     const fetchData = async () => {
-      let response = await fetch(API_URL);
+      let response;
 
       if (category === "all") {
         response = await fetch(API_URL);

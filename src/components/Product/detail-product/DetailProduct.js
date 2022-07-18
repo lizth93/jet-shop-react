@@ -1,37 +1,17 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 //own
-import PropertiesProduct from "./PropertiesProduct";
+import PropertiesProduct from "../PropertiesProduct";
+import { useProperties } from "../properties";
 
 const DetailProduct = (props) => {
   const productDetail = useSelector(
     (state) => state.itemsProducts.productDetail
   );
-  const params = useParams();
-
-  console.log(params.productId);
 
   const [imageDetail, setImageDetail] = useState(props.img);
-  if (!productDetail) return;
-  const properties = [
-    {
-      value: productDetail.description,
-      title: "Description: ",
-    },
-    {
-      value: productDetail.brand,
-      title: "Brand: ",
-    },
-    {
-      value: productDetail.stock,
-      title: "On Stock: ",
-    },
-    {
-      value: productDetail.id,
-      title: "Product Id: ",
-    },
-  ];
+
+  const properties = useProperties(productDetail);
 
   const handlerClickImg = (x) => {
     setImageDetail(x);

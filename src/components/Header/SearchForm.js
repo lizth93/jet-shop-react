@@ -17,6 +17,7 @@ const SearchForm = (props) => {
     ev.preventDefault();
     dispatch(getBySearchTerm(search));
     dispatch(productActions.renderSpinner());
+    setSearch("");
   };
 
   return (

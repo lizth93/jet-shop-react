@@ -1,25 +1,10 @@
-import PropertiesProduct from "./PropertiesProduct";
 import { Link } from "react-router-dom";
+//own
+import PropertiesProduct from "../PropertiesProduct";
+import { useProperties } from "../properties";
 
 const Product = (props) => {
-  const properties = [
-    {
-      value: props.description,
-      title: "Description: ",
-    },
-    {
-      value: props.brand,
-      title: "Brand: ",
-    },
-    {
-      value: props.stock,
-      title: "On Stock: ",
-    },
-    {
-      value: props.id,
-      title: "Product Id: ",
-    },
-  ];
+  const properties = useProperties(props);
 
   const handlerClickProduct = (e) => {
     e.preventDefault();
