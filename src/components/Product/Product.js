@@ -1,4 +1,6 @@
 import PropertiesProduct from "./PropertiesProduct";
+import { Link } from "react-router-dom";
+
 const Product = (props) => {
   const properties = [
     {
@@ -27,7 +29,7 @@ const Product = (props) => {
     <div className={props.className}>
       <div className="container section_product-ppal">
         <div className="target-product" onClick={handlerClickProduct}>
-          <a className="preview-link" href="/">
+          <Link className="preview-link" to={`/products-detail/${props.id}`}>
             <figure className="product__fig">
               <img src={props.img} alt="product" className="product__img" />
             </figure>
@@ -56,7 +58,7 @@ const Product = (props) => {
                 <strong>{props.price}</strong>
               </p>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,21 +1,33 @@
-const NavigationItems = (props) => {
-  const navigationItems = [
-    "Smartphones",
-    "Laptops",
-    "Skincare",
-    "Fragances",
-    "Groseries",
-    "All Products",
-  ];
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
+//own
+import { CATEGORIES } from "../Product/categories";
+import { getProductsCategory } from "../../store/get-product-category";
+import { productActions } from "../../store/product-slice";
+
+const NavigationItems = (props) => {
+  const dispatch = useDispatch();
+
+  const handleClickCategory = (item) => {
+    console.log("this is the item", item);
+    dispatch(getProductsCategory(item));
+    dispatch(productActions.renderSpinner());
+  };
   return (
     <nav className={props.className}>
       <ul className="main-nav-list-2">
-        {navigationItems.map((item) => (
+        {Object.keys(CATEGORIES).map((item) => (
           <li key={item}>
-            <a className="main-nav-link" href={`/${item}`}>
+            <Link
+              className="main-nav-link"
+              to={`/products/${item.toLowerCase()}`}
+              onClick={() => {
+                handleClickCategory(item.toLocaleLowerCase());
+              }}
+            >
               {item}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 //own
 import PropertiesProduct from "./PropertiesProduct";
 
@@ -7,6 +8,9 @@ const DetailProduct = (props) => {
   const productDetail = useSelector(
     (state) => state.itemsProducts.productDetail
   );
+  const params = useParams();
+
+  console.log(params.productId);
 
   const [imageDetail, setImageDetail] = useState(props.img);
   if (!productDetail) return;

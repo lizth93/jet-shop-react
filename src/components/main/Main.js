@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { productActions } from "../../store/product-slice";
 
 //own
@@ -15,43 +16,53 @@ const Main = (props) => {
     productDetail: state.itemsProducts.productDetail,
   }));
 
-  console.log(productDetail, "this is produt detail");
   const handleOnclickProduct = (product) => {
     dispatch(productActions.setProductDetail(product));
   };
   return (
     <main className={props.className}>
       <section className="section-products">
-        {renderSpinner && <Spinner />}
-        {!renderSpinner &&
-          products.map((product) => (
-            <Product
-              key={product.id}
-              id={product.id}
-              title={product.title}
-              description={product.description}
-              price={product.price}
-              stock={product.stock}
-              brand={product.brand}
-              discount={product.discountPercentage}
-              img={product.thumbnail}
-              onClickProduct={() => {
-                handleOnclickProduct({
-                  id: product.id,
-                  title: product.title,
-                  description: product.description,
-                  price: product.price,
-                  stock: product.stock,
-                  brand: product.brand,
-                  discount: product.discountPercentage,
-                  images: product.images,
-                  img: product.thumbnail,
-                });
-              }}
-            />
-          ))}
-
-        {productDetail && <DetailProduct img={productDetail.img} />}
+        <Switch>
+          <Route path="/" exact>
+            <Redirect to="/products/:category" />
+          </Route>
+          <Route path="/products/:category" exact>
+            {renderSpinner && <Spinner />}
+            {!renderSpinner &&
+              !productDetail &&
+              products.map((product) => (
+                <Product
+                  key={product.id}
+                  id={product.id}
+                  title={product.title}
+                  description={product.description}
+                  price={product.price}
+                  stock={product.stock}
+                  brand={product.brand}
+                  discount={product.discountPercentage}
+                  img={product.thumbnail}
+                  onClickProduct={() => {
+                    handleOnclickProduct({
+                      id: product.id,
+                      title: product.title,
+                      description: product.description,
+                      price: product.price,
+                      stock: product.stock,
+                      brand: product.brand,
+                      discount: product.discountPercentage,
+                      images: product.images,
+                      img: product.thumbnail,
+                    });
+                  }}
+                />
+              ))}
+          </Route>
+          {productDetail && (
+            <Route path="/products-detail/:productId" exact>
+              <DetailProduct img={productDetail.img} />
+            </Route>
+          )}
+        </Switch>
       </section>
       <div className="control-pagination"></div>
 
