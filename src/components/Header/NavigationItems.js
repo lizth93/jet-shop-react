@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 //own
 import { CATEGORIES } from "../Product/categories";
-import { getProductsCategory } from "../../store/get-product-category";
+import { getProducts } from "../../store/get-products";
 import { productActions } from "../../store/product-slice";
 
 const NavigationItems = (props) => {
@@ -11,7 +11,7 @@ const NavigationItems = (props) => {
 
   const handleClickCategory = (item) => {
     console.log("this is the item", item);
-    dispatch(getProductsCategory(item));
+    dispatch(getProducts(item));
     dispatch(productActions.renderSpinner());
   };
   return (

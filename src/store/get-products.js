@@ -1,11 +1,16 @@
 import { productActions } from "./product-slice";
+import { API_URL } from "./config";
 
-const apiUrl = "https://dummyjson.com/products";
-
-export const getProducts = () => {
+export const getProducts = (category = "all") => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch(apiUrl);
+      let response = await fetch(API_URL);
+
+      if (category === "all") {
+        response = await fetch(API_URL);
+      } else {
+        response = await fetch(`${API_URL}/category/${category}`);
+      }
 
       if (!response.ok) {
         throw new Error("product data failed");
