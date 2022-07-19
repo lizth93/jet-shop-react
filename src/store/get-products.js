@@ -9,6 +9,7 @@ export const getProducts = (category = "all", limit, skip) => {
         category.toLowerCase() === "all"
           ? `${API_URL}?limit=100&skip=0`
           : `${API_URL}/category/${category}?limit=100&skip=0`;
+
       const response = await fetch(url);
 
       if (!response.ok) {
@@ -23,6 +24,7 @@ export const getProducts = (category = "all", limit, skip) => {
     };
 
     try {
+      dispatch(productActions.renderSpinner());
       const productsState = await fetchData();
 
       dispatch(

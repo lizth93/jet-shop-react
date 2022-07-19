@@ -4,14 +4,12 @@ import { useDispatch } from "react-redux";
 //own
 import { CATEGORIES } from "../Product/config";
 import { getProducts } from "../../store/get-products";
-import { productActions } from "../../store/product-slice";
 
 const NavigationItems = (props) => {
   const dispatch = useDispatch();
 
   const handleClickCategory = (item) => {
-    dispatch(getProducts(item, 2, 2));
-    dispatch(productActions.renderSpinner());
+    dispatch(getProducts(item));
   };
   return (
     <nav className={props.className}>

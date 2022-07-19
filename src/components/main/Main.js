@@ -27,10 +27,10 @@ const Main = (props) => {
           <Route path="/" exact>
             <Redirect to="/products/all" />
           </Route>
-          <Route path="/products/:category" exact>
+
+          <Route path="/products/:category">
             {renderSpinner && <Spinner />}
             {!renderSpinner &&
-              !productDetail &&
               products.map((product) => (
                 <Product
                   key={product.id}

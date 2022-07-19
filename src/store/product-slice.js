@@ -12,9 +12,12 @@ const productSlice = createSlice({
     renderSpinner(state) {
       state.showSpinner = !state.showSpinner;
     },
+
     replaceProducts(state, action) {
       state.changed = true;
+      console.log("entra en el dispatch1");
       if (action.payload.products) {
+        console.log("entra en el dispatch2");
         state.products = action.payload.products;
       }
     },
