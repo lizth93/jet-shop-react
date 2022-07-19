@@ -4,6 +4,7 @@ import { productActions } from "../../store/product-slice";
 
 //own
 import Footer from "../Footer/Footer.styled";
+import ButtonPagination from "../pagination/button.styled";
 import DetailProduct from "../Product/detail-product/DetailProduct.styled";
 import Product from "../Product/product/Product.styled";
 import Spinner from "../Spinner/Spinner.styled";
@@ -64,7 +65,9 @@ const Main = (props) => {
           )}
         </Switch>
       </section>
-      <div className="control-pagination"></div>
+      <div className="control-pagination">
+        <ButtonPagination />
+      </div>
 
       <Footer />
     </main>

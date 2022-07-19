@@ -10,7 +10,7 @@ const NavigationItems = (props) => {
   const dispatch = useDispatch();
 
   const handleClickCategory = (item) => {
-    dispatch(getProducts(item));
+    dispatch(getProducts(item, 2, 2));
     dispatch(productActions.renderSpinner());
   };
   return (

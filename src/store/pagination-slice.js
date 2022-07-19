@@ -10,17 +10,17 @@ const paginationSlice = createSlice({
     limit: 4,
   },
   reducers: {
-    // getPaginationQueryParams(state) {
-    //   // state.skip = action.payload;
+    getPaginationQueryParams(state) {
+      // state.skip = action.payload;
 
-    //   state.skip =
-    //     state.page === 1 ? 0 : state.page * state.limit - state.limit;
+      state.skip =
+        state.page === 1 ? 0 : state.page * state.limit - state.limit;
 
-    //   if (state.total < state.skip) {
-    //     state.skip = state.total;
-    //   }
-    //   return `limit=${state.limit}&skip=${state.skip}`;
-    // },
+      if (state.total < state.skip) {
+        state.skip = state.total;
+      }
+      // return `limit=${state.limit}&skip=${state.skip}`;
+    },
 
     setTotalPages(state, action) {
       state.total = action.payload;

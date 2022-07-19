@@ -2,7 +2,7 @@ import { productActions } from "./product-slice";
 import { API_URL } from "./config";
 import { paginationActions } from "./pagination-slice";
 
-export const getProducts = (category = "all") => {
+export const getProducts = (category = "all", limit, skip) => {
   return async (dispatch) => {
     const fetchData = async () => {
       const url =

@@ -9,4 +9,11 @@ export default styled(Main)`
     gap: 2rem;
     justify-content: center;
   }
+  .control-pagination {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+  }
 `;
