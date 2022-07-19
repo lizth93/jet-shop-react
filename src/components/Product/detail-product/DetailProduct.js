@@ -53,7 +53,7 @@ const DetailProduct = (props) => {
               <ul className="product__description-list">
                 {properties.map((property) => (
                   <PropertiesProduct
-                    key={property.value}
+                    key={property.title}
                     name={property.title}
                     value={property.value}
                   ></PropertiesProduct>

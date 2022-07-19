@@ -24,7 +24,7 @@ const Main = (props) => {
       <section className="section-products">
         <Switch>
           <Route path="/" exact>
-            <Redirect to="/products/:category" />
+            <Redirect to="/products/all" />
           </Route>
           <Route path="/products/:category" exact>
             {renderSpinner && <Spinner />}
