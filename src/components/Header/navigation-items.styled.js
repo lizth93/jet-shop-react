@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import NavigationItems from "./NavigationItems";
+import NavigationItems from "./navigation-items";
 
 export default styled(NavigationItems)`
   .main-nav-list-2 {

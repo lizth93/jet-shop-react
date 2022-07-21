@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import NavigationIcons from "./NavigationIcons";
+import NavigationIcons from "./navigation-icons";
 
 export default styled(NavigationIcons)`
   justify-content: space-between;

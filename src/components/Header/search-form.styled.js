@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SearchForm from "./SearchForm";
+import SearchForm from "./search-form";
 
 export default styled(SearchForm)`
   display: grid;

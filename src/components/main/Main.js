@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 //own
-import Footer from "../Footer/Footer.styled";
+import Footer from "../Footer/footer.styled";
 import ButtonPagination from "../pagination/button.styled";
 import DetailProduct from "../Product/detail-product/DetailProduct.styled";
 import Product from "../Product/product/Product.styled";
