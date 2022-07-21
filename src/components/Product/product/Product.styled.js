@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Product from "./Product";
+import Product from "./product";
 
 export default styled(Product)`
   .section_product-ppal {

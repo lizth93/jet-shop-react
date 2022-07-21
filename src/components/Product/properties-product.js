@@ -1,4 +1,4 @@
-import IconCheck from "./IconCheck";
+import IconCheck from "./Icon-check";
 const PropertiesProduct = (props) => {
   const name = props.name;
   const value = props.value;

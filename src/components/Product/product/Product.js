@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 //own
-import PropertiesProduct from "../PropertiesProduct";
+import PropertiesProduct from "../properties-product";
 import { useProperties } from "../properties";
 
 const Product = (props) => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 //own
-import PropertiesProduct from "../PropertiesProduct";
+import PropertiesProduct from "../properties-product";
 import { useProperties } from "../properties";
 
 const DetailProduct = (props) => {
