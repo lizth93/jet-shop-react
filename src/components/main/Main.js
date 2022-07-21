@@ -10,9 +10,13 @@ import Spinner from "../Spinner/Spinner.styled";
 import { paginationActions } from "../../store/pagination-slice";
 import { productActions } from "../../store/product-slice";
 import { getProducts } from "../../store/get-products";
+import { getBySearchTerm } from "../../store/search";
 
 const Main = (props) => {
   const dispatch = useDispatch();
+  const searchProduct = useSelector(
+    (state) => state.itemsProducts.searchProduct
+  );
   const { products, renderSpinner, productDetail } = useSelector((state) => ({
     products: state.itemsProducts.products,
     renderSpinner: state.itemsProducts.showSpinner,
@@ -23,9 +27,13 @@ const Main = (props) => {
     dispatch(productActions.setProductDetail(product));
   };
   const handleClickBtnPage = (currentPage, params, skip) => {
-    // console.log(skip, "calculated");
     dispatch(paginationActions.setCurrentPage(currentPage));
-    dispatch(getProducts(params.category, skip));
+    if (params.category === "search") {
+      console.log(searchProduct, "search");
+      dispatch(getBySearchTerm(searchProduct, skip));
+    } else {
+      dispatch(getProducts(params.category, skip));
+    }
   };
   return (
     <Switch>

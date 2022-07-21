@@ -1,23 +1,30 @@
 //own
 import { productActions } from "./product-slice";
-import { API_URL } from "./config";
+import { paginationActions } from "./pagination-slice";
+import { API_URL, RES_PER_PAGE } from "./config";
 
-export const getBySearchTerm = (searchTerm) => {
+export const getBySearchTerm = (searchTerm, skip = 0) => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch(`${API_URL}/search?q=${searchTerm}`);
+      const response = await fetch(
+        `${API_URL}/search?q=${searchTerm}&limit=${RES_PER_PAGE}&skip=${skip}`
+      );
 
       if (!response.ok) {
         throw new Error("product data failed");
       }
 
       const data = await response.json();
+
+      dispatch(paginationActions.setTotalPages(data.total));
+      dispatch(paginationActions.calculatePages());
+      dispatch(paginationActions.setChanged(true));
       return data;
     };
 
     try {
       const productsState = await fetchData();
-
+      dispatch(productActions.renderSpinner());
       dispatch(
         productActions.replaceProducts({
           products: productsState.products || [],

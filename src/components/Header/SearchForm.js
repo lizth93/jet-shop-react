@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 //own
 import { getBySearchTerm } from "../../store/search";
 import { productActions } from "../../store/product-slice";
+import { paginationActions } from "../../store/pagination-slice";
 
 const SearchForm = (props) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
 
@@ -15,8 +18,14 @@ const SearchForm = (props) => {
 
   const handleSearchProduct = (ev) => {
     ev.preventDefault();
+    dispatch(paginationActions.setSkipPages(0));
+    dispatch(paginationActions.setCurrentPage(1));
+    dispatch(paginationActions.calculatePages());
+
     dispatch(getBySearchTerm(search));
-    dispatch(productActions.renderSpinner());
+    dispatch(productActions.setSearch(search));
+    history.push(`/products/search?q=${search}`);
+
     setSearch("");
   };
 
