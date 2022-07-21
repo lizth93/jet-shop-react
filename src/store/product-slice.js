@@ -4,7 +4,6 @@ const productSlice = createSlice({
   name: "itemsProducts",
   initialState: {
     products: [],
-    changed: false,
     showSpinner: false,
     productDetail: null,
   },
@@ -14,15 +13,11 @@ const productSlice = createSlice({
     },
 
     replaceProducts(state, action) {
-      state.changed = true;
-      console.log("entra en el dispatch1");
       if (action.payload.products) {
-        console.log("entra en el dispatch2");
         state.products = action.payload.products;
       }
     },
     setProductDetail(state, action) {
-      state.changed = true;
       state.productDetail = action.payload;
     },
   },

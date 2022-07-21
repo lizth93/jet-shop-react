@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { productActions } from "../../store/product-slice";
 
 //own
 import Footer from "../Footer/Footer.styled";
@@ -8,6 +7,9 @@ import ButtonPagination from "../pagination/button.styled";
 import DetailProduct from "../Product/detail-product/DetailProduct.styled";
 import Product from "../Product/product/Product.styled";
 import Spinner from "../Spinner/Spinner.styled";
+import { paginationActions } from "../../store/pagination-slice";
+import { productActions } from "../../store/product-slice";
+import { getProducts } from "../../store/get-products";
 
 const Main = (props) => {
   const dispatch = useDispatch();
@@ -20,16 +22,21 @@ const Main = (props) => {
   const handleOnclickProduct = (product) => {
     dispatch(productActions.setProductDetail(product));
   };
+  const handleClickBtnPage = (currentPage, params, skip) => {
+    // console.log(skip, "calculated");
+    dispatch(paginationActions.setCurrentPage(currentPage));
+    dispatch(getProducts(params.category, skip));
+  };
   return (
-    <main className={props.className}>
-      <section className="section-products">
-        <Switch>
+    <Switch>
+      <main className={props.className}>
+        <section className="section-products">
           <Route path="/" exact>
-            <Redirect to="/products/all" />
+            <Redirect to="/products/:category" />
           </Route>
 
+          {renderSpinner && <Spinner />}
           <Route path="/products/:category">
-            {renderSpinner && <Spinner />}
             {!renderSpinner &&
               products.map((product) => (
                 <Product
@@ -63,14 +70,16 @@ const Main = (props) => {
               <DetailProduct img={productDetail.img} />
             </Route>
           )}
-        </Switch>
-      </section>
-      <div className="control-pagination">
-        <ButtonPagination />
-      </div>
+        </section>
+        <Route path="/products/:category">
+          <div className="control-pagination">
+            <ButtonPagination onClickPag={handleClickBtnPage} />
+          </div>
+        </Route>
 
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </Switch>
   );
 };
 

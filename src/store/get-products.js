@@ -1,14 +1,15 @@
 import { productActions } from "./product-slice";
-import { API_URL } from "./config";
+import { API_URL, RES_PER_PAGE } from "./config";
 import { paginationActions } from "./pagination-slice";
 
-export const getProducts = (category = "all", limit, skip) => {
+export const getProducts = (category = "all", skip = 0) => {
+  console.log("skip on getProducts,", skip);
   return async (dispatch) => {
     const fetchData = async () => {
       const url =
         category.toLowerCase() === "all"
-          ? `${API_URL}?limit=100&skip=0`
-          : `${API_URL}/category/${category}?limit=100&skip=0`;
+          ? `${API_URL}?limit=${RES_PER_PAGE}&skip=${skip}`
+          : `${API_URL}/category/${category.toLowerCase()}?limit=${RES_PER_PAGE}&skip=${skip}`;
 
       const response = await fetch(url);
 
@@ -19,6 +20,8 @@ export const getProducts = (category = "all", limit, skip) => {
       const data = await response.json();
 
       dispatch(paginationActions.setTotalPages(data.total));
+      dispatch(paginationActions.calculatePages());
+      dispatch(paginationActions.setChanged(true));
 
       return data;
     };

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RES_PER_PAGE } from "./config";
 
 const paginationSlice = createSlice({
   name: "pagination",
@@ -7,24 +8,22 @@ const paginationSlice = createSlice({
     page: 1,
     pages: 0,
     skip: 0,
-    limit: 4,
+    limit: RES_PER_PAGE,
+    changed: false,
   },
   reducers: {
-    getPaginationQueryParams(state) {
-      // state.skip = action.payload;
-
-      state.skip =
-        state.page === 1 ? 0 : state.page * state.limit - state.limit;
-
-      if (state.total < state.skip) {
-        state.skip = state.total;
-      }
-      // return `limit=${state.limit}&skip=${state.skip}`;
+    setChanged(state, action) {
+      state.changed = action.payload;
+    },
+    setSkipPages(state, action) {
+      state.skip = action.payload;
+    },
+    setCurrentPage(state, action) {
+      state.page = action.payload;
     },
 
     setTotalPages(state, action) {
       state.total = action.payload;
-      console.log(action.payload, "this are the total");
     },
 
     calculatePages(state) {

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { productActions } from "../store/product-slice";
+
+//own
 import { getProducts } from "../store/get-products";
 
 export default function useInitializeProducts() {
@@ -8,6 +9,5 @@ export default function useInitializeProducts() {
 
   useEffect(() => {
     dispatch(getProducts());
-    dispatch(productActions.renderSpinner());
   }, [dispatch]);
 }

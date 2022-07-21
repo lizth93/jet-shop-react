@@ -4,11 +4,15 @@ import { useDispatch } from "react-redux";
 //own
 import { CATEGORIES } from "../Product/config";
 import { getProducts } from "../../store/get-products";
+import { paginationActions } from "../../store/pagination-slice";
 
 const NavigationItems = (props) => {
   const dispatch = useDispatch();
 
   const handleClickCategory = (item) => {
+    dispatch(paginationActions.setSkipPages(0));
+    dispatch(paginationActions.setCurrentPage(1));
+    dispatch(paginationActions.calculatePages());
     dispatch(getProducts(item));
   };
   return (
