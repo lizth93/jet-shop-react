@@ -2,6 +2,11 @@ import styled from "styled-components";
 import ButtonPagination from "./button";
 
 export default styled(ButtonPagination)`
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
   .btn-pagination {
     height: 4rem;
     cursor: pointer;

@@ -10,10 +10,6 @@ export default styled(Main)`
     justify-content: center;
   }
   .control-pagination {
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 2.4rem;
   }
 `;

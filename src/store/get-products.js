@@ -3,7 +3,6 @@ import { API_URL, RES_PER_PAGE } from "./config";
 import { paginationActions } from "./pagination-slice";
 
 export const getProducts = (category = "all", skip = 0) => {
-  console.log("skip on getProducts,", skip);
   return async (dispatch) => {
     const fetchData = async () => {
       const url =

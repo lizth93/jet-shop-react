@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import IconLeft from "./icon-left";
 import IconRight from "./icon-right";
 import skipPage from "../../store/skip-page";
+import { Fragment } from "react";
 
 const ButtonPagination = (props) => {
   const params = useParams();
@@ -21,7 +22,7 @@ const ButtonPagination = (props) => {
     const btn = e.target.closest(".btn-pagination");
     if (!btn) return;
     const currentPage = btn.dataset.goto;
-    const skip = skipPage(+currentPage, total);
+    const skip = skipPage(+currentPage, +total);
     props.onClickPag(currentPage, params, skip);
   };
 
