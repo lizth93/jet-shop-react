@@ -27,6 +27,7 @@ const Main = (props) => {
     dispatch(productActions.setProductDetail(product));
   };
   const handleClickBtnPage = (currentPage, params, skip) => {
+    console.log("params", params.category);
     dispatch(paginationActions.setCurrentPage(currentPage));
     if (params.category === "search") {
       console.log(searchProduct, "search");
@@ -40,7 +41,10 @@ const Main = (props) => {
       <main className={props.className}>
         <section className="section-products">
           <Route path="/" exact>
-            <Redirect to="/products/:category" />
+            <Redirect to="/products/all" />
+          </Route>
+          <Route path="/products/" exact>
+            <Redirect to="/products/all" />
           </Route>
 
           {renderSpinner && <Spinner />}

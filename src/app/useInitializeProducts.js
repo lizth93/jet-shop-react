@@ -8,6 +8,6 @@ export default function useInitializeProducts() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProducts());
+    dispatch(getProducts("all"));
   }, [dispatch]);
 }
