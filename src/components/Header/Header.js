@@ -1,7 +1,7 @@
 import NavigationIcons from "./navigation-icons.styled";
 import NavigationItems from "./navigation-items.styled";
 import SearchForm from "./search-form.styled";
-import Logo from "../Logo";
+import Logo from "../logo";
 
 const Header = (props) => {
   return (

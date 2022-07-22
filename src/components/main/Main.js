@@ -5,7 +5,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Footer from "../Footer/footer.styled";
 import ButtonPagination from "../pagination/button.styled";
 import DetailProduct from "../Product/detail-product/detail-product.styled";
-import Product from "../Product/product/product.styled";
+import Product from "../Product/Products/product.styled";
 import Spinner from "../Spinner/spinner.styled";
 import { paginationActions } from "../../store/pagination-slice";
 import { productActions } from "../../store/product-slice";
