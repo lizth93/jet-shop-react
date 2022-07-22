@@ -10,9 +10,9 @@ export default styled(Auth)`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-width: 80rem;
 
   .form-elements {
+    border-radius: 1rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -23,9 +23,13 @@ export default styled(Auth)`
     color: #fff;
     background-color: #212529;
     min-width: 30rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
   }
 
   .heading--1 {
+    text-align: center;
+    text-transform: uppercase;
     font-size: 2rem;
     margin-bottom: 2rem;
   }

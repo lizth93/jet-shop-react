@@ -6,12 +6,12 @@ const Auth = (props) => {
       <form className="form-elements">
         <h1 className="heading--1">Sing Up</h1>
         <div>
-          <label htmlFor="email">Your Email</label>
+          <label htmlFor="email">Your Email:</label>
           <br />
           <input type="email" id="email" required />
         </div>
         <div>
-          <label htmlFor="password">Your Password</label>
+          <label htmlFor="password">Your Password:</label>
           <br />
           <input type="password" id="password" required />
         </div>
