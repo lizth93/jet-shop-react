@@ -100,26 +100,4 @@ export default styled(DetailProduct)`
   p {
     font-size: 1.6rem;
   }
-
-  .btn-add-car,
-  .btn-add-car:link,
-  .btn-add-car:visited {
-    margin-top: 2.4rem;
-    display: inline-block;
-    font-size: 2rem;
-    text-decoration: none;
-    padding: 1.6rem 3.2rem;
-    border-radius: 9px;
-    transition: all 0.5s;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    background-color: #7950f2;
-    color: #fff;
-  }
-
-  .btn-add-car:hover,
-  .btn-add-car:active {
-    background-color: #5f3dc4;
-  }
 `;

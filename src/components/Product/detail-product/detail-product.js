@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 //own
 import PropertiesProduct from "../properties-product";
 import { useProperties } from "../properties";
+import Button from "../../pagination/general-button/button.styled";
 
 const DetailProduct = (props) => {
   const productDetail = useSelector(
@@ -68,8 +69,8 @@ const DetailProduct = (props) => {
                 <span>$</span>
                 <strong>{productDetail.price}</strong>
               </p>
-
-              <button className="btn btn-add-car">Add a Cart</button>
+              <Button>Add a Cart</Button>
+              {/* <button className="btn btn-add-car">Add a Cart</button> */}
             </div>
           </div>
 
