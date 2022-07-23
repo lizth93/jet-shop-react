@@ -5,7 +5,6 @@ export default styled(Button)`
   .btn {
     background-color: #7950f2;
     transition: all 0.2s;
-    /* text-transform: uppercase; */
     text-decoration: none;
     padding: 1.1rem 2.8rem;
     border-radius: 9px;

@@ -27,6 +27,7 @@ const Main = (props) => {
     dispatch(productActions.setProductDetail(product));
   };
   const handleClickBtnPage = (currentPage, params, skip) => {
+    console.log("params", params.category);
     dispatch(paginationActions.setCurrentPage(currentPage));
     if (params.category === "search") {
       console.log(searchProduct, "search");
@@ -36,11 +37,11 @@ const Main = (props) => {
     }
   };
   return (
-    <Switch>
-      <main className={props.className}>
-        <section className="section-products">
-          {renderSpinner && <Spinner />}
-
+    // <Switch>
+    <main className={props.className}>
+      <section className="section-products">
+        {renderSpinner && <Spinner />}
+        <Route path="/products/:category">
           {!renderSpinner &&
             products.map((product) => (
               <Product
@@ -68,18 +69,22 @@ const Main = (props) => {
                 }}
               />
             ))}
-          {productDetail && (
-            <Route path="/products-detail/:productId" exact>
-              <DetailProduct img={productDetail.img} />
-            </Route>
-          )}
-        </section>
+        </Route>
+        {productDetail && (
+          <Route path="/products-detail/:productId" exact>
+            <DetailProduct img={productDetail.img} />
+          </Route>
+        )}
+      </section>
+      <Route path="/products/:category">
         <div className="control-pagination">
           <ButtonPagination onClickPag={handleClickBtnPage} />
         </div>
-        <Footer />
-      </main>
-    </Switch>
+      </Route>
+
+      <Footer />
+    </main>
+    // </Switch>
   );
 };
 

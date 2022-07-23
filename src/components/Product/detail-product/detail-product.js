@@ -70,7 +70,6 @@ const DetailProduct = (props) => {
                 <strong>{productDetail.price}</strong>
               </p>
               <Button>Add a Cart</Button>
-              {/* <button className="btn btn-add-car">Add a Cart</button> */}
             </div>
           </div>
 

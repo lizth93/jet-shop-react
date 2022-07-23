@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 
 //own
 import Main from "../components/Main/main.styled";
@@ -11,21 +11,17 @@ function App() {
   useInitializeProducts();
   return (
     <>
-      <Switch>
-        <Route path="/auth" exact>
-          <Auth />
-        </Route>
-        <Route path="/" exact>
-          <Redirect to="/products/all" />
-        </Route>
-        <Route path="/products/" exact>
-          <Redirect to="/products/all" />
-        </Route>
-        <Route path="/products/:category" exact>
-          <Header />
-          <Main />
-        </Route>
-      </Switch>
+      <Route path="/" exact>
+        <Redirect to="/auth" />
+      </Route>
+      <Route path="/products/" exact>
+        <Redirect to="/auth" />
+      </Route>
+      <Route path="/auth" exact>
+        <Auth />
+      </Route>
+      <Header />
+      <Main />
     </>
   );
 }

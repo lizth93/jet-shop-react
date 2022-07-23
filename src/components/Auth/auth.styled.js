@@ -39,5 +39,22 @@ export default styled(Auth)`
     min-width: 25rem;
     height: 3rem;
     box-sizing: border-box;
+    border-radius: 0.5rem;
+  }
+  .btn-auth {
+    background-color: transparent;
+    color: #999;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    display: contents;
+  }
+  .btn-auth:hover {
+    transform: translateY(-3px);
+    color: #fff;
+  }
+
+  .btn-option {
+    display: block;
   }
 `;
