@@ -1,11 +1,23 @@
+import { useDispatch } from "react-redux";
+// import { useState } from "react";
+import { useSelector } from "react-redux/es/exports";
+//own
 import Button from "../pagination/general-button/button.styled";
-import { useState } from "react";
+import { authActions } from "../../store/auth-slice";
 
 const Auth = (props) => {
-  const [isLogin, setIsLogin] = useState(true);
+  const dispatch = useDispatch();
+  const isLogin = useSelector((state) => state.itemsAuth.authenticated);
 
   const switchAuthModeHandler = () => {
-    setIsLogin((prevState) => !prevState);
+    dispatch(authActions.setAuthenticated());
+  };
+
+  const handleEmail = (e) => {
+    dispatch(authActions.setEmail(e.target.value));
+  };
+  const handlePassword = (e) => {
+    dispatch(authActions.setPassword(e.target.value));
   };
   return (
     <div className={props.className}>
@@ -14,17 +26,25 @@ const Auth = (props) => {
         <div>
           <label htmlFor="email">Your Email:</label>
           <br />
-          <input type="email" id="email" required />
+          <input
+            type="email"
+            id="email"
+            required
+            onChange={handleEmail}
+            autoComplete="on"
+          />
         </div>
         <div>
           <label htmlFor="password">Your Password:</label>
           <br />
-          <input type="password" id="password" required />
+          <input
+            type="password"
+            id="password"
+            required
+            onChange={handlePassword}
+            autoComplete="on"
+          />
         </div>
-        {/* <Button className="btn-auth" type="submit">
-          Login
-        </Button> */}
-
         <Button className="btn-auth">
           {isLogin ? "Login" : "Create Account"}
         </Button>
