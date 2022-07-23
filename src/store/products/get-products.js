@@ -1,6 +1,6 @@
 import { productActions } from "./product-slice";
-import { API_URL, RES_PER_PAGE } from "./config";
-import { paginationActions } from "./pagination-slice";
+import { API_URL, RES_PER_PAGE } from "../config";
+import { paginationActions } from "../pagination/pagination-slice";
 
 export const getProducts = (category = "all", skip = 0) => {
   return async (dispatch) => {

@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 //own
-import { getBySearchTerm } from "../../store/search";
-import { productActions } from "../../store/product-slice";
-import { paginationActions } from "../../store/pagination-slice";
+import { getBySearchTerm } from "../../store/products/search";
+import { productActions } from "../../store/products/product-slice";
+import { paginationActions } from "../../store/pagination/pagination-slice";
 
 const SearchForm = (props) => {
   const history = useHistory();

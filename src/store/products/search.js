@@ -1,7 +1,8 @@
 //own
+
 import { productActions } from "./product-slice";
-import { paginationActions } from "./pagination-slice";
-import { API_URL, RES_PER_PAGE } from "./config";
+import { paginationActions } from "../pagination/pagination-slice";
+import { API_URL, RES_PER_PAGE } from "../config";
 
 export const getBySearchTerm = (searchTerm, skip = 0) => {
   return async (dispatch) => {

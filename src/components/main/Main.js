@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 //own
 import Footer from "../Footer/footer.styled";
@@ -7,10 +7,10 @@ import ButtonPagination from "../pagination/button.styled";
 import DetailProduct from "../Product/detail-product/detail-product.styled";
 import Product from "../Product/Products/product.styled";
 import Spinner from "../Spinner/spinner.styled";
-import { paginationActions } from "../../store/pagination-slice";
-import { productActions } from "../../store/product-slice";
-import { getProducts } from "../../store/get-products";
-import { getBySearchTerm } from "../../store/search";
+import { paginationActions } from "../../store/pagination/pagination-slice";
+import { productActions } from "../../store/products/product-slice";
+import { getProducts } from "../../store/products/get-products";
+import { getBySearchTerm } from "../../store/products/search";
 
 const Main = (props) => {
   const dispatch = useDispatch();

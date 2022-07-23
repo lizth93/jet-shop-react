@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RES_PER_PAGE } from "./config";
+import { RES_PER_PAGE } from "../config";
 
 const paginationSlice = createSlice({
   name: "pagination",

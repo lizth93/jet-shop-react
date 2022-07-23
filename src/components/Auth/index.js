@@ -2,11 +2,20 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/exports";
 //own
 import Button from "../pagination/general-button/button.styled";
-import { authActions } from "../../store/auth-slice";
+import { authActions } from "../../store/auth/auth-slice";
 import useInput from "./use-input";
 import useClassName from "./use-classname";
 
 const Auth = (props) => {
+  const dispatch = useDispatch();
+  const { isLogin } = useSelector((state) => ({
+    isLogin: state.itemsAuth.authenticated,
+  }));
+
+  const switchAuthModeHandler = () => {
+    dispatch(authActions.setAuthenticated());
+  };
+
   const validateEmail = (value) => value.trim() !== "" && value.includes("@");
   const validatePassword = (value) => value.trim().length >= 7;
 
@@ -41,15 +50,6 @@ const Auth = (props) => {
 
   const emailClassName = useClassName(hasErrorEmail);
   const passwordClassName = useClassName(hasErrorPassword);
-
-  const dispatch = useDispatch();
-  const { isLogin } = useSelector((state) => ({
-    isLogin: state.itemsAuth.authenticated,
-  }));
-
-  const switchAuthModeHandler = () => {
-    dispatch(authActions.setAuthenticated());
-  };
 
   return (
     <div className={props.className}>

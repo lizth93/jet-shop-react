@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 //own
 import IconLeft from "./icon-left";
 import IconRight from "./icon-right";
-import skipPage from "../../store/skip-page";
+import skipPage from "../../store/pagination/skip-page";
 
 const ButtonPagination = (props) => {
   const params = useParams();

@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 
 //own
 import { CATEGORIES } from "../Product/config";
-import { getProducts } from "../../store/get-products";
-import { paginationActions } from "../../store/pagination-slice";
+import { getProducts } from "../../store/products/get-products";
+import { paginationActions } from "../../store/pagination/pagination-slice";
 
 const NavigationItems = (props) => {
   const dispatch = useDispatch();
