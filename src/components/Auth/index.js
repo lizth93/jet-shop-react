@@ -1,29 +1,61 @@
 import { useDispatch } from "react-redux";
-// import { useState } from "react";
 import { useSelector } from "react-redux/es/exports";
 //own
 import Button from "../pagination/general-button/button.styled";
 import { authActions } from "../../store/auth-slice";
+import useInput from "./use-input";
+import useClassName from "./use-classname";
 
 const Auth = (props) => {
+  const validateEmail = (value) => value.trim() !== "" && value.includes("@");
+  const validatePassword = (value) => value.trim().length >= 7;
+
+  const {
+    value: email,
+    isValid: isValidEmail,
+    hasError: hasErrorEmail,
+    inputChangeHandler: handleEmail,
+    inputOnBlurHandler: handleEmailBlur,
+    reset: resetEmailInput,
+  } = useInput(validateEmail);
+  const {
+    value: password,
+    isValid: isValidPassword,
+    hasError: hasErrorPassword,
+    inputChangeHandler: handlePassword,
+    inputOnBlurHandler: handlePasswordBlur,
+    reset: resetPasswordInput,
+  } = useInput(validatePassword);
+
+  const formIsValid = isValidEmail && isValidPassword;
+
+  const handlerFormSubmission = (e) => {
+    if (!formIsValid) {
+      return;
+    }
+
+    e.preventDefault();
+    resetEmailInput();
+    resetPasswordInput();
+  };
+
+  const emailClassName = useClassName(hasErrorEmail);
+  const passwordClassName = useClassName(hasErrorPassword);
+
   const dispatch = useDispatch();
-  const isLogin = useSelector((state) => state.itemsAuth.authenticated);
+  const { isLogin } = useSelector((state) => ({
+    isLogin: state.itemsAuth.authenticated,
+  }));
 
   const switchAuthModeHandler = () => {
     dispatch(authActions.setAuthenticated());
   };
 
-  const handleEmail = (e) => {
-    dispatch(authActions.setEmail(e.target.value));
-  };
-  const handlePassword = (e) => {
-    dispatch(authActions.setPassword(e.target.value));
-  };
   return (
     <div className={props.className}>
-      <form className="form-elements">
+      <form className="form-control" onSubmit={handlerFormSubmission}>
         <h1 className="heading--1">Sing Up</h1>
-        <div>
+        <div className={emailClassName}>
           <label htmlFor="email">Your Email:</label>
           <br />
           <input
@@ -31,10 +63,15 @@ const Auth = (props) => {
             id="email"
             required
             onChange={handleEmail}
+            onBlur={handleEmailBlur}
             autoComplete="on"
+            value={email}
           />
+          {hasErrorEmail && (
+            <p className="error-text">The email must not be empty.</p>
+          )}
         </div>
-        <div>
+        <div className={passwordClassName}>
           <label htmlFor="password">Your Password:</label>
           <br />
           <input
@@ -42,10 +79,16 @@ const Auth = (props) => {
             id="password"
             required
             onChange={handlePassword}
+            onBlur={handlePasswordBlur}
             autoComplete="on"
+            value={password}
           />
+
+          {hasErrorPassword && (
+            <p className="error-text">The Password must not be empty.</p>
+          )}
         </div>
-        <Button className="btn-auth">
+        <Button className="btn-auth" type="submit">
           {isLogin ? "Login" : "Create Account"}
         </Button>
         <button

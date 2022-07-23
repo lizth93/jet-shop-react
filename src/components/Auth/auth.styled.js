@@ -11,20 +11,27 @@ export default styled(Auth)`
   top: 50%;
   transform: translate(-50%, -50%);
 
-  .form-elements {
-    border-radius: 1rem;
+  .form-control {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    gap: 2rem;
+    min-width: 30rem;
+    border-radius: 2rem;
+    background-color: #212529;
     padding: 3rem;
     font-size: 1.5rem;
     line-height: 2.5rem;
+    justify-content: center;
+    gap: 2rem;
     color: #fff;
-    background-color: #212529;
-    min-width: 30rem;
+
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  }
+
+  .form-elements input:focus {
+    outline: none;
+    border-color: #5f3dc4;
+    background-color: #e5dbff;
   }
 
   .heading--1 {
@@ -56,5 +63,18 @@ export default styled(Auth)`
 
   .btn-option {
     display: block;
+  }
+
+  .invalid input {
+    border: 1px solid #b40e0e;
+    background-color: #fddddd;
+  }
+
+  .invalid input:focus {
+    border-color: #ff8800;
+    background-color: #fbe8d2;
+  }
+  .error-text {
+    color: #b40e0e;
   }
 `;
