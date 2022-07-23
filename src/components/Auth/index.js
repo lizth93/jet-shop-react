@@ -5,6 +5,7 @@ import Button from "../pagination/general-button/button.styled";
 import { authActions } from "../../store/auth/auth-slice";
 import useInput from "./use-input";
 import useClassName from "./use-classname";
+import { getAuth } from "../../store/auth/get-auth";
 
 const Auth = (props) => {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ const Auth = (props) => {
       return;
     }
 
+    dispatch(getAuth(email, password));
     e.preventDefault();
     resetEmailInput();
     resetPasswordInput();
