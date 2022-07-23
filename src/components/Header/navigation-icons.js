@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 const NavigationIcons = (props) => {
   return (
     <nav className={props.className}>
       <ul className="main-nav-list">
         <li>
-          <a className="main-nav-link" href="/">
+          <Link to="/auth" className="main-nav-link">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="btn-icon-1 h-6 w-6"
@@ -19,10 +20,10 @@ const NavigationIcons = (props) => {
               />
             </svg>
             Log in
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="main-nav-link" href="/">
+          <Link className="main-nav-link" to="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="btn-icon-1 h-6 w-6"
@@ -38,7 +39,7 @@ const NavigationIcons = (props) => {
               />
             </svg>
             Cart
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

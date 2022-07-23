@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 //own
 import Footer from "../Footer/footer.styled";
@@ -27,7 +27,6 @@ const Main = (props) => {
     dispatch(productActions.setProductDetail(product));
   };
   const handleClickBtnPage = (currentPage, params, skip) => {
-    console.log("params", params.category);
     dispatch(paginationActions.setCurrentPage(currentPage));
     if (params.category === "search") {
       console.log(searchProduct, "search");
@@ -40,55 +39,44 @@ const Main = (props) => {
     <Switch>
       <main className={props.className}>
         <section className="section-products">
-          <Route path="/" exact>
-            <Redirect to="/products/all" />
-          </Route>
-          <Route path="/products/" exact>
-            <Redirect to="/products/all" />
-          </Route>
-
           {renderSpinner && <Spinner />}
-          <Route path="/products/:category">
-            {!renderSpinner &&
-              products.map((product) => (
-                <Product
-                  key={product.id}
-                  id={product.id}
-                  title={product.title}
-                  description={product.description}
-                  price={product.price}
-                  stock={product.stock}
-                  brand={product.brand}
-                  discount={product.discountPercentage}
-                  img={product.thumbnail}
-                  onClickProduct={() => {
-                    handleOnclickProduct({
-                      id: product.id,
-                      title: product.title,
-                      description: product.description,
-                      price: product.price,
-                      stock: product.stock,
-                      brand: product.brand,
-                      discount: product.discountPercentage,
-                      images: product.images,
-                      img: product.thumbnail,
-                    });
-                  }}
-                />
-              ))}
-          </Route>
+
+          {!renderSpinner &&
+            products.map((product) => (
+              <Product
+                key={product.id}
+                id={product.id}
+                title={product.title}
+                description={product.description}
+                price={product.price}
+                stock={product.stock}
+                brand={product.brand}
+                discount={product.discountPercentage}
+                img={product.thumbnail}
+                onClickProduct={() => {
+                  handleOnclickProduct({
+                    id: product.id,
+                    title: product.title,
+                    description: product.description,
+                    price: product.price,
+                    stock: product.stock,
+                    brand: product.brand,
+                    discount: product.discountPercentage,
+                    images: product.images,
+                    img: product.thumbnail,
+                  });
+                }}
+              />
+            ))}
           {productDetail && (
             <Route path="/products-detail/:productId" exact>
               <DetailProduct img={productDetail.img} />
             </Route>
           )}
         </section>
-        <Route path="/products/:category">
-          <div className="control-pagination">
-            <ButtonPagination onClickPag={handleClickBtnPage} />
-          </div>
-        </Route>
-
+        <div className="control-pagination">
+          <ButtonPagination onClickPag={handleClickBtnPage} />
+        </div>
         <Footer />
       </main>
     </Switch>
