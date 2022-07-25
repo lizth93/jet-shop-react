@@ -12,12 +12,12 @@ import Spinner from "../Spinner/spinner.styled";
 const Auth = (props) => {
   const dispatch = useDispatch();
   const { isLogin, isLoading } = useSelector((state) => ({
-    isLogin: state.itemsAuth.authenticated,
+    isLogin: state.itemsAuth.isLogin,
     isLoading: state.itemsAuth.isLoading,
   }));
 
   const switchAuthModeHandler = () => {
-    dispatch(authActions.setAuthenticated());
+    dispatch(authActions.setIsLogin());
   };
 
   const validateEmail = (value) => value.trim() !== "" && value.includes("@");
@@ -59,7 +59,7 @@ const Auth = (props) => {
   return (
     <div className={props.className}>
       <form className="form-control" onSubmit={handlerFormSubmission}>
-        <h1 className="heading--1">Sing Up</h1>
+        <h1 className="heading--1">{isLogin ? "Login" : "Sing Up"}</h1>
         <div className={emailClassName}>
           <label htmlFor="email">Your Email:</label>
           <br />
