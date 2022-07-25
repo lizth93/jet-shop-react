@@ -40,12 +40,12 @@ const Auth = (props) => {
   const formIsValid = isValidEmail && isValidPassword;
 
   const handlerFormSubmission = (e) => {
+    e.preventDefault();
     if (!formIsValid) {
       return;
     }
 
-    dispatch(getAuth(email, password));
-    e.preventDefault();
+    dispatch(getAuth(email, password, isLogin));
     resetEmailInput();
     resetPasswordInput();
   };
@@ -70,7 +70,7 @@ const Auth = (props) => {
             value={email}
           />
           {hasErrorEmail && (
-            <p className="error-text">The email must not be empty.</p>
+            <p className="error-text">Please enter a correct Email</p>
           )}
         </div>
         <div className={passwordClassName}>
@@ -87,7 +87,9 @@ const Auth = (props) => {
           />
 
           {hasErrorPassword && (
-            <p className="error-text">The Password must not be empty.</p>
+            <p className="error-text">
+              The password must to have at least 7 characters.
+            </p>
           )}
         </div>
         <Button className="btn-auth" type="submit">

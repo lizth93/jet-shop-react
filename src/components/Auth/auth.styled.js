@@ -76,5 +76,6 @@ export default styled(Auth)`
   }
   .error-text {
     color: #b40e0e;
+    font-size: 1.1rem;
   }
 `;
