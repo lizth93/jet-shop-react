@@ -3,7 +3,6 @@ import Spinner from ".";
 
 export default styled(Spinner)`
   .spinner {
-    margin: 5rem auto;
     text-align: center;
   }
 

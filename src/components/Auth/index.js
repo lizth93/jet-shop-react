@@ -6,11 +6,14 @@ import { authActions } from "../../store/auth/auth-slice";
 import useInput from "./use-input";
 import useClassName from "./use-classname";
 import { getAuth } from "../../store/auth/get-auth";
+import { LENGTH_PASSWORD } from "../../store/config";
+import Spinner from "../Spinner/spinner.styled";
 
 const Auth = (props) => {
   const dispatch = useDispatch();
-  const { isLogin } = useSelector((state) => ({
+  const { isLogin, isLoading } = useSelector((state) => ({
     isLogin: state.itemsAuth.authenticated,
+    isLoading: state.itemsAuth.isLoading,
   }));
 
   const switchAuthModeHandler = () => {
@@ -18,7 +21,7 @@ const Auth = (props) => {
   };
 
   const validateEmail = (value) => value.trim() !== "" && value.includes("@");
-  const validatePassword = (value) => value.trim().length >= 7;
+  const validatePassword = (value) => value.trim().length >= LENGTH_PASSWORD;
 
   const {
     value: email,
@@ -88,13 +91,16 @@ const Auth = (props) => {
 
           {hasErrorPassword && (
             <p className="error-text">
-              The password must to have at least 7 characters.
+              The password must to have at least {LENGTH_PASSWORD} characters.
             </p>
           )}
         </div>
-        <Button className="btn-auth" type="submit">
-          {isLogin ? "Login" : "Create Account"}
-        </Button>
+        {!isLoading && (
+          <Button className="btn-auth" type="submit">
+            {isLogin ? "Login" : "Create Account"}
+          </Button>
+        )}
+        {isLoading && <Spinner />}
         <button
           type="button"
           className="btn-auth btn-option"

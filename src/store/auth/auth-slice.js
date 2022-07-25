@@ -7,6 +7,7 @@ const authSlice = createSlice({
     email: null,
     password: null,
     token: null,
+    isLoading: false,
   },
   reducers: {
     setAuthenticated(state) {
@@ -20,6 +21,9 @@ const authSlice = createSlice({
     },
     setToken(state, action) {
       state.token = action.payload;
+    },
+    setIsLoading(state, action) {
+      state.isLoading = action.payload;
     },
   },
 });

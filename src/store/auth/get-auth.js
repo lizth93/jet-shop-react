@@ -1,54 +1,53 @@
+import { authActions } from "./auth-slice";
+import { API_KEY } from "../config";
+
 export const getAuth = (email, password, isLogin) => {
   return async (dispatch) => {
     const fetchAuth = async () => {
+      dispatch(authActions.setIsLoading(true));
+      let url;
       if (isLogin) {
+        url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
       } else {
-        fetch(
-          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDjbq64VDX56Lwm38EBoD62NlihJ40Ry5E",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              email: email,
-              password: password,
-              returnSecureToken: true,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        ).then((res) => {
-          if (res.ok) {
-          } else {
-            return res.json().then((data) => {
-              console.log(data);
-            });
-          }
-        });
+        url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
       }
 
-      // const response = await fetch("https://dummyjson.com/auth/login", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({
-      //     username: "kminchelle",
-      //     password: "0lelplR",
-      //     // expiresInMins: 60, // optional
-      //   }),
-      // });
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+          password: password,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {
+          dispatch(authActions.setIsLoading(false));
+          if (res.ok) {
+            return res.json();
+          } else {
+            return res.json().then((data) => {
+              let errorMessage = "Authentication failed!";
+              if (data && data.error && data.error.message) {
+                errorMessage = data.error.message;
+              }
 
-      // if (!response.ok) {
-      //   throw new Error("something went wrong");
-      // }
-
-      // const data = await response.json();
-      // console.log(data, "the result authenticated.");
-      // return data;
+              throw new Error(errorMessage);
+            });
+          }
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => {
+          alert(err.errorMessage);
+        });
     };
 
     try {
-      const authentication = await fetchAuth();
-
-      console.log(authentication, "the result into try catch.");
+      await fetchAuth();
     } catch (error) {
       console.log(error);
     }

@@ -78,4 +78,9 @@ export default styled(Auth)`
     color: #b40e0e;
     font-size: 1.1rem;
   }
+
+  .spinner svg {
+    height: 4rem;
+    width: 4rem;
+  }
 `;
