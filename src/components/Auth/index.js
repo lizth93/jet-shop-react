@@ -8,8 +8,10 @@ import useClassName from "./use-classname";
 import { getAuth } from "../../store/auth/get-auth";
 import { LENGTH_PASSWORD } from "../../store/config";
 import Spinner from "../Spinner/spinner.styled";
+import { useHistory } from "react-router-dom";
 
 const Auth = (props) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { isLogin, isLoading } = useSelector((state) => ({
     isLogin: state.itemsAuth.isLogin,
@@ -51,6 +53,7 @@ const Auth = (props) => {
     dispatch(getAuth(email, password, isLogin));
     resetEmailInput();
     resetPasswordInput();
+    history.replace("/products/all");
   };
 
   const emailClassName = useClassName(hasErrorEmail);

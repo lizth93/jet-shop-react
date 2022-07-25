@@ -31,7 +31,6 @@ const Main = (props) => {
     dispatch(productActions.setProductDetail(product));
   };
   const handleClickBtnPage = (currentPage, params, skip) => {
-    console.log("params", params.category);
     dispatch(paginationActions.setCurrentPage(currentPage));
     if (params.category === "search") {
       console.log(searchProduct, "search");
@@ -83,7 +82,7 @@ const Main = (props) => {
           )}
 
           {authenticated && (
-            <Route path="/profile" exact>
+            <Route path="/profile">
               <ProfileForm />
             </Route>
           )}
