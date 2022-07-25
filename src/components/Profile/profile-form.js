@@ -6,8 +6,12 @@ import useInput from "../Auth/use-input";
 import { changePassword } from "../../store/auth/change-pwd";
 
 const ProfileForm = (props) => {
-  const token = useSelector((state) => state.itemsAuth.token);
+  const { token } = useSelector((state) => ({
+    token: state.itemsAuth.token,
+  }));
+
   const dispatch = useDispatch();
+
   const validatePassword = (value) => value.trim().length >= LENGTH_PASSWORD;
   const {
     value: password,
@@ -25,6 +29,7 @@ const ProfileForm = (props) => {
     }
 
     dispatch(changePassword(token, password));
+
     resetPasswordInput();
   };
 
