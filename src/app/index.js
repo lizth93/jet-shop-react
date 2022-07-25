@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 //own
 import Main from "../components/Main/main.styled";
