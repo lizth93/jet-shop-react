@@ -1,8 +1,13 @@
+import { useSelector, useDispatch } from "react-redux";
+//own
 import { LENGTH_PASSWORD } from "../../store/config";
 import Button from "../pagination/general-button/button.styled";
 import useInput from "../Auth/use-input";
+import { changePassword } from "../../store/auth/change-pwd";
 
 const ProfileForm = (props) => {
+  const token = useSelector((state) => state.itemsAuth.token);
+  const dispatch = useDispatch();
   const validatePassword = (value) => value.trim().length >= LENGTH_PASSWORD;
   const {
     value: password,
@@ -19,7 +24,7 @@ const ProfileForm = (props) => {
       return;
     }
 
-    // dispatch(getAuth(email, password, isLogin));
+    dispatch(changePassword(token, password));
     resetPasswordInput();
   };
 
@@ -47,7 +52,7 @@ const ProfileForm = (props) => {
           )}
         </div>
 
-        <Button type="button" className="btn-auth btn-option">
+        <Button type="submit" className="btn-auth btn-option">
           Change Password
         </Button>
       </form>
