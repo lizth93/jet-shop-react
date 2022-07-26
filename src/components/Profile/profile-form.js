@@ -1,14 +1,23 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 //own
-import { LENGTH_PASSWORD } from "../../store/config";
+import { LENGTH_PASSWORD } from "../../config";
 import Button from "../pagination/general-button/button.styled";
 import useInput from "../Auth/use-input";
 import { changePassword } from "../../store/auth/change-pwd";
+import TypeInput from "../layout/type-input";
+import useClassName from "../Auth/use-classname";
 
 const ProfileForm = (props) => {
-  const { token } = useSelector((state) => ({
+  const history = useHistory();
+  const { token, authenticated } = useSelector((state) => ({
     token: state.itemsAuth.token,
+    authenticated: state.itemsAuth.authenticated,
   }));
+
+  if (!authenticated) {
+    history.push("/auth");
+  }
 
   const dispatch = useDispatch();
 
@@ -29,33 +38,25 @@ const ProfileForm = (props) => {
     }
 
     dispatch(changePassword(token, password));
-
     resetPasswordInput();
   };
-
+  const passwordClassName = useClassName(hasErrorPassword);
   return (
     <div className={props.className}>
       <form className="form-control" onSubmit={handlerFormSubmission}>
         <h1 className="heading--1">Settings</h1>
-        <div>
-          <label htmlFor="password">New Password:</label>
-          <br />
-          <input
-            type="password"
-            id="password"
-            required
-            autoComplete="on"
-            value={password}
-            onChange={handlePassword}
-            onBlur={handlePasswordBlur}
-          />
 
-          {hasErrorPassword && (
-            <p className="error-text">
-              The password must to have at least {LENGTH_PASSWORD} characters.
-            </p>
-          )}
-        </div>
+        <TypeInput
+          className={passwordClassName}
+          htmlFor="password"
+          textLabel="New Password:"
+          type="password"
+          value={password}
+          hasError={hasErrorPassword}
+          message={`The password must to have at least ${LENGTH_PASSWORD} characters`}
+          onChange={handlePassword}
+          onBlur={handlePasswordBlur}
+        />
 
         <Button type="submit" className="btn-auth btn-option">
           Change Password

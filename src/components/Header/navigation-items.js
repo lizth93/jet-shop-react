@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 //own
-import { CATEGORIES } from "../Product/config";
-import { getProducts } from "../../store/products/get-products";
+import { CATEGORIES } from "../../config";
 import { paginationActions } from "../../store/pagination/pagination-slice";
 
 const NavigationItems = (props) => {
@@ -13,7 +12,7 @@ const NavigationItems = (props) => {
     dispatch(paginationActions.setSkipPages(0));
     dispatch(paginationActions.setCurrentPage(1));
     dispatch(paginationActions.calculatePages());
-    dispatch(getProducts(item));
+    // dispatch(getProducts(item));
   };
   return (
     <nav className={props.className}>

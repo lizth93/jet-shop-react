@@ -14,7 +14,7 @@ const Product = (props) => {
     <div className={props.className}>
       <div className="container section_product-ppal">
         <div className="target-product" onClick={handlerClickProduct}>
-          <Link className="preview-link" to={`/products-detail/${props.id}`}>
+          <Link className="preview-link" to={`/product/${props.id}`}>
             <figure className="product__fig">
               <img src={props.img} alt="product" className="product__img" />
             </figure>

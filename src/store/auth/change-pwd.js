@@ -1,4 +1,4 @@
-import { API_KEY } from "../config";
+import { API_KEY } from "../../config";
 import { authActions } from "./auth-slice";
 
 export const changePassword = (token, password) => {

@@ -1,5 +1,5 @@
 import { authActions } from "./auth-slice";
-import { API_KEY } from "../config";
+import { API_KEY } from "config";
 
 export const getAuth = (email, password, isLogin) => {
   return async (dispatch) => {
