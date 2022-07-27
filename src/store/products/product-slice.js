@@ -7,6 +7,7 @@ const productSlice = createSlice({
     showSpinner: false,
     productDetail: null,
     searchProduct: null,
+    isLoading: true,
   },
   reducers: {
     renderSpinner(state) {
@@ -23,6 +24,9 @@ const productSlice = createSlice({
     },
     setSearch(state, action) {
       state.searchProduct = action.payload;
+    },
+    setIsLoading(state, action) {
+      state.isLoading = action.payload;
     },
   },
 });

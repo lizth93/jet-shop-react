@@ -18,33 +18,31 @@ import "./App.css";
 
 function App() {
   return (
-    <>
+    <Switch>
       <Route path={AUTH} exact>
         <Auth />
       </Route>
       <Route path="/*">
         <Layout>
-          <Switch>
-            <Route path="/" exact>
-              <Redirect to={PRODUCTS_DEFAULT} />
-            </Route>
-            <Route path={PRODUCTS} exact>
-              <Redirect to={PRODUCTS_DEFAULT} />
-            </Route>
-            <Route path={PRODUCTS_CATEGORY}>
-              <Main />
-            </Route>
-            <Route path={PRODUCT_ID} exact>
-              <DetailProduct />
-            </Route>
+          <Route path="/" exact>
+            <Redirect to={PRODUCTS_DEFAULT} />
+          </Route>
+          <Route path={PRODUCTS} exact>
+            <Redirect to={PRODUCTS_DEFAULT} />
+          </Route>
+          <Route path={PRODUCTS_CATEGORY}>
+            <Main />
+          </Route>
+          <Route path={PRODUCT_ID} exact>
+            <DetailProduct />
+          </Route>
 
-            <Route path={PROFILE}>
-              <ProfileForm />
-            </Route>
-          </Switch>
+          <Route path={PROFILE}>
+            <ProfileForm />
+          </Route>
         </Layout>
       </Route>
-    </>
+    </Switch>
   );
 }
 

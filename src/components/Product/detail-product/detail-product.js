@@ -1,23 +1,32 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+
 //own
 import PropertiesProduct from "../properties-product";
 import { useProperties } from "../properties";
 import Button from "../../pagination/general-button/button.styled";
+import useInitializeDetail from "./use-initialice-detail";
+import Spinner from "components/Spinner/spinner.styled";
 
 const DetailProduct = (props) => {
-  const productDetail = useSelector(
-    (state) => state.itemsProducts.productDetail
-  );
+  useInitializeDetail();
 
-  const [imageDetail, setImageDetail] = useState(props.img);
+  const { productDetail, isLoading } = useSelector((state) => ({
+    productDetail: state.itemsProducts.productDetail,
+    isLoading: state.itemsProducts.isLoading,
+  }));
 
+  console.log(isLoading);
+  const [imageDetail, setImageDetail] = useState(productDetail?.thumbnail);
   const properties = useProperties(productDetail);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   const handlerClickImg = (x) => {
     setImageDetail(x);
   };
-  const images = productDetail.images;
 
   return (
     <div className={props.className}>
@@ -27,7 +36,7 @@ const DetailProduct = (props) => {
         </a>
         <div className="grid--3-cols">
           <div className="small-images">
-            {images.map((x) => (
+            {productDetail.images.map((x) => (
               <img
                 key={x}
                 className="img-small"
@@ -44,7 +53,7 @@ const DetailProduct = (props) => {
               <img src={imageDetail} alt="" className="product__img" />
 
               <h1 className="product__title">
-                <span>{props.title}</span>
+                <span>{productDetail.title}</span>
               </h1>
             </figure>
           </div>

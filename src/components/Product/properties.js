@@ -1,4 +1,5 @@
 export const useProperties = (source) => {
+  if (!source) return;
   const properties = [
     {
       value: source.description,

@@ -1,20 +1,24 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 //own
 import PropertiesProduct from "../properties-product";
 import { useProperties } from "../properties";
+import { PRODUCT } from "config";
+// import useInitializeDetail from "../detail-product/use-initialice-detail";
 
 const Product = (props) => {
   const properties = useProperties(props);
+  const history = useHistory();
 
-  const handlerClickProduct = (e) => {
-    e.preventDefault();
-    props.onClickProduct(properties);
+  const handleClick = (e) => {
+    history.push(`${PRODUCT}/${props.id}`);
   };
   return (
     <div className={props.className}>
       <div className="container section_product-ppal">
-        <div className="target-product" onClick={handlerClickProduct}>
-          <Link className="preview-link" to={`/product/${props.id}`}>
+        <div className="target-product" onClick={handleClick}>
+          <div className="preview-link">
             <figure className="product__fig">
               <img src={props.img} alt="product" className="product__img" />
             </figure>
@@ -43,7 +47,7 @@ const Product = (props) => {
                 <strong>{props.price}</strong>
               </p>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
     </div>

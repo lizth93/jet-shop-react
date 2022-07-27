@@ -14,6 +14,7 @@ export const API_KEY = "AIzaSyDjbq64VDX56Lwm38EBoD62NlihJ40Ry5E";
 
 export const PRODUCTS_DEFAULT = "/products/all";
 export const PRODUCT_ID = "/product/:productId";
+export const PRODUCT = "/product";
 export const PROFILE = "/profile";
 export const PRODUCTS_CATEGORY = "/products/:category";
 export const PRODUCTS = "/products/";

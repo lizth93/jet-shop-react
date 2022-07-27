@@ -8,11 +8,10 @@ import { paginationActions } from "../../store/pagination/pagination-slice";
 const NavigationItems = (props) => {
   const dispatch = useDispatch();
 
-  const handleClickCategory = (item) => {
+  const handleClickCategory = () => {
     dispatch(paginationActions.setSkipPages(0));
     dispatch(paginationActions.setCurrentPage(1));
     dispatch(paginationActions.calculatePages());
-    // dispatch(getProducts(item));
   };
   return (
     <nav className={props.className}>
@@ -22,9 +21,7 @@ const NavigationItems = (props) => {
             <Link
               className="main-nav-link"
               to={`/products/${item.toLowerCase()}`}
-              onClick={() => {
-                handleClickCategory(item.toLocaleLowerCase());
-              }}
+              onClick={handleClickCategory}
             >
               {item}
             </Link>
