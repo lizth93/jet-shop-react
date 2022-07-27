@@ -17,6 +17,8 @@ import {
   AUTH,
 } from "config";
 import "./App.css";
+import Cart from "components/cart/cart";
+import { CART } from "config";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +48,9 @@ function App() {
 
           <Route path={PROFILE}>
             <ProfileForm />
+          </Route>
+          <Route path={CART}>
+            <Cart />
           </Route>
         </Layout>
       </Route>

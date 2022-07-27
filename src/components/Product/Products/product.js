@@ -1,13 +1,15 @@
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 //own
 import PropertiesProduct from "../properties-product";
 import { useProperties } from "../properties";
 import { PRODUCT } from "config";
 import Button from "components/general-button/button.styled";
-// import addProduct from "store/cart/add-product";
+import addProduct from "store/cart/add-product";
 
 const Product = (props) => {
+  const dispatch = useDispatch();
   const properties = useProperties(props);
   const history = useHistory();
 
@@ -15,15 +17,14 @@ const Product = (props) => {
     history.push(`${PRODUCT}/${props.id}`);
   };
 
-  // const handleAddToCart = () => {
-  //   // console.log(props, "what props have");
-  //   // dispatch(addProduct(props));
-  // };
+  const handleAddToCart = () => {
+    dispatch(addProduct(props));
+  };
   return (
     <div className={props.className}>
       <div className="container section_product-ppal">
-        <div className="target-product" onClick={handleClickOnProduct}>
-          <div className="preview-link">
+        <div className="target-product">
+          <div className="preview-link" onClick={handleClickOnProduct}>
             <figure className="product__fig">
               <img src={props.img} alt="product" className="product__img" />
             </figure>
@@ -52,8 +53,10 @@ const Product = (props) => {
                 <strong>{props.price}</strong>
               </p>
             </div>
-            <Button className="add-cart">Add to Cart</Button>
           </div>
+          <Button className="add-cart" onClick={handleAddToCart}>
+            Add to Cart
+          </Button>
         </div>
       </div>
     </div>

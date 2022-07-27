@@ -24,7 +24,7 @@ const NavigationIcons = (props) => {
     <nav className={props.className}>
       <ul className="main-nav-list">
         <li>
-          <Link className="main-nav-link" to="/">
+          <Link className="main-nav-link" to="/cart">
             <CartIcon />
             Cart
             <span className="items-cart">{quantity}</span>

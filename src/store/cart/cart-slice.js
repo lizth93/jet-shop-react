@@ -17,7 +17,10 @@ const cartSlice = createSlice({
       state.totalQuantity++;
       state.changed = true;
     },
-    removeItemToCart(state, action) {},
+    removeItemToCart(state, action) {
+      state.totalQuantity--;
+      state.changed = true;
+    },
   },
 });
 
