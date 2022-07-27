@@ -8,17 +8,23 @@ import { paginationActions } from "../../store/pagination/pagination-slice";
 import { getProducts } from "../../store/products/get-products";
 import { getBySearchTerm } from "../../store/products/search";
 import useInitializeProducts from "../../app/use-initialize-products";
+import useInitialiceProductsBySearch from "components/Header/use-products-search";
 
 const Main = (props) => {
   useInitializeProducts();
+  useInitialiceProductsBySearch();
 
   const dispatch = useDispatch();
 
-  const { products, renderSpinner, searchProduct } = useSelector((state) => ({
-    products: state.itemsProducts.products,
-    renderSpinner: state.itemsProducts.showSpinner,
-    searchProduct: state.itemsProducts.searchProduct,
-  }));
+  const { products, renderSpinner, searchProduct, isLoadingSearch } =
+    useSelector((state) => ({
+      products: state.itemsProducts.products,
+      renderSpinner: state.itemsProducts.showSpinner,
+      searchProduct: state.itemsProducts.searchProduct,
+      isLoadingSearch: state.itemsProducts.isLoadingSearch,
+    }));
+
+  if (isLoadingSearch) return <Spinner />;
 
   const handleClickBtnPage = (currentPage, params, skip) => {
     dispatch(paginationActions.setCurrentPage(currentPage));
@@ -37,6 +43,7 @@ const Main = (props) => {
         {renderSpinner && <Spinner />}
 
         {!renderSpinner &&
+          products.length !== 0 &&
           products.map((product) => (
             <Product
               key={product.id}

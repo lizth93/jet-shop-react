@@ -19,3 +19,4 @@ export const PROFILE = "/profile";
 export const PRODUCTS_CATEGORY = "/products/:category";
 export const PRODUCTS = "/products/";
 export const AUTH = "/auth";
+export const SEARCH = "/products/search?q=";

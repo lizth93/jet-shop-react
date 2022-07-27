@@ -6,6 +6,8 @@ import { API_URL, RES_PER_PAGE } from "../../config";
 
 export const getBySearchTerm = (searchTerm, skip = 0) => {
   return async (dispatch) => {
+    dispatch(productActions.setSearch(searchTerm));
+    dispatch(productActions.setIsLoadingSearch(true));
     const fetchData = async () => {
       const response = await fetch(
         `${API_URL}/search?q=${searchTerm}&limit=${RES_PER_PAGE}&skip=${skip}`
@@ -20,6 +22,7 @@ export const getBySearchTerm = (searchTerm, skip = 0) => {
       dispatch(paginationActions.setTotalPages(data.total));
       dispatch(paginationActions.calculatePages());
       dispatch(paginationActions.setChanged(true));
+      dispatch(productActions.setIsLoadingSearch(false));
       return data;
     };
 

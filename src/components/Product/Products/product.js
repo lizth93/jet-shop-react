@@ -1,17 +1,15 @@
-// import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 //own
 import PropertiesProduct from "../properties-product";
 import { useProperties } from "../properties";
 import { PRODUCT } from "config";
-// import useInitializeDetail from "../detail-product/use-initialice-detail";
 
 const Product = (props) => {
   const properties = useProperties(props);
   const history = useHistory();
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     history.push(`${PRODUCT}/${props.id}`);
   };
   return (

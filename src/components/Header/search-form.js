@@ -6,11 +6,12 @@ import { useHistory } from "react-router-dom";
 import { getBySearchTerm } from "../../store/products/search";
 import { productActions } from "../../store/products/product-slice";
 import { paginationActions } from "../../store/pagination/pagination-slice";
+import { SEARCH } from "config";
 
 const SearchForm = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [search, setSearch] = useState("");
+  const [searchTerm, setSearch] = useState("");
 
   const handleOnChangeText = (ev) => {
     setSearch(ev.target.value);
@@ -21,10 +22,10 @@ const SearchForm = (props) => {
     dispatch(paginationActions.setSkipPages(0));
     dispatch(paginationActions.setCurrentPage(1));
     dispatch(paginationActions.calculatePages());
+    history.push(`${SEARCH}${searchTerm}`);
 
-    dispatch(getBySearchTerm(search));
-    dispatch(productActions.setSearch(search));
-    history.push(`/products/search?q=${search}`);
+    dispatch(getBySearchTerm(searchTerm));
+    dispatch(productActions.setSearch(searchTerm));
 
     setSearch("");
   };
@@ -36,7 +37,7 @@ const SearchForm = (props) => {
         className="search-field"
         placeholder="what do you want to search for today?"
         onChange={handleOnChangeText}
-        value={search}
+        value={searchTerm}
       />
       <button className="btn search-btn" type="submit">
         <svg
