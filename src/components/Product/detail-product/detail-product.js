@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 //own
 import PropertiesProduct from "../properties-product";
 import { useProperties } from "../properties";
-import Button from "../../pagination/general-button/button.styled";
+import Button from "../../general-button/button.styled";
 import useInitializeDetail from "./use-initialice-detail";
 import Spinner from "components/Spinner/spinner.styled";
+import addProduct from "store/cart/add-product";
 
 const DetailProduct = (props) => {
   useInitializeDetail();
+  const dispatch = useDispatch();
 
   const { productDetail, isLoading } = useSelector((state) => ({
     productDetail: state.itemsProducts.productDetail,
@@ -26,6 +28,10 @@ const DetailProduct = (props) => {
 
   const handlerClickImg = (x) => {
     setImageDetail(x);
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addProduct(productDetail));
   };
 
   return (
@@ -78,7 +84,7 @@ const DetailProduct = (props) => {
                 <span>$</span>
                 <strong>{productDetail.price}</strong>
               </p>
-              <Button>Add a Cart</Button>
+              <Button onClick={handleAddToCart}>Add a Cart</Button>
             </div>
           </div>
 

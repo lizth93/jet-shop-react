@@ -12,7 +12,7 @@ export default styled(Button)`
     font-size: 2rem;
     border: none;
     cursor: pointer;
-    margin-top: 2.4rem;
+
     color: #fff;
   }
 

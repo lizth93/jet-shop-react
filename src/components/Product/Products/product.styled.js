@@ -101,4 +101,10 @@ export default styled(Product)`
     font-size: 3rem;
     margin-right: 0.8rem;
   }
+
+  .add-cart {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
 `;

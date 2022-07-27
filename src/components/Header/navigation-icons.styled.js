@@ -34,4 +34,11 @@ export default styled(NavigationIcons)`
     width: 2.6rem;
     color: #fff;
   }
+
+  .items-cart {
+    background-color: #b197fc;
+    padding: 0.2rem 0.4rem;
+    border-radius: 30px;
+    font-size: 1.4rem;
+  }
 `;

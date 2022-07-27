@@ -4,18 +4,25 @@ import { useHistory } from "react-router-dom";
 import PropertiesProduct from "../properties-product";
 import { useProperties } from "../properties";
 import { PRODUCT } from "config";
+import Button from "components/general-button/button.styled";
+// import addProduct from "store/cart/add-product";
 
 const Product = (props) => {
   const properties = useProperties(props);
   const history = useHistory();
 
-  const handleClick = () => {
+  const handleClickOnProduct = () => {
     history.push(`${PRODUCT}/${props.id}`);
   };
+
+  // const handleAddToCart = () => {
+  //   // console.log(props, "what props have");
+  //   // dispatch(addProduct(props));
+  // };
   return (
     <div className={props.className}>
       <div className="container section_product-ppal">
-        <div className="target-product" onClick={handleClick}>
+        <div className="target-product" onClick={handleClickOnProduct}>
           <div className="preview-link">
             <figure className="product__fig">
               <img src={props.img} alt="product" className="product__img" />
@@ -45,6 +52,7 @@ const Product = (props) => {
                 <strong>{props.price}</strong>
               </p>
             </div>
+            <Button className="add-cart">Add to Cart</Button>
           </div>
         </div>
       </div>

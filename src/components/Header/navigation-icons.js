@@ -11,7 +11,10 @@ import Setup from "./Icons/setup";
 const NavigationIcons = (props) => {
   const dispatch = useDispatch();
 
-  const authenticated = useSelector((state) => state.itemsAuth.authenticated);
+  const { authenticated, quantity } = useSelector((state) => ({
+    authenticated: state.itemsAuth.authenticated,
+    quantity: state.cartItems.totalQuantity,
+  }));
 
   const logOutHandler = () => {
     dispatch(authActions.setLogout());
@@ -24,6 +27,7 @@ const NavigationIcons = (props) => {
           <Link className="main-nav-link" to="/">
             <CartIcon />
             Cart
+            <span className="items-cart">{quantity}</span>
           </Link>
         </li>
 

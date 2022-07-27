@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/exports";
 //own
-import Button from "../pagination/general-button/button.styled";
+import Button from "../general-button/button.styled";
 import { authActions } from "../../store/auth/auth-slice";
 import useInput from "./use-input";
 import useClassName from "./use-classname";

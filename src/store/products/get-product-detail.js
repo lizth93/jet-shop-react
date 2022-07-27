@@ -14,7 +14,6 @@ export const getDetail = (id = 1) => {
       }
 
       const data = await response.json();
-      console.log(data, "data");
 
       dispatch(paginationActions.setChanged(true));
       dispatch(productActions.setProductDetail(data));
