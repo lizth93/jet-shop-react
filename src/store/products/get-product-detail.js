@@ -5,6 +5,7 @@ import { paginationActions } from "../pagination/pagination-slice";
 export const getDetail = (id = 1) => {
   return async (dispatch) => {
     dispatch(productActions.setIsLoading(true));
+
     const getData = async () => {
       const response = await fetch(`${API_URL}/${id}`);
 

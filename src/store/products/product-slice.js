@@ -28,6 +28,11 @@ const productSlice = createSlice({
     setIsLoading(state, action) {
       state.isLoading = action.payload;
     },
+    setClear(state) {
+      state.showSpinner = false;
+      state.productDetail = null;
+      state.isLoading = true;
+    },
   },
 });
 

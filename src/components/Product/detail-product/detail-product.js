@@ -16,8 +16,8 @@ const DetailProduct = (props) => {
     isLoading: state.itemsProducts.isLoading,
   }));
 
-  console.log(isLoading);
-  const [imageDetail, setImageDetail] = useState(productDetail?.thumbnail);
+  const [imageDetail, setImageDetail] = useState("");
+
   const properties = useProperties(productDetail);
 
   if (isLoading) {
