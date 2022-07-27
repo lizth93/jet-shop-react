@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 //own
-import { productActions } from "store/products/product-slice";
 import { getBySearchTerm } from "../../store/products/search";
 
 export default function useInitialiceProductsBySearch() {
@@ -13,7 +12,6 @@ export default function useInitialiceProductsBySearch() {
   const result = searchParams?.get("q");
 
   useEffect(() => {
-    // dispatch(productActions.setSearch(result));
     dispatch(getBySearchTerm(result));
   }, [dispatch, result]);
 }

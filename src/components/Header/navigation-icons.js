@@ -12,6 +12,7 @@ const NavigationIcons = (props) => {
   const dispatch = useDispatch();
 
   const authenticated = useSelector((state) => state.itemsAuth.authenticated);
+
   const logOutHandler = () => {
     dispatch(authActions.setLogout());
   };

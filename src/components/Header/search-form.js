@@ -38,6 +38,7 @@ const SearchForm = (props) => {
         placeholder="what do you want to search for today?"
         onChange={handleOnChangeText}
         value={searchTerm}
+        autoComplete="on"
       />
       <button className="btn search-btn" type="submit">
         <svg

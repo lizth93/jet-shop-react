@@ -41,6 +41,7 @@ export const getAuth = (email, password, isLogin) => {
         .then((data) => {
           console.log(data);
           dispatch(authActions.setToken(data.idToken));
+          localStorage.setItem("token", data.idToken);
         })
         .catch((err) => {
           alert(err.errorMessage);
