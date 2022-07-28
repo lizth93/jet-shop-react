@@ -2,8 +2,8 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 //own
-import Main from "components/Main/main";
-import Auth from "components/Auth";
+import Main from "components/Main/main.styled";
+import Auth from "components/Auth/auth.styled";
 import DetailProduct from "components/Product/detail-product/detail-product.styled";
 import ProfileForm from "components/Profile/profile-form.styled";
 import Layout from "components/layout/layout";
