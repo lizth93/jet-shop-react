@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import CartItem from "./cart-item.styled";
 
-const Cart = () => {
+const Cart = (props) => {
   const cartItems = useSelector((state) => state.cartItems.items);
-  console.log(cartItems, "cartItems");
+
   return (
-    <div>
-      <h2>Your Shopping Cart</h2>
+    <div className={props.className}>
+      <h2 className="shopping-cart">Your Shopping Cart</h2>
       <ul>
         {cartItems.map((item) => (
           <CartItem
@@ -19,6 +19,7 @@ const Cart = () => {
               price: item.price,
               totalPrice: item.totalPrice,
               image: item.image,
+              discount: item.discount,
             }}
           />
         ))}

@@ -2,24 +2,42 @@ import styled from "styled-components";
 import CartItem from "./cart-item";
 
 export default styled(CartItem)`
-  max-width: 100rem;
+  max-width: 60rem;
   margin: 0 auto;
   margin-top: 2rem;
-  padding: 0 3.2rem;
+  padding: 2rem 3.2rem;
   font-size: 1.5rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  /* margin: 2rem 2rem; */
-
   list-style: none;
+  .product-properties {
+    display: flex;
+  }
 
-  .product__img {
+  .product-title {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .product-img {
     max-width: 200px;
+    max-height: 100px;
+    margin-right: 2rem;
   }
   .btns-cart {
     display: flex;
     gap: 0.5rem;
   }
-  .description-product {
+  .product-description {
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .product-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .product-total {
+    font-size: 2rem;
   }
 `;

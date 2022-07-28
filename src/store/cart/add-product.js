@@ -18,6 +18,7 @@ export default function addProduct(productData) {
         price: productData.price,
         totalPrice: productData.price,
         image: productData.img,
+        discount: productData.discount,
       });
     } else {
       existProduct.quantity++;

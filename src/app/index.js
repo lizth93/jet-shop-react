@@ -17,7 +17,7 @@ import {
   AUTH,
 } from "config";
 import "./App.css";
-import Cart from "components/cart/cart";
+import Cart from "components/cart/cart.styled";
 import { CART } from "config";
 import useCheckToken from "./use-check-token";
 
