@@ -25,6 +25,9 @@ function App() {
   const initialToken = localStorage.getItem("token");
 
   dispatch(authActions.setToken(initialToken));
+  if (!!initialToken) {
+    dispatch(authActions.setAuthenticated(true));
+  }
 
   return (
     <Switch>
