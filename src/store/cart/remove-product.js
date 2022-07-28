@@ -1,6 +1,6 @@
 import { cloneDeep } from "lodash";
 import { cartActions } from "./cart-slice";
-export default function addProduct(productData) {
+export default function removeProduct(productData) {
   return (dispatch, getState) => {
     const state = cloneDeep(getState().cartItems);
     const existProduct = state.items.find(

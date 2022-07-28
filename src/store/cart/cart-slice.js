@@ -9,15 +9,15 @@ const cartSlice = createSlice({
   },
   reducers: {
     replaceCart(state, action) {
-      // state.changed = true;
       // state.totalQuantity = action.payload.totalQuantity;
       state.items = action.payload.items;
+      state.changed = true;
     },
     addItemToCart(state) {
       state.totalQuantity++;
       state.changed = true;
     },
-    removeItemToCart(state, action) {
+    removeItemToCart(state) {
       state.totalQuantity--;
       state.changed = true;
     },

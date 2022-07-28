@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import CartItem from "./cart-item.styled";
 
-const Cart = (props) => {
+const Cart = () => {
   const cartItems = useSelector((state) => state.cartItems.items);
   console.log(cartItems, "cartItems");
   return (
