@@ -7,7 +7,7 @@ import Auth from "components/Auth/auth.styled";
 import DetailProduct from "components/Product/detail-product/detail-product.styled";
 import ProfileForm from "components/Profile/profile-form.styled";
 import Layout from "components/layout/layout";
-// import { authActions } from "store/auth/auth-slice";
+
 import {
   PRODUCTS_DEFAULT,
   PRODUCT_ID,

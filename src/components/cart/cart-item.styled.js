@@ -4,11 +4,12 @@ import CartItem from "./cart-item";
 export default styled(CartItem)`
   max-width: 60rem;
   margin: 0 auto;
-  margin-top: 2rem;
   padding: 2rem 3.2rem;
   font-size: 1.5rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   list-style: none;
+  margin-bottom: 2rem;
+
   .product-properties {
     display: flex;
   }
