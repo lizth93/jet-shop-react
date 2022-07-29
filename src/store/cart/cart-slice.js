@@ -7,6 +7,7 @@ const cartSlice = createSlice({
     totalQuantity: 0,
     changed: false,
     totalAmount: 0,
+    isLoading: false,
   },
   reducers: {
     replaceCart(state, action) {
@@ -23,6 +24,9 @@ const cartSlice = createSlice({
     removeItemToCart(state) {
       state.totalQuantity--;
       state.changed = true;
+    },
+    setIsLoading(state, action) {
+      state.isLoading = action.payload;
     },
   },
 });

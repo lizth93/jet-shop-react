@@ -4,21 +4,26 @@ import { useHistory } from "react-router-dom";
 //own
 import Button from "components/general-button/button.styled";
 import setTotalAmount from "store/cart/set-total-amount";
+import { sentCart } from "store/cart/send-cart";
 
 const CartTotal = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   dispatch(setTotalAmount());
 
-  const { authenticated, totalAmount } = useSelector((state) => ({
+  const { authenticated, totalAmount, items, email } = useSelector((state) => ({
     authenticated: state.itemsAuth.authenticated,
     totalAmount: state.cartItems.totalAmount,
+    items: state.cartItems.items,
+    email: state.itemsAuth.email,
   }));
 
   const handleGoToPay = () => {
     if (!authenticated) {
       history.push("/auth");
     }
+
+    dispatch(sentCart(email, items));
   };
 
   return (
