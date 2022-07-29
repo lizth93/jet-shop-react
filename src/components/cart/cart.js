@@ -1,9 +1,12 @@
-import Button from "components/general-button/button.styled";
 import { useSelector } from "react-redux";
+//own
 import CartItem from "./cart-item.styled";
+import CartTotal from "./cart-total";
 
 const Cart = (props) => {
-  const cartItems = useSelector((state) => state.cartItems.items);
+  const { cartItems } = useSelector((state) => ({
+    cartItems: state.cartItems.items,
+  }));
 
   return (
     <div className={props.className}>
@@ -31,12 +34,7 @@ const Cart = (props) => {
             ))}
           </ul>
         </div>
-        <div className="subtotal-container">
-          <h3>subtotal</h3>
-          <div>Total:</div>
-          <Button>Go to pay</Button>
-          <span></span>
-        </div>
+        <CartTotal />
       </div>
     </div>
   );

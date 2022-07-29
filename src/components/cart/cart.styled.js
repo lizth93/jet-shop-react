@@ -19,9 +19,20 @@ export default styled(Cart)`
     padding: 2rem 3.2rem;
   }
 
-  .subtotal-container {
+  .total-container {
     padding: 2rem 3.2rem;
     min-width: 40rem;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-size: 1.8rem;
+  }
+  .my-cart {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .action-pay {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 `;

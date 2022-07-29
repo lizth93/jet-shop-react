@@ -7,8 +7,7 @@ export default function addProduct(productData) {
     const existProduct = state.items.find(
       (product) => product.id === productData.id
     );
-
-    console.log(productData);
+    // let totalAmount;
     if (!existProduct) {
       state.items.push({
         id: productData.id,
@@ -23,8 +22,17 @@ export default function addProduct(productData) {
     } else {
       existProduct.quantity++;
       existProduct.totalPrice = existProduct.totalPrice + productData.price;
+
+      // totalAmount = totalAmount + existProduct.totalPrice;
     }
+    // dispatch(cartActions.setTotalQuantity(totalAmount));
+
     dispatch(cartActions.addItemToCart());
-    dispatch(cartActions.replaceCart({ items: state.items }));
+    dispatch(
+      cartActions.replaceCart({
+        items: state.items,
+        // totalAmount: totalAmount,
+      })
+    );
   };
 }
