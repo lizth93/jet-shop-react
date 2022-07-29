@@ -59,7 +59,7 @@ const Auth = (props) => {
     dispatch(getAuth(email, password, isLogin));
     resetEmailInput();
     resetPasswordInput();
-    history.replace("/products/all");
+    history.goBack();
   };
 
   const emailClassName = useClassName(hasErrorEmail);

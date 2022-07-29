@@ -34,7 +34,7 @@ const Cart = (props) => {
             ))}
           </ul>
         </div>
-        <CartTotal />
+        {cartItems.length !== 0 && <CartTotal />}
       </div>
     </div>
   );

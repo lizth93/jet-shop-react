@@ -18,7 +18,9 @@ export default styled(Cart)`
 
     padding: 2rem 3.2rem;
   }
-
+  .shopping-cart {
+    font-size: 2rem;
+  }
   .total-container {
     padding: 2rem 3.2rem;
     min-width: 40rem;

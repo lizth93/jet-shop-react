@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
+import { useState } from "react";
 //own
 import PropertiesProduct from "../properties-product";
 import { useProperties } from "../properties";
@@ -12,6 +12,7 @@ const Product = (props) => {
   const dispatch = useDispatch();
   const properties = useProperties(props);
   const history = useHistory();
+  const [actionBtn, setAction] = useState("Add to Cart");
 
   const handleClickOnProduct = () => {
     history.push(`${PRODUCT}/${props.id}`);
@@ -19,6 +20,10 @@ const Product = (props) => {
 
   const handleAddToCart = () => {
     dispatch(addProduct(props));
+    setAction("Added!");
+    setTimeout(() => {
+      setAction("Add to Cart");
+    }, 1000);
   };
   return (
     <div className={props.className}>
@@ -55,7 +60,7 @@ const Product = (props) => {
             </div>
           </div>
           <Button className="add-cart" onClick={handleAddToCart}>
-            Add to Cart
+            {actionBtn}
           </Button>
         </div>
       </div>

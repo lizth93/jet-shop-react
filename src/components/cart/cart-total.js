@@ -15,11 +15,11 @@ const CartTotal = () => {
     totalAmount: state.cartItems.totalAmount,
   }));
 
-  if (!authenticated) {
-    history.push("/auth");
-  }
-
-  const handleGoToPay = () => {};
+  const handleGoToPay = () => {
+    if (!authenticated) {
+      history.push("/auth");
+    }
+  };
 
   return (
     <div className="total-container">
