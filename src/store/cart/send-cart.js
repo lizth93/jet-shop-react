@@ -5,10 +5,10 @@ export const sentCart = (email, cart) => {
     const fetchCart = async () => {
       dispatch(cartActions.setIsLoading(true));
 
-      if (!email) {
+      if (!email || !cart) {
         throw new Error("For pay you need to be logged in");
       }
-      console.log(email, "what have email");
+
       const response = await fetch(
         "https://jet-shop-react-default-rtdb.firebaseio.com/.json",
         {
@@ -26,6 +26,14 @@ export const sentCart = (email, cart) => {
 
       localStorage.removeItem("cartItems");
       dispatch(cartActions.setIsLoading(false));
+      dispatch(cartActions.setChanged());
+      dispatch(cartActions.setIsSended(true));
+      dispatch(cartActions.setTotalQuantity(0));
+      dispatch(
+        cartActions.replaceCart({
+          items: [],
+        })
+      );
     };
     try {
       await fetchCart();

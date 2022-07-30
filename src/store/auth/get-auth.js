@@ -39,9 +39,11 @@ export const getAuth = (email, password, isLogin) => {
           }
         })
         .then((data) => {
+          const loginData = [data.idToken, data.email];
           dispatch(authActions.setToken(data.idToken));
           dispatch(authActions.setAuthenticated(true));
-          localStorage.setItem("token", data.idToken);
+          dispatch(authActions.setEmail(email));
+          localStorage.setItem("token", JSON.stringify(loginData));
         })
         .catch((err) => {
           alert(err.errorMessage);

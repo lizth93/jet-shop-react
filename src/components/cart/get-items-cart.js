@@ -4,9 +4,11 @@ import { cartActions } from "store/cart/cart-slice";
 
 export default function useGetItemsCart() {
   const dispatch = useDispatch();
-  const itemsCart = JSON.parse(localStorage.getItem("cartItems"));
+  let itemsCart = JSON.parse(localStorage.getItem("cartItems"));
 
   useEffect(() => {
+    if (!itemsCart) return;
+
     dispatch(
       cartActions.replaceCart({
         items: itemsCart,

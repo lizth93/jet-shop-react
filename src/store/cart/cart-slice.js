@@ -8,16 +8,21 @@ const cartSlice = createSlice({
     changed: false,
     totalAmount: 0,
     isLoading: false,
+    cartSended: false,
   },
   reducers: {
+    setChanged(state) {
+      state.changed = true;
+    },
     replaceCart(state, action) {
       state.items = action.payload.items;
-      state.changed = true;
+    },
+    saveItemsTemporaly(state) {
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
+
     addItemToCart(state) {
       state.totalQuantity++;
-      state.changed = true;
     },
     setTotalAmount(state, action) {
       state.totalAmount = action.payload;
@@ -27,10 +32,12 @@ const cartSlice = createSlice({
     },
     removeItemToCart(state) {
       state.totalQuantity--;
-      state.changed = true;
     },
     setIsLoading(state, action) {
       state.isLoading = action.payload;
+    },
+    setIsSended(state, action) {
+      state.cartSended = action.payload;
     },
   },
 });

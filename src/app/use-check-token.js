@@ -4,12 +4,14 @@ import { useEffect } from "react";
 
 export default function useCheckToken() {
   const dispatch = useDispatch();
-  const initialToken = localStorage.getItem("token");
+  const initialToken = JSON.parse(localStorage.getItem("token"));
 
   useEffect(() => {
+    if (!initialToken) return;
     dispatch(authActions.setToken(initialToken));
-    if (!!initialToken) {
+    if (!!initialToken[0]) {
       dispatch(authActions.setAuthenticated(true));
+      dispatch(authActions.setEmail(initialToken[1]));
     }
   }, [dispatch, initialToken]);
 }

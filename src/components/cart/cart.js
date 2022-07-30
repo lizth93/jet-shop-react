@@ -1,11 +1,18 @@
+import Spinner from "components/Spinner/spinner.styled";
 import { useSelector } from "react-redux";
 //own
 import CartItem from "./cart-item.styled";
 import CartTotal from "./cart-total";
 const Cart = (props) => {
-  const { cartItems } = useSelector((state) => ({
+  const { cartItems, cartSended, isLoading } = useSelector((state) => ({
     cartItems: state.cartItems.items,
+    cartSended: state.cartItems.cartSended,
+    isLoading: state.cartItems.isLoading,
   }));
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div className={props.className}>
@@ -13,27 +20,33 @@ const Cart = (props) => {
       <div className="cart">
         <div>
           <ul>
-            {cartItems.length === 0 && (
+            {cartSended && (
+              <p className="shopping-cart" style={{ color: "#6741d9" }}>
+                The order has been sent successfully!!!
+              </p>
+            )}
+            {cartItems.length === 0 && !cartSended && (
               <p className="shopping-cart">The Cart is empty!</p>
             )}
-            {cartItems.map((item) => (
-              <CartItem
-                key={item.id}
-                item={{
-                  id: item.id,
-                  title: item.title,
-                  description: item.description,
-                  quantity: item.quantity,
-                  price: item.price,
-                  totalPrice: item.totalPrice,
-                  image: item.image,
-                  discount: item.discount,
-                }}
-              />
-            ))}
+            {!cartSended &&
+              cartItems.map((item) => (
+                <CartItem
+                  key={item.id}
+                  item={{
+                    id: item.id,
+                    title: item.title,
+                    description: item.description,
+                    quantity: item.quantity,
+                    price: item.price,
+                    totalPrice: item.totalPrice,
+                    image: item.image,
+                    discount: item.discount,
+                  }}
+                />
+              ))}
           </ul>
         </div>
-        {cartItems.length !== 0 && <CartTotal />}
+        {!cartSended && cartItems.length !== 0 && <CartTotal />}
       </div>
     </div>
   );

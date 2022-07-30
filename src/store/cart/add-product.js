@@ -25,11 +25,13 @@ export default function addProduct(productData) {
     }
 
     dispatch(cartActions.addItemToCart());
-    // dispatch(cartActions.setTotalQuantity());
+    dispatch(cartActions.setIsSended(false));
+    dispatch(cartActions.setChanged());
     dispatch(
       cartActions.replaceCart({
         items: state.items,
       })
     );
+    dispatch(cartActions.saveItemsTemporaly());
   };
 }

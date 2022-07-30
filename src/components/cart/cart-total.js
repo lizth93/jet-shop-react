@@ -8,6 +8,7 @@ import { sentCart } from "store/cart/send-cart";
 
 const CartTotal = () => {
   const dispatch = useDispatch();
+
   const history = useHistory();
   dispatch(setTotalAmount());
 

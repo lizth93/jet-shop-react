@@ -1,5 +1,4 @@
 import { Route, Redirect, Switch } from "react-router-dom";
-// import { useDispatch } from "react-redux";
 
 //own
 import Main from "components/Main/main.styled";
