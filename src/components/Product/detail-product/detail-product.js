@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 //own
-import PropertiesProduct from "../properties-product";
-import { useProperties } from "../properties";
+
 import Button from "../../general-button/button.styled";
 import useInitializeDetail from "./use-initialice-detail";
 import Spinner from "components/Spinner/spinner.styled";
 import addProduct from "store/cart/add-product";
+import Properties from "./properties";
 
 const DetailProduct = (props) => {
   useInitializeDetail();
@@ -19,8 +19,6 @@ const DetailProduct = (props) => {
   }));
 
   const [imageDetail, setImageDetail] = useState("");
-
-  const properties = useProperties(productDetail);
 
   if (isLoading) {
     return <Spinner />;
@@ -63,30 +61,9 @@ const DetailProduct = (props) => {
               </h1>
             </figure>
           </div>
-          <div>
-            <div className="detail-product">
-              <h2 className="heading--2">Product Description:</h2>
-              <ul className="product__description-list">
-                {properties.map((property) => (
-                  <PropertiesProduct
-                    key={property.title}
-                    name={property.title}
-                    value={property.value}
-                  ></PropertiesProduct>
-                ))}
-
-                <label className="discount-detail" htmlFor="discount">
-                  With <strong>discount product </strong>of discount:{" "}
-                  <span>{productDetail.discount}%</span>
-                </label>
-              </ul>
-              <p className="product-price-detail">
-                <span>$</span>
-                <strong>{productDetail.price}</strong>
-              </p>
-              <Button onClick={handleAddToCart}>Add a Cart</Button>
-            </div>
-          </div>
+          <Properties>
+            <Button onClick={handleAddToCart}>Add a Cart</Button>
+          </Properties>
 
           <div className="comments">
             <h2 className="heading--2">Comments</h2>

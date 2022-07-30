@@ -57,7 +57,6 @@ const Auth = (props) => {
     }
 
     dispatch(getAuth(email, password, isLogin));
-    dispatch(authActions.setEmail(email));
     resetEmailInput();
     resetPasswordInput();
     history.goBack();

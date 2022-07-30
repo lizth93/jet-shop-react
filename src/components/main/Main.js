@@ -30,7 +30,6 @@ const Main = (props) => {
     dispatch(paginationActions.setCurrentPage(currentPage));
 
     if (params.category === "search") {
-      console.log(searchProduct, "search");
       dispatch(getBySearchTerm(searchProduct, skip));
     } else {
       dispatch(getProducts(params.category, skip));

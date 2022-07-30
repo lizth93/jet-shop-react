@@ -8,8 +8,9 @@ export default function useCheckToken() {
 
   useEffect(() => {
     if (!initialToken) return;
-    dispatch(authActions.setToken(initialToken));
+
     if (!!initialToken[0]) {
+      dispatch(authActions.setToken(initialToken));
       dispatch(authActions.setAuthenticated(true));
       dispatch(authActions.setEmail(initialToken[1]));
     }

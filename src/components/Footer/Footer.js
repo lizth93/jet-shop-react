@@ -1,22 +1,16 @@
 import Logo from "components/layout/logo";
+import Heading from "./headings";
 
 const Footer = (props) => {
   return (
     <footer className={props.className}>
       <div className="container grid grid--5-cols">
         <Logo />
-        <div>
-          <h2 className="heading--2">Know us</h2>
-        </div>
-        <div>
-          <h2 className="heading--2">Services</h2>
-        </div>
-        <div>
-          <h2 className="heading--2">My account</h2>
-        </div>
-        <div>
-          <h2 className="heading--2">Contact Us</h2>
-        </div>
+        <Heading>Know us</Heading>
+        <Heading>Services</Heading>
+        <Heading>My account</Heading>
+        <Heading>Contact us</Heading>
+
         <p className="copyrigth">
           This website is handmade by Luz Edith Tobar ❤ with JavaScript, html
           and css, Check the code of this website on GitHub.
