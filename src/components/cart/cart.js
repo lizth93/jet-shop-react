@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 //own
 import CartItem from "./cart-item.styled";
 import CartTotal from "./cart-total";
-
 const Cart = (props) => {
   const { cartItems } = useSelector((state) => ({
     cartItems: state.cartItems.items,

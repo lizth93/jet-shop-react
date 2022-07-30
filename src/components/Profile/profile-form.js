@@ -15,7 +15,6 @@ const ProfileForm = (props) => {
     authenticated: state.itemsAuth.authenticated,
   }));
 
-  console.log(authenticated, "authenticated?");
   if (!authenticated) {
     history.push("/auth");
   }

@@ -23,6 +23,9 @@ export const sentCart = (email, cart) => {
       if (!response.ok) {
         throw new Error("Something went wrong sending the data!");
       }
+
+      localStorage.removeItem("cartItems");
+      dispatch(cartActions.setIsLoading(false));
     };
     try {
       await fetchCart();

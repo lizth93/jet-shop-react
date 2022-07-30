@@ -20,9 +20,12 @@ import "./App.css";
 import Cart from "components/cart/cart.styled";
 import { CART } from "config";
 import useCheckToken from "./use-check-token";
+import useGetItemsCart from "components/cart/get-items-cart";
 
 function App() {
   useCheckToken();
+  useGetItemsCart();
+
   return (
     <Switch>
       <Route path={AUTH} exact>

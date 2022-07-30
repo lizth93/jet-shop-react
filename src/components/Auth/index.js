@@ -28,7 +28,7 @@ const Auth = (props) => {
   };
 
   const validateEmail = (value) =>
-    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
+    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value);
   const validatePassword = (value) => value.trim().length >= LENGTH_PASSWORD;
 
   const {
