@@ -25,6 +25,7 @@ export default function addProduct(productData) {
     }
 
     dispatch(cartActions.addItemToCart());
+    // dispatch(cartActions.setTotalQuantity());
     dispatch(
       cartActions.replaceCart({
         items: state.items,

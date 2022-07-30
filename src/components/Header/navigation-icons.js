@@ -7,14 +7,20 @@ import LogIn from "./Icons/log-in";
 import LogOut from "./Icons/log-out";
 import { authActions } from "../../store/auth/auth-slice";
 import Setup from "./Icons/setup";
+import setTotalQuantity from "store/cart/set-total-quantity";
 
 const NavigationIcons = (props) => {
   const dispatch = useDispatch();
 
-  const { authenticated, quantity } = useSelector((state) => ({
+  const { authenticated, quantity, items } = useSelector((state) => ({
     authenticated: state.itemsAuth.authenticated,
     quantity: state.cartItems.totalQuantity,
+    items: state.cartItems.items,
   }));
+
+  if (quantity === 0 && items !== 0) {
+    dispatch(setTotalQuantity());
+  }
 
   const logOutHandler = () => {
     dispatch(authActions.setLogout());

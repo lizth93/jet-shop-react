@@ -22,6 +22,9 @@ const cartSlice = createSlice({
     setTotalAmount(state, action) {
       state.totalAmount = action.payload;
     },
+    setTotalQuantity(state, action) {
+      state.totalQuantity = action.payload;
+    },
     removeItemToCart(state) {
       state.totalQuantity--;
       state.changed = true;
