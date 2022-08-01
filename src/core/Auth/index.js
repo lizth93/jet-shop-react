@@ -1,15 +1,15 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/exports";
 //own
-import Button from "../general-button/button.styled";
+import Button from "../../components/general-button/button.styled";
 import { authActions } from "../../store/auth/auth-slice";
 import useInput from "./use-input";
 import useClassName from "./use-classname";
 import { getAuth } from "../../store/auth/get-auth";
 import { LENGTH_PASSWORD } from "../../config";
-import Spinner from "../Spinner/spinner.styled";
+import Spinner from "../../components/Spinner/spinner.styled";
 import { useHistory } from "react-router-dom";
-import TypeInput from "../layout/type-input";
+import TypeInput from "../../layout/type-input";
 
 const Auth = (props) => {
   const history = useHistory();

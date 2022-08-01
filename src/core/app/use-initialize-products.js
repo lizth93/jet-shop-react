@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
 //own
-import { getProducts } from "../store/products/get-products";
+import { getProducts } from "../../store/products/get-products";
 
 export default function useInitializeProducts() {
   const dispatch = useDispatch();

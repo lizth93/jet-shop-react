@@ -2,13 +2,13 @@ import { useSelector, useDispatch } from "react-redux";
 
 //own
 import ButtonPagination from "../pagination/button.styled";
-import Product from "../Product/Products/product.styled";
+import Product from "../../core/Product/Products/product.styled";
 import Spinner from "../Spinner/spinner.styled";
 import { paginationActions } from "../../store/pagination/pagination-slice";
 import { getProducts } from "../../store/products/get-products";
 import { getBySearchTerm } from "../../store/products/search";
-import useInitializeProducts from "../../app/use-initialize-products";
-import useInitialiceProductsBySearch from "components/Header/use-products-search";
+import useInitializeProducts from "../../core/app/use-initialize-products";
+import useInitialiceProductsBySearch from "layout/Header/use-products-search";
 
 const Main = (props) => {
   useInitializeProducts();

@@ -1,4 +1,4 @@
-import Logo from "components/layout/logo";
+import Logo from "layout/logo";
 import Heading from "./headings";
 
 const Footer = (props) => {
