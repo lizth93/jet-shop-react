@@ -1,4 +1,4 @@
-const Setup = () => {
+const SetupIcon = () => {
   return (
     <svg
       width="24"
@@ -13,4 +13,4 @@ const Setup = () => {
   );
 };
 
-export default Setup;
+export default SetupIcon;

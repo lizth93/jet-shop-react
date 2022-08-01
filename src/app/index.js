@@ -10,7 +10,6 @@ import Layout from "components/layout/layout";
 import {
   PRODUCTS_DEFAULT,
   PRODUCT_ID,
-  PROFILE,
   PRODUCTS_CATEGORY,
   PRODUCTS,
   AUTH,
@@ -20,6 +19,7 @@ import Cart from "components/cart/cart.styled";
 import { CART } from "config";
 import useCheckToken from "./use-check-token";
 import useGetItemsCart from "components/cart/get-items-cart";
+import { ACCOUNT } from "config";
 
 function App() {
   useCheckToken();
@@ -27,11 +27,11 @@ function App() {
 
   return (
     <Switch>
-      <Route path={AUTH} exact>
-        <Auth />
-      </Route>
-      <Route path="/*">
-        <Layout>
+      <Layout>
+        <Route path={AUTH} exact>
+          <Auth />
+        </Route>
+        <Route path="/*">
           <Route path="/" exact>
             <Redirect to={PRODUCTS_DEFAULT} />
           </Route>
@@ -45,14 +45,14 @@ function App() {
             <DetailProduct />
           </Route>
 
-          <Route path={PROFILE}>
+          <Route path={ACCOUNT}>
             <ProfileForm />
           </Route>
           <Route path={CART}>
             <Cart />
           </Route>
-        </Layout>
-      </Route>
+        </Route>
+      </Layout>
     </Switch>
   );
 }

@@ -40,5 +40,9 @@ export default styled(NavigationIcons)`
     padding: 0.2rem 0.4rem;
     border-radius: 30px;
     font-size: 1.4rem;
+    color: #fff;
+  }
+
+  .items-cart:hover {
   }
 `;

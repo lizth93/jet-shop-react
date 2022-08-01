@@ -9,7 +9,7 @@ export default styled(ProfileForm)`
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -70%);
   .form-control {
     display: flex;
     flex-direction: column;
