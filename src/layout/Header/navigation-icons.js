@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 //own
 import CartIcon from "./Icons/cart";
-import LogIn from "./Icons/log-in";
+import UserIcon from "./Icons/user";
 import LogOut from "./Icons/log-out";
 import { authActions } from "../../store/auth/auth-slice";
 import setTotalQuantity from "store/cart/set-total-quantity";
@@ -42,7 +42,7 @@ const NavigationIcons = (props) => {
         {!authenticated && (
           <li>
             <Link to={AUTH} className="main-nav-link">
-              <LogIn />
+              <UserIcon />
               Login
             </Link>
           </li>

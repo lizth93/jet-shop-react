@@ -22,7 +22,7 @@ export default styled(ModalAccount)`
     position: absolute;
     color: #555;
     font-size: 1.6rem;
-    line-height: 3rem;
+    line-height: 3.5rem;
     right: 18rem;
     z-index: 10;
     min-width: 18rem;
@@ -49,6 +49,9 @@ export default styled(ModalAccount)`
     text-decoration: none;
     color: #555;
     font-weight: 500;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
   }
 
   .account-list:hover {

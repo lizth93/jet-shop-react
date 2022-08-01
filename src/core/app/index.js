@@ -4,7 +4,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import Main from "components/Main/main.styled";
 import Auth from "core/Auth/auth.styled";
 import DetailProduct from "core/Product/detail-product/detail-product.styled";
-import ProfileForm from "core/account/form.styled";
+import ChangePassword from "core/account/form.styled";
 import Layout from "layout/layout";
 
 import {
@@ -46,7 +46,7 @@ function App() {
           </Route>
 
           <Route path={ACCOUNT}>
-            <ProfileForm />
+            <ChangePassword />
           </Route>
           <Route path={CART}>
             <Cart />

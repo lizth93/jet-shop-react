@@ -8,7 +8,7 @@ import { changePassword } from "../../store/auth/change-pwd";
 import TypeInput from "../../layout/type-input";
 import useClassName from "../Auth/use-classname";
 
-const ProfileForm = (props) => {
+const ChangePassword = (props) => {
   const history = useHistory();
   const { token, authenticated } = useSelector((state) => ({
     token: state.itemsAuth.token,
@@ -66,4 +66,4 @@ const ProfileForm = (props) => {
   );
 };
 
-export default ProfileForm;
+export default ChangePassword;

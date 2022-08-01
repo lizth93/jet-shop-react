@@ -8,7 +8,7 @@ const Footer = (props) => {
         <Logo />
         <Heading>Know us</Heading>
         <Heading>Services</Heading>
-        <Heading>My account</Heading>
+        <Heading>Account</Heading>
         <Heading>Contact us</Heading>
 
         <p className="copyrigth">

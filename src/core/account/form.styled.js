@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import ProfileForm from "./form";
+import ChangePassword from "./form";
 
-export default styled(ProfileForm)`
+export default styled(ChangePassword)`
   margin: 0 auto;
   display: flex;
   align-items: center;
