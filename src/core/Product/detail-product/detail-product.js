@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 //own
 import Button from "components/general-button/button.styled";
-
 import useInitializeDetail from "./use-initialice-detail";
 import Spinner from "components/Spinner/spinner.styled";
 import addProduct from "store/cart/add-product";

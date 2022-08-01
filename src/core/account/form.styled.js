@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ProfileForm from "./profile-form";
+import ProfileForm from "./form";
 
 export default styled(ProfileForm)`
   margin: 0 auto;

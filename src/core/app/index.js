@@ -4,7 +4,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import Main from "components/Main/main.styled";
 import Auth from "core/Auth/auth.styled";
 import DetailProduct from "core/Product/detail-product/detail-product.styled";
-import ProfileForm from "components/Profile/profile-form.styled";
+import ProfileForm from "core/account/form.styled";
 import Layout from "layout/layout";
 
 import {
@@ -15,10 +15,10 @@ import {
   AUTH,
 } from "config";
 import "./App.css";
-import Cart from "core/cart/cart.styled";
+import Cart from "core/cart/index.styled";
 import { CART } from "config";
 import useCheckToken from "./use-check-token";
-import useGetItemsCart from "core/cart/get-items-cart";
+import useGetItemsCart from "core/cart/get-items";
 import { ACCOUNT } from "config";
 
 function App() {
