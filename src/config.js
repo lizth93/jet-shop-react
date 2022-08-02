@@ -21,3 +21,4 @@ export const AUTH = "/auth";
 export const SEARCH = "/products/search?q=";
 export const CART = "/cart";
 export const ACCOUNT = "/account";
+export const HISTORY = "/history";

@@ -43,25 +43,28 @@ const ChangePassword = (props) => {
   const passwordClassName = useClassName(hasErrorPassword);
   return (
     <div className={props.className}>
-      <form className="form-control" onSubmit={handlerFormSubmission}>
-        <h1 className="heading--1">Settings</h1>
+      <h2 className="title-account">Your Account</h2>
+      <div className="container">
+        <form className="form-control" onSubmit={handlerFormSubmission}>
+          <h1 className="heading--1">Settings</h1>
 
-        <TypeInput
-          className={passwordClassName}
-          htmlFor="password"
-          textLabel="New Password:"
-          type="password"
-          value={password}
-          hasError={hasErrorPassword}
-          message={`The password must to have at least ${LENGTH_PASSWORD} characters`}
-          onChange={handlePassword}
-          onBlur={handlePasswordBlur}
-        />
+          <TypeInput
+            className={passwordClassName}
+            htmlFor="password"
+            textLabel="New Password:"
+            type="password"
+            value={password}
+            hasError={hasErrorPassword}
+            message={`The password must to have at least ${LENGTH_PASSWORD} characters`}
+            onChange={handlePassword}
+            onBlur={handlePasswordBlur}
+          />
 
-        <Button type="submit" className="btn-auth btn-option">
-          Change Password
-        </Button>
-      </form>
+          <Button type="submit" className="btn-auth btn-option">
+            Change Password
+          </Button>
+        </form>
+      </div>
     </div>
   );
 };

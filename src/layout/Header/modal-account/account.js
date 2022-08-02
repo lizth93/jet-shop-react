@@ -5,6 +5,7 @@ import UserIcon from "../Icons/user";
 import { ACCOUNT } from "config";
 import SetupIcon from "../Icons/setup";
 import HistoryIcon from "../Icons/history";
+import { HISTORY } from "config";
 const ModalAccount = (props) => {
   return (
     <div className={props.className}>
@@ -22,7 +23,7 @@ const ModalAccount = (props) => {
             </Link>
           </li>
           <li>
-            <Link className="account-list">
+            <Link to={HISTORY} className="account-list">
               <HistoryIcon />
               <span>Shopping history</span>
             </Link>

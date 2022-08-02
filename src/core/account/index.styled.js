@@ -1,15 +1,26 @@
 import styled from "styled-components";
-import ChangePassword from "./form";
+import ChangePassword from "./change-pwd";
 
 export default styled(ChangePassword)`
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -70%);
+  .container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -70%);
+  }
+  .title-account {
+    max-width: 60rem;
+    margin: 0 auto;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
   .form-control {
     display: flex;
     flex-direction: column;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CartItem from "./item";
+import CartItem from "./cart-item";
 
 export default styled(CartItem)`
   max-width: 60rem;

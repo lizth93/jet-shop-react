@@ -2,7 +2,7 @@ import Button from "components/general-button/button.styled";
 import { useDispatch } from "react-redux";
 import removeProduct from "store/cart/remove-product";
 import addProduct from "store/cart/add-product";
-import CartItemsProperties from "./item-properties";
+import CartItemsProperties from "./properties";
 
 const CartItem = (props) => {
   const dispatch = useDispatch();

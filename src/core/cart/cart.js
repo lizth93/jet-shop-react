@@ -1,7 +1,7 @@
 import Spinner from "components/Spinner/spinner.styled";
 import { useSelector } from "react-redux";
 //own
-import CartItem from "./item.styled";
+import CartItem from "./item/cart-item.styled";
 import CartTotal from "./total-pay";
 const Cart = (props) => {
   const { cartItems, cartSended, isLoading } = useSelector((state) => ({

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ModalAccount from "./modal-my-account";
+import ModalAccount from "./account";
 
 export default styled(ModalAccount)`
   .main-nav-link {
@@ -55,8 +55,12 @@ export default styled(ModalAccount)`
   }
 
   .account-list:hover {
-    font-size: 1.7rem;
-    color: #222;
+    color: #7950f2;
+    font-weight: 500;
+  }
+
+  .account-list:active {
+    color: #5f3dc4;
     font-weight: 500;
   }
 `;

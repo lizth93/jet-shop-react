@@ -4,7 +4,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import Main from "components/Main/main.styled";
 import Auth from "core/Auth/auth.styled";
 import DetailProduct from "core/Product/detail-product/detail-product.styled";
-import ChangePassword from "core/account/form.styled";
+import ChangePassword from "core/account/index.styled";
 import Layout from "layout/layout";
 
 import {
@@ -18,8 +18,10 @@ import "./App.css";
 import Cart from "core/cart/index.styled";
 import { CART } from "config";
 import useCheckToken from "./use-check-token";
-import useGetItemsCart from "core/cart/get-items";
+import useGetItemsCart from "core/cart/item/get-items";
 import { ACCOUNT } from "config";
+import { HISTORY } from "config";
+import HistoryItems from "core/account/history/index.styled";
 
 function App() {
   useCheckToken();
@@ -47,6 +49,9 @@ function App() {
 
           <Route path={ACCOUNT}>
             <ChangePassword />
+          </Route>
+          <Route path={HISTORY}>
+            <HistoryItems />
           </Route>
           <Route path={CART}>
             <Cart />
