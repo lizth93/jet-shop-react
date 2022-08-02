@@ -13,6 +13,7 @@ export default function useCheckToken() {
       dispatch(authActions.setToken(initialToken));
       dispatch(authActions.setAuthenticated(true));
       dispatch(authActions.setEmail(initialToken[1]));
+      dispatch(authActions.setNickName(initialToken[2]));
     }
   }, [dispatch, initialToken]);
 }

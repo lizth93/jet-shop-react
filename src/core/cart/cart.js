@@ -1,9 +1,14 @@
 import Spinner from "components/Spinner/spinner.styled";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 //own
 import CartItem from "./item/cart-item.styled";
 import CartTotal from "./total-pay";
+import Button from "components/general-button/button.styled";
+import removeProduct from "store/cart/remove-product";
+import addProduct from "store/cart/add-product";
 const Cart = (props) => {
+  const dispatch = useDispatch();
   const { cartItems, cartSended, isLoading } = useSelector((state) => ({
     cartItems: state.cartItems.items,
     cartSended: state.cartItems.cartSended,
@@ -13,6 +18,13 @@ const Cart = (props) => {
   if (isLoading) {
     return <Spinner />;
   }
+
+  const removeItemHandler = (item) => {
+    dispatch(removeProduct(item));
+  };
+  const addItemHandler = (item) => {
+    dispatch(addProduct(item));
+  };
 
   return (
     <div className={props.className}>
@@ -42,7 +54,22 @@ const Cart = (props) => {
                     image: item.image,
                     discount: item.discount,
                   }}
-                />
+                >
+                  <Button
+                    onClick={() => {
+                      removeItemHandler(item);
+                    }}
+                  >
+                    -
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      addItemHandler(item);
+                    }}
+                  >
+                    +
+                  </Button>
+                </CartItem>
               ))}
           </ul>
         </div>

@@ -4,7 +4,7 @@ import { paginationActions } from "../pagination/pagination-slice";
 
 export const getProducts = (category = "all", skip = 0) => {
   return async (dispatch) => {
-    const fetchData = async () => {
+    const getProducts = async () => {
       const url =
         category.toLowerCase() === "all"
           ? `${API_URL}?limit=${RES_PER_PAGE}&skip=${skip}`
@@ -27,7 +27,7 @@ export const getProducts = (category = "all", skip = 0) => {
 
     try {
       dispatch(productActions.renderSpinner());
-      const productsState = await fetchData();
+      const productsState = await getProducts();
 
       dispatch(
         productActions.replaceProducts({

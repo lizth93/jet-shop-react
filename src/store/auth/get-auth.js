@@ -1,5 +1,6 @@
 import { authActions } from "./auth-slice";
 import { API_KEY } from "config";
+import { nickname } from "./set-nickname";
 
 export const getAuth = (email, password, isLogin) => {
   return async (dispatch) => {
@@ -39,14 +40,16 @@ export const getAuth = (email, password, isLogin) => {
           }
         })
         .then((data) => {
-          const loginData = [data.idToken, data.email];
+          const name = dispatch(nickname(data.email));
+          const loginData = [data.idToken, data.email, name];
           dispatch(authActions.setToken(data.idToken));
           dispatch(authActions.setAuthenticated(true));
           dispatch(authActions.setEmail(email));
+          dispatch(nickname(email));
           localStorage.setItem("token", JSON.stringify(loginData));
         })
         .catch((err) => {
-          alert(err.errorMessage);
+          console.log(err);
         });
     };
 

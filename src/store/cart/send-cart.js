@@ -1,24 +1,20 @@
+import { API_URL_STORE } from "config";
 import { cartActions } from "./cart-slice";
 
-export const sentCart = (email, cart) => {
+export const sendCart = (nickname, cart) => {
   return async (dispatch) => {
     const fetchCart = async () => {
       dispatch(cartActions.setIsLoading(true));
+      console.log(nickname, cart);
 
-      if (!email || !cart) {
+      if (!nickname || !cart) {
         throw new Error("For pay you need to be logged in");
       }
 
-      const response = await fetch(
-        "https://jet-shop-react-default-rtdb.firebaseio.com/.json",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            email,
-            cart,
-          }),
-        }
-      );
+      const response = await fetch(`${API_URL_STORE}/.json`, {
+        method: "POST",
+        body: JSON.stringify({ nickname, cart }),
+      });
 
       if (!response.ok) {
         throw new Error("Something went wrong sending the data!");
