@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 //own
-import CartItem from "core/cart/item/cart-item.styled";
+// import CartItem from "core/cart/item/cart-item.styled";
 import Spinner from "components/Spinner/spinner.styled";
 import useInitialiceHistory from "./use-initialice-history";
 
@@ -23,7 +23,7 @@ const HistoryItems = (props) => {
       <h2 className="title-history">Shopping history</h2>
 
       <ul>
-        {items.map((item) => (
+        {/* {items.map((item) => (
           <CartItem
             key={item.id}
             item={{
@@ -37,7 +37,7 @@ const HistoryItems = (props) => {
               discount: item.discount,
             }}
           />
-        ))}
+        ))} */}
       </ul>
     </div>
   );

@@ -10,6 +10,7 @@ import { LENGTH_PASSWORD } from "../../config";
 import Spinner from "../../components/Spinner/spinner.styled";
 import { useHistory } from "react-router-dom";
 import TypeInput from "../../layout/type-input";
+import LoginGoogle from "./google/login-google.styled";
 
 const Auth = (props) => {
   const history = useHistory();
@@ -110,6 +111,7 @@ const Auth = (props) => {
           {isLogin ? "Create new account" : "Login with existing account"}
         </button>
       </form>
+      <LoginGoogle />
     </div>
   );
 };
