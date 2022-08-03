@@ -46,7 +46,6 @@ function App() {
           <Route path={PRODUCT_ID} exact>
             <DetailProduct />
           </Route>
-
           <Route path={ACCOUNT}>
             <ChangePassword />
           </Route>

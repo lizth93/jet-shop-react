@@ -14,17 +14,19 @@ import TypeInput from "../../layout/type-input";
 const Auth = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { isLogin, isLoading, authenticated } = useSelector((state) => ({
+  const { isLogin, isLoading, authenticated, error } = useSelector((state) => ({
     isLogin: state.itemsAuth.isLogin,
     isLoading: state.itemsAuth.isLoading,
     authenticated: state.itemsAuth.authenticated,
+    error: state.itemsAuth.error,
   }));
 
   if (authenticated) {
-    history.push("/products/all");
+    history.goBack();
   }
-  const switchAuthModeHandler = () => {
+  const switchAuthModeHandler = (e) => {
     dispatch(authActions.setIsLogin());
+    dispatch(authActions.setError(false));
   };
 
   const validateEmail = (value) =>
@@ -59,7 +61,6 @@ const Auth = (props) => {
     dispatch(getAuth(email, password, isLogin));
     resetEmailInput();
     resetPasswordInput();
-    history.goBack();
   };
 
   const emailClassName = useClassName(hasErrorEmail);
@@ -67,6 +68,7 @@ const Auth = (props) => {
 
   return (
     <div className={props.className}>
+      {error && <p className="error error-text">{error}</p>}
       <form className="form-control" onSubmit={handlerFormSubmission}>
         <h1 className="heading--1">{isLogin ? "Login" : "Sing Up"}</h1>
 

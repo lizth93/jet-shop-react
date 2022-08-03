@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { authActions } from "store/auth/auth-slice";
 
 const useInput = (validate) => {
+  const dispatch = useDispatch();
   const [isValidInput, setIsValidInput] = useState("");
   const [inputIsTouched, setIsTouchendInput] = useState(false);
 
@@ -13,11 +16,13 @@ const useInput = (validate) => {
 
   const inputOnBlurHandler = () => {
     setIsTouchendInput(true);
+    dispatch(authActions.setError(false));
   };
 
   const reset = () => {
     setIsValidInput("");
     setIsTouchendInput(false);
+    dispatch(authActions.setError(false));
   };
 
   return {
