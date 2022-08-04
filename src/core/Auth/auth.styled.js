@@ -60,6 +60,7 @@ export default styled(Auth)`
     cursor: pointer;
     text-align: center;
     display: contents;
+    transition: all 0.5s;
   }
   .btn-auth:hover {
     transform: translateY(-3px);

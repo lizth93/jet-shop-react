@@ -37,4 +37,14 @@ export default styled(Cart)`
     flex-direction: column;
     gap: 2rem;
   }
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .bank-icon {
+    width: 3rem;
+    height: 3rem;
+  }
 `;

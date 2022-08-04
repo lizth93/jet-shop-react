@@ -7,7 +7,7 @@ import { getBySearchTerm } from "../../store/products/search";
 import { productActions } from "../../store/products/product-slice";
 import { paginationActions } from "../../store/pagination/pagination-slice";
 import { SEARCH } from "config";
-import Search from "./Icons/search";
+import Search from "../../Icons/search";
 
 const SearchForm = (props) => {
   const history = useHistory();

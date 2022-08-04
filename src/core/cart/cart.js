@@ -73,6 +73,7 @@ const Cart = (props) => {
               ))}
           </ul>
         </div>
+
         {!cartSended && cartItems.length !== 0 && <CartTotal />}
       </div>
     </div>

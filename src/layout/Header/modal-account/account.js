@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 //own
 
-import UserIcon from "../Icons/user";
+import UserIcon from "../../../Icons/user";
 import { ACCOUNT } from "config";
-import SetupIcon from "../Icons/setup";
-import HistoryIcon from "../Icons/history";
+import SetupIcon from "../../../Icons/setup";
+import HistoryIcon from "../../../Icons/history";
 import { HISTORY } from "config";
 const ModalAccount = (props) => {
   return (

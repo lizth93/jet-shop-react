@@ -3,16 +3,21 @@ import Button from "./button";
 
 export default styled(Button)`
   .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
     background-color: #7950f2;
     transition: all 0.2s;
     text-decoration: none;
-    padding: 1.1rem 2.8rem;
+    padding: 1rem 2rem;
     border-radius: 9px;
     position: relative;
     font-size: 2rem;
     border: none;
     cursor: pointer;
-
+    transition: all 0.5s;
     color: #fff;
   }
 

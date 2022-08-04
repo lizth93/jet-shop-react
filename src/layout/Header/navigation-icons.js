@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 //own
-import CartIcon from "./Icons/cart";
-import UserIcon from "./Icons/user";
-import LogOut from "./Icons/log-out";
+import CartIcon from "../../Icons/cart";
+import UserIcon from "../../Icons/user";
+import LogOut from "../../Icons/log-out";
 import { authActions } from "../../store/auth/auth-slice";
 import setTotalQuantity from "store/cart/set-total-quantity";
 import { AUTH } from "config";

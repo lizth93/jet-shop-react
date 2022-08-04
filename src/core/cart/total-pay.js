@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import Button from "components/general-button/button.styled";
 import setTotalAmount from "store/cart/set-total-amount";
 import { sendCart } from "store/cart/send-cart";
+import BankIcon from "Icons/bank";
+import AddIcon from "Icons/add";
 
 const CartTotal = () => {
   const dispatch = useDispatch();
@@ -26,10 +28,11 @@ const CartTotal = () => {
       history.push("/auth");
     }
 
-    // const emailAnalized = /^([^]+)@(\w+).(\w+)$/.exec(email);
-    // const [, name] = emailAnalized;
-
     dispatch(sendCart(nickname, items));
+  };
+
+  const handleAddMore = () => {
+    history.push("/products");
   };
 
   return (
@@ -39,7 +42,16 @@ const CartTotal = () => {
         <span>
           Total Amount: <strong>{totalAmount.toFixed(2)}</strong>{" "}
         </span>
-        <Button onClick={handleGoToPay}>Go to pay</Button>
+        <div className="cta-buttons">
+          <Button className="btn-cta" onClick={handleGoToPay}>
+            <BankIcon />
+            <span>Go to pay</span>
+          </Button>
+          <Button className="btn-add" onClick={handleAddMore}>
+            <AddIcon />
+            <span>Add More</span>
+          </Button>
+        </div>
       </div>
     </div>
   );
