@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 //own
 import Button from "components/general-button/button.styled";
 import useInitializeDetail from "./use-initialice-detail";
 import Spinner from "components/Spinner/spinner.styled";
 import addProduct from "store/cart/add-product";
 import Properties from "./properties";
+import ProductImages from "./product-images";
 
 const DetailProduct = (props) => {
   useInitializeDetail();
@@ -17,19 +16,9 @@ const DetailProduct = (props) => {
     isLoading: state.itemsProducts.isLoading,
   }));
 
-  const [imageDetail, setImageDetail] = useState("");
-  useEffect(() => {
-    if (isLoading) return;
-    setImageDetail(productDetail.images[0]);
-  }, [setImageDetail, productDetail, isLoading]);
-
   if (isLoading) {
     return <Spinner />;
   }
-
-  const handlerClickImg = (x) => {
-    setImageDetail(x);
-  };
 
   const handleAddToCart = () => {
     dispatch(addProduct(productDetail));
@@ -42,28 +31,7 @@ const DetailProduct = (props) => {
           &nbsp;
         </a>
         <div className="grid--3-cols">
-          <div className="small-images">
-            {productDetail.images.map((x) => (
-              <img
-                key={x}
-                className="img-small"
-                src={x}
-                alt=""
-                onClick={() => {
-                  handlerClickImg(x);
-                }}
-              />
-            ))}
-          </div>
-          <div>
-            <figure className="product_fig_detail">
-              <img src={imageDetail} alt="" className="product__img" />
-
-              <h1 className="product__title">
-                <span>{productDetail.title}</span>
-              </h1>
-            </figure>
-          </div>
+          <ProductImages />
           <Properties>
             <Button onClick={handleAddToCart}>Add a Cart</Button>
           </Properties>
