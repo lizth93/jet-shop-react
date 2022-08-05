@@ -16,13 +16,13 @@ const useInput = (validate) => {
 
   const inputOnBlurHandler = () => {
     setIsTouchendInput(true);
-    dispatch(authActions.setError(false));
+    dispatch(authActions.setMessage(false));
   };
 
   const reset = () => {
     setIsValidInput("");
     setIsTouchendInput(false);
-    dispatch(authActions.setError(false));
+    dispatch(authActions.setMessage(false));
   };
 
   return {

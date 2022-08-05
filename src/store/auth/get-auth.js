@@ -34,16 +34,16 @@ export const getAuth = (email, password, isLogin) => {
           const codeError = error.code;
           if (codeError === "auth/email-already-in-use") {
             dispatch(
-              authActions.setError("Invalid Email. The Email already Exist!")
+              authActions.setMessage("Invalid Email. The Email already Exist!")
             );
           } else if (codeError === "auth/wrong-password") {
             dispatch(
-              authActions.setError(
+              authActions.setMessage(
                 "Invalid password. The password is not correct!"
               )
             );
           } else {
-            dispatch(authActions.setError(codeError));
+            dispatch(authActions.setMessage(codeError));
           }
         });
       dispatch(authActions.setIsLoading(false));

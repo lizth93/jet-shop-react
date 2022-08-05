@@ -1,33 +1,42 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/exports";
+import { Link } from "react-router-dom";
 //own
 import Button from "../../components/general-button/button.styled";
 import { authActions } from "../../store/auth/auth-slice";
 import useInput from "./use-input";
 import useClassName from "./use-classname";
 import { getAuth } from "../../store/auth/get-auth";
-import { LENGTH_PASSWORD } from "../../config";
+import { LENGTH_PASSWORD, REMEMBER_PWD } from "../../config";
 import Spinner from "../../components/Spinner/spinner.styled";
 import { useHistory } from "react-router-dom";
 import TypeInput from "../../layout/type-input";
 import LoginGoogle from "./google/login-google.styled";
+import { useEffect } from "react";
 
 const Auth = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { isLogin, isLoading, authenticated, error } = useSelector((state) => ({
-    isLogin: state.itemsAuth.isLogin,
-    isLoading: state.itemsAuth.isLoading,
-    authenticated: state.itemsAuth.authenticated,
-    error: state.itemsAuth.error,
-  }));
+
+  useEffect(() => {
+    dispatch(authActions.setMessage(""));
+  }, [dispatch]);
+
+  const { isLogin, isLoading, authenticated, message } = useSelector(
+    (state) => ({
+      isLogin: state.itemsAuth.isLogin,
+      isLoading: state.itemsAuth.isLoading,
+      authenticated: state.itemsAuth.authenticated,
+      message: state.itemsAuth.message,
+    })
+  );
 
   if (authenticated) {
     history.goBack();
   }
   const switchAuthModeHandler = (e) => {
     dispatch(authActions.setIsLogin());
-    dispatch(authActions.setError(false));
+    dispatch(authActions.setMessage(false));
   };
 
   const validateEmail = (value) =>
@@ -69,7 +78,7 @@ const Auth = (props) => {
 
   return (
     <div className={props.className}>
-      {error && <p className="error error-text">{error}</p>}
+      {message && <p className="error error-text">{message}</p>}
       <form className="form-control" onSubmit={handlerFormSubmission}>
         <h1 className="heading--1">{isLogin ? "Login" : "Sing Up"}</h1>
 
@@ -103,6 +112,9 @@ const Auth = (props) => {
           </Button>
         )}
         {isLoading && <Spinner />}
+        <Link to={REMEMBER_PWD} className="forgot-pws">
+          Forgot Password?
+        </Link>
         <button
           type="button"
           className="btn-auth btn-option"

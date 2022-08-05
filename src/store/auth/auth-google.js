@@ -24,7 +24,7 @@ export const getAuthGoogle = () => {
         })
         .catch((error) => {
           const codeError = error.code;
-          dispatch(authActions.setError(codeError));
+          dispatch(authActions.setMessage(codeError));
         });
     };
     try {

@@ -24,3 +24,4 @@ export const SEARCH = "/products/search?q=";
 export const CART = "/cart";
 export const ACCOUNT = "/account";
 export const HISTORY = "/history";
+export const REMEMBER_PWD = "/remember-pwd";

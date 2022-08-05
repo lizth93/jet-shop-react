@@ -9,7 +9,7 @@ const authSlice = createSlice({
     token: null,
     authenticated: false,
     isLoading: false,
-    error: false,
+    message: false,
   },
   reducers: {
     setIsLogin(state) {
@@ -37,8 +37,8 @@ const authSlice = createSlice({
       state.authenticated = false;
       localStorage.removeItem("token");
     },
-    setError(state, action) {
-      state.error = action.payload;
+    setMessage(state, action) {
+      state.message = action.payload;
     },
   },
 });

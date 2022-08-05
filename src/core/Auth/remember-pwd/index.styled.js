@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Auth from ".";
+import RememberPwd from "./remember-pwd";
 
-export default styled(Auth)`
+export default styled(RememberPwd)`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -11,10 +11,6 @@ export default styled(Auth)`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -62%);
-
-  .error {
-    margin-bottom: 2rem;
-  }
 
   .form-control {
     display: flex;
@@ -39,37 +35,13 @@ export default styled(Auth)`
     background-color: #e5dbff;
   }
 
-  .heading--1 {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
   input {
     font-family: inherit;
     font-size: 100%;
-    min-width: 25rem;
+    min-width: 26rem;
     height: 3rem;
     box-sizing: border-box;
     border-radius: 0.5rem;
-  }
-  .btn-auth {
-    background-color: transparent;
-    color: #999;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    display: contents;
-    transition: all 0.5s;
-    font-weight: 600;
-  }
-  .btn-auth:hover {
-    transform: translateY(-3px);
-    color: #fff;
-  }
-
-  .btn-option {
-    display: block;
   }
 
   .invalid input {
@@ -81,25 +53,18 @@ export default styled(Auth)`
     border-color: #ff8800;
     background-color: #fbe8d2;
   }
-  .error-text {
-    color: #b40e0e;
-    font-size: 1.1rem;
+  .successful {
+    color: #6741d9;
+    font-size: 2rem;
+    margin-top: -3rem;
+    margin-bottom: 1rem;
   }
-
+  .btn-send {
+    display: flex;
+  }
   .spinner svg {
-    height: 4rem;
-    width: 4rem;
-  }
-  .forgot-pws {
-    display: inline-block;
-    text-align: center;
-    font-size: 1.4rem;
-    color: #5f3dc4;
-    transition: all 0.5s;
-
-    &:hover {
-      transform: translateY(-3px);
-      color: #fff;
-    }
+    width: 2rem;
+    height: 2rem;
+    color: #fff;
   }
 `;

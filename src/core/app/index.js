@@ -22,6 +22,8 @@ import useGetItemsCart from "core/cart/item/get-items";
 import { ACCOUNT } from "config";
 import { HISTORY } from "config";
 import HistoryItems from "core/account/history/index.styled";
+import { REMEMBER_PWD } from "config";
+import RememberPwd from "core/Auth/remember-pwd/index.styled";
 
 function App() {
   useCheckToken();
@@ -54,6 +56,9 @@ function App() {
           </Route>
           <Route path={CART}>
             <Cart />
+          </Route>
+          <Route path={REMEMBER_PWD}>
+            <RememberPwd />
           </Route>
         </Route>
       </Layout>
