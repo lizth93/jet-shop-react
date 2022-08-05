@@ -1,20 +1,26 @@
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 //own
 import CartItem from "core/cart/item/cart-item.styled";
 import Spinner from "components/Spinner/spinner.styled";
 import useInitialiceHistory from "./use-initialice-history";
 
 const HistoryItems = (props) => {
-  const { items, isLoading, email } = useSelector((state) => ({
+  const history = useHistory();
+  const { items, isLoading, email, authenticated } = useSelector((state) => ({
     items: state.historyItems.items,
     isLoading: state.historyItems.isLoading,
     email: state.itemsAuth.email,
+    authenticated: state.itemsAuth.authenticated,
   }));
 
   useInitialiceHistory(email);
 
+  if (!authenticated) {
+    history.push("/auth");
+  }
   if (!items) return;
-  console.log(items, "itemsjs");
+
   if (isLoading) {
     return <Spinner />;
   }
