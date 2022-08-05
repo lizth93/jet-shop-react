@@ -21,6 +21,12 @@ export default styled(Cart)`
   .shopping-cart {
     font-size: 2rem;
   }
+  .successfully-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
   .total-container {
     padding: 2rem 3.2rem;
     min-width: 40rem;

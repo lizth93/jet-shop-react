@@ -1,19 +1,29 @@
 import Spinner from "components/Spinner/spinner.styled";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 //own
 import CartItem from "./item/cart-item.styled";
 import CartTotal from "./total-pay";
 import Button from "components/general-button/button.styled";
 import removeProduct from "store/cart/remove-product";
 import addProduct from "store/cart/add-product";
+import { HISTORY } from "config";
+import { useEffect } from "react";
+import { cartActions } from "store/cart/cart-slice";
+
 const Cart = (props) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { cartItems, cartSended, isLoading } = useSelector((state) => ({
     cartItems: state.cartItems.items,
     cartSended: state.cartItems.cartSended,
     isLoading: state.cartItems.isLoading,
   }));
+
+  useEffect(() => {
+    dispatch(cartActions.setIsSended(false));
+  }, [dispatch]);
 
   if (isLoading) {
     return <Spinner />;
@@ -25,6 +35,9 @@ const Cart = (props) => {
   const addItemHandler = (item) => {
     dispatch(addProduct(item));
   };
+  const handleGoShoppingHistory = () => {
+    history.push(HISTORY);
+  };
 
   return (
     <div className={props.className}>
@@ -33,9 +46,15 @@ const Cart = (props) => {
         <div>
           <ul>
             {cartSended && (
-              <p className="shopping-cart" style={{ color: "#6741d9" }}>
-                The order has been sent successfully!!!
-              </p>
+              <div className="successfully-items">
+                <p className="shopping-cart" style={{ color: "#6741d9" }}>
+                  The order has been sent successfully!!! -Check the shopping
+                  history
+                </p>
+                <Button onClick={handleGoShoppingHistory}>
+                  Shopping History
+                </Button>
+              </div>
             )}
             {cartItems.length === 0 && !cartSended && (
               <p className="shopping-cart">The Cart is empty!</p>
