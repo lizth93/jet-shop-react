@@ -1,17 +1,17 @@
 import { useSelector } from "react-redux";
 //own
-// import CartItem from "core/cart/item/cart-item.styled";
+import CartItem from "core/cart/item/cart-item.styled";
 import Spinner from "components/Spinner/spinner.styled";
 import useInitialiceHistory from "./use-initialice-history";
 
 const HistoryItems = (props) => {
-  const { items, isLoading, nickname } = useSelector((state) => ({
+  const { items, isLoading, email } = useSelector((state) => ({
     items: state.historyItems.items,
     isLoading: state.historyItems.isLoading,
-    nickname: state.itemsAuth.nickname,
+    email: state.itemsAuth.email,
   }));
 
-  useInitialiceHistory(nickname);
+  useInitialiceHistory(email);
 
   if (!items) return;
   console.log(items, "itemsjs");
@@ -23,7 +23,7 @@ const HistoryItems = (props) => {
       <h2 className="title-history">Shopping history</h2>
 
       <ul>
-        {/* {items.map((item) => (
+        {items.map((item) => (
           <CartItem
             key={item.id}
             item={{
@@ -37,7 +37,7 @@ const HistoryItems = (props) => {
               discount: item.discount,
             }}
           />
-        ))} */}
+        ))}
       </ul>
     </div>
   );

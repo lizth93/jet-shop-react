@@ -78,9 +78,11 @@ export default styled(ChangePassword)`
   .invalid input:focus {
     border-color: #ff8800;
     background-color: #fbe8d2;
+    position: relative;
   }
   .error-text {
     color: #b40e0e;
     font-size: 1.1rem;
+    position: absolute;
   }
 `;

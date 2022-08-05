@@ -45,6 +45,7 @@ export default styled(RememberPwd)`
   }
 
   .invalid input {
+    margin-top: -1px;
     border: 1px solid #b40e0e;
     background-color: #fddddd;
   }

@@ -14,21 +14,19 @@ const CartTotal = () => {
   const history = useHistory();
   dispatch(setTotalAmount());
 
-  const { authenticated, totalAmount, items, nickname } = useSelector(
-    (state) => ({
-      authenticated: state.itemsAuth.authenticated,
-      totalAmount: state.cartItems.totalAmount,
-      items: state.cartItems.items,
-      nickname: state.itemsAuth.nickname,
-    })
-  );
+  const { authenticated, totalAmount, items, email } = useSelector((state) => ({
+    authenticated: state.itemsAuth.authenticated,
+    totalAmount: state.cartItems.totalAmount,
+    items: state.cartItems.items,
+    email: state.itemsAuth.email,
+  }));
 
   const handleGoToPay = () => {
     if (!authenticated) {
       history.push("/auth");
     }
 
-    dispatch(sendCart(nickname, items));
+    dispatch(sendCart(email, items));
   };
 
   const handleAddMore = () => {

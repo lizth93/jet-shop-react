@@ -1,5 +1,5 @@
 import { authActions } from "./auth-slice";
-import { nickname } from "./set-nickname";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -22,12 +22,11 @@ export const getAuth = (email, password, isLogin) => {
           const token = userCredential.user.accessToken;
           const email = userCredential.user.email;
 
-          const name = dispatch(nickname(email));
-          const loginData = [token, email, name];
+          const loginData = [token, email];
           dispatch(authActions.setToken(token));
           dispatch(authActions.setAuthenticated(true));
           dispatch(authActions.setEmail(email));
-          dispatch(nickname(email));
+
           localStorage.setItem("token", JSON.stringify(loginData));
         })
         .catch((error) => {

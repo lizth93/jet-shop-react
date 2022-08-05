@@ -4,7 +4,6 @@ const authSlice = createSlice({
   name: "itemsAuth",
   initialState: {
     email: null,
-    nickname: null,
     isLogin: true,
     token: null,
     authenticated: false,
@@ -18,9 +17,7 @@ const authSlice = createSlice({
     setEmail(state, action) {
       state.email = action.payload;
     },
-    setNickName(state, action) {
-      state.nickname = action.payload;
-    },
+
     setToken(state, action) {
       state.token = action.payload;
     },
@@ -33,7 +30,6 @@ const authSlice = createSlice({
     setLogout(state) {
       state.token = null;
       state.email = null;
-      state.nickname = null;
       state.authenticated = false;
       localStorage.removeItem("token");
     },
