@@ -8,8 +8,6 @@ const Properties = (props) => {
     productDetail: state.itemsProducts.productDetail,
   }));
 
-  console.log(productDetail, "productDetail");
-
   const properties = useProperties(productDetail);
   return (
     <div className="detail-product">

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import DetailProduct from "./detail-product";
+import DetailProduct from "./product";
 
 export default styled(DetailProduct)`
   .section-products .detail-section {

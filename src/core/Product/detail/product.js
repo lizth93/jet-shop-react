@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 //own
@@ -18,6 +18,10 @@ const DetailProduct = (props) => {
   }));
 
   const [imageDetail, setImageDetail] = useState("");
+  useEffect(() => {
+    if (isLoading) return;
+    setImageDetail(productDetail.images[0]);
+  }, [setImageDetail, productDetail, isLoading]);
 
   if (isLoading) {
     return <Spinner />;

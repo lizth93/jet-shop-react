@@ -7,8 +7,6 @@ export default function removeProduct(productData) {
       (product) => product.id === productData.id
     );
 
-    console.log(productData);
-
     if (existProduct.quantity === 1) {
       state.items = state.items.filter((item) => item.id !== productData.id);
     } else {
