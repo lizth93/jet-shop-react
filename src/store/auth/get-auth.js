@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../../firebase";
+import { KEY_SAVE_STORAGE } from "config";
 
 export const getAuth = (email, password, isLogin) => {
   return async (dispatch) => {
@@ -24,10 +25,9 @@ export const getAuth = (email, password, isLogin) => {
 
           const loginData = [token, email];
           dispatch(authActions.setToken(token));
-          dispatch(authActions.setAuthenticated(true));
           dispatch(authActions.setEmail(email));
 
-          localStorage.setItem("token", JSON.stringify(loginData));
+          localStorage.setItem(KEY_SAVE_STORAGE, JSON.stringify(loginData));
         })
         .catch((error) => {
           const codeError = error.code;

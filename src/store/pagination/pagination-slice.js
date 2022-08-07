@@ -9,12 +9,8 @@ const paginationSlice = createSlice({
     pages: 0,
     skip: 0,
     limit: RES_PER_PAGE,
-    changed: false,
   },
   reducers: {
-    setChanged(state, action) {
-      state.changed = action.payload;
-    },
     setSkipPages(state, action) {
       state.skip = action.payload;
     },
@@ -25,7 +21,7 @@ const paginationSlice = createSlice({
     setTotalPages(state, action) {
       state.total = action.payload;
     },
-
+    // Check if you can centralize the invocation of this function.
     calculatePages(state) {
       state.pages = Math.ceil(state.total / state.limit);
     },

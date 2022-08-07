@@ -2,41 +2,55 @@ import { productActions } from "./product-slice";
 import { API_URL, RES_PER_PAGE } from "../../config";
 import { paginationActions } from "../pagination/pagination-slice";
 
-export const getProducts = (category = "all", skip = 0) => {
+export const getProducts = (category = "all", skip = 0, searchTerm) => {
   return async (dispatch) => {
-    const getProducts = async () => {
-      const url =
-        category.toLowerCase() === "all"
-          ? `${API_URL}?limit=${RES_PER_PAGE}&skip=${skip}`
-          : `${API_URL}/category/${category.toLowerCase()}?limit=${RES_PER_PAGE}&skip=${skip}`;
+    try {
+      dispatch(productActions.setIsLoading(true));
 
-      const response = await fetch(url);
+      const fetchResult = await fetchProducts(category, skip, searchTerm);
 
-      if (!response.ok) {
-        throw new Error("product data failed");
+      if (fetchResult.products.length === 0) {
+        console.log("into here, ", fetchResult.products.length);
+        dispatch(
+          productActions.setError("No products were found, try another")
+        );
+        dispatch(productActions.setIsLoading(false));
       }
 
-      const data = await response.json();
+      if (fetchResult.products.length !== 0) {
+        dispatch(paginationActions.setTotalPages(fetchResult.total));
+        dispatch(paginationActions.calculatePages());
+        dispatch(productActions.setError(null));
+        dispatch(
+          productActions.replaceProducts({
+            products: fetchResult.products || [],
+          })
+        );
 
-      dispatch(paginationActions.setTotalPages(data.total));
-      dispatch(paginationActions.calculatePages());
-      dispatch(paginationActions.setChanged(true));
-
-      return data;
-    };
-
-    try {
-      dispatch(productActions.renderSpinner());
-      const productsState = await getProducts();
-
-      dispatch(
-        productActions.replaceProducts({
-          products: productsState.products || [],
-        })
-      );
-      dispatch(productActions.renderSpinner());
+        dispatch(productActions.setIsLoading(false));
+      }
     } catch (error) {
-      console.log(error);
+      dispatch(productActions.setError(error));
     }
   };
 };
+
+async function fetchProducts(category, skip, searchTerm) {
+  const response = await fetch(getUrl(category, skip, searchTerm));
+
+  if (!response.ok) {
+    throw new Error("product data failed");
+  }
+
+  return response.json();
+}
+
+function getUrl(category, skip, searchTerm) {
+  if (category === "search") {
+    return `${API_URL}/search?q=${searchTerm}&limit=${RES_PER_PAGE}&skip=${skip}`;
+  } else {
+    return category.toLowerCase() === "all"
+      ? `${API_URL}?limit=${RES_PER_PAGE}&skip=${skip}`
+      : `${API_URL}/category/${category.toLowerCase()}?limit=${RES_PER_PAGE}&skip=${skip}`;
+  }
+}

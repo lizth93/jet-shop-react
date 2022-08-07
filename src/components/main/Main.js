@@ -6,34 +6,28 @@ import Product from "../../core/Product/Products/product.styled";
 import Spinner from "../Spinner/spinner.styled";
 import { paginationActions } from "../../store/pagination/pagination-slice";
 import { getProducts } from "../../store/products/get-products";
-import { getBySearchTerm } from "../../store/products/search";
 import useInitializeProducts from "../../core/app/use-initialize-products";
-import useInitialiceProductsBySearch from "layout/Header/use-products-search";
 
 const Main = (props) => {
   useInitializeProducts();
-  useInitialiceProductsBySearch();
 
   const dispatch = useDispatch();
 
-  const { products, renderSpinner, searchProduct, isLoadingSearch } =
-    useSelector((state) => ({
+  const { products, renderSpinner, searchProduct, isLoading } = useSelector(
+    (state) => ({
       products: state.itemsProducts.products,
       renderSpinner: state.itemsProducts.showSpinner,
       searchProduct: state.itemsProducts.searchProduct,
-      isLoadingSearch: state.itemsProducts.isLoadingSearch,
-    }));
+      isLoading: state.itemsProducts.isLoading,
+    })
+  );
 
-  if (isLoadingSearch) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   const handleClickBtnPage = (currentPage, params, skip) => {
     dispatch(paginationActions.setCurrentPage(currentPage));
 
-    if (params.category === "search") {
-      dispatch(getBySearchTerm(searchProduct, skip));
-    } else {
-      dispatch(getProducts(params.category, skip));
-    }
+    dispatch(getProducts(params.category, skip, searchProduct));
   };
 
   return (
@@ -44,17 +38,7 @@ const Main = (props) => {
         {!renderSpinner &&
           products.length !== 0 &&
           products.map((product) => (
-            <Product
-              key={product.id}
-              id={product.id}
-              title={product.title}
-              description={product.description}
-              price={product.price}
-              stock={product.stock}
-              brand={product.brand}
-              discount={product.discountPercentage}
-              img={product.thumbnail}
-            />
+            <Product key={product.id} product={product} />
           ))}
       </section>
 

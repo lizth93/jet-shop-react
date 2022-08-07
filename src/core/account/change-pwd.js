@@ -10,12 +10,11 @@ import useClassName from "../Auth/use-classname";
 
 const ChangePassword = (props) => {
   const history = useHistory();
-  const { token, authenticated } = useSelector((state) => ({
+  const { token } = useSelector((state) => ({
     token: state.itemsAuth.token,
-    authenticated: state.itemsAuth.authenticated,
   }));
 
-  if (!authenticated) {
+  if (!token) {
     history.push("/auth");
   }
 

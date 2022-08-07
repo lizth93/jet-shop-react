@@ -22,16 +22,14 @@ const Auth = (props) => {
     dispatch(authActions.setMessage(""));
   }, [dispatch]);
 
-  const { isLogin, isLoading, authenticated, message } = useSelector(
-    (state) => ({
-      isLogin: state.itemsAuth.isLogin,
-      isLoading: state.itemsAuth.isLoading,
-      authenticated: state.itemsAuth.authenticated,
-      message: state.itemsAuth.message,
-    })
-  );
+  const { isLogin, isLoading, token, message } = useSelector((state) => ({
+    isLogin: state.itemsAuth.isLogin,
+    isLoading: state.itemsAuth.isLoading,
+    token: state.itemsAuth.token,
+    message: state.itemsAuth.message,
+  }));
 
-  if (authenticated) {
+  if (token) {
     history.goBack();
   }
   const switchAuthModeHandler = (e) => {

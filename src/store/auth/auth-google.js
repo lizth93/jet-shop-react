@@ -16,7 +16,6 @@ export const getAuthGoogle = () => {
 
           const loginData = [token, email];
           dispatch(authActions.setToken(token));
-          dispatch(authActions.setAuthenticated(true));
           dispatch(authActions.setEmail(email));
 
           localStorage.setItem("token", JSON.stringify(loginData));

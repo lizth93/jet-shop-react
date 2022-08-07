@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 //own
-import { getBySearchTerm } from "../../store/products/search";
 import { productActions } from "../../store/products/product-slice";
 import { paginationActions } from "../../store/pagination/pagination-slice";
 import { SEARCH } from "config";
 import Search from "../../Icons/search";
+import { getProducts } from "store/products/get-products";
 
 const SearchForm = (props) => {
   const history = useHistory();
@@ -25,7 +25,7 @@ const SearchForm = (props) => {
     dispatch(paginationActions.calculatePages());
     history.push(`${SEARCH}${searchTerm}`);
 
-    dispatch(getBySearchTerm(searchTerm));
+    dispatch(getProducts("search", "", searchTerm));
     dispatch(productActions.setSearch(searchTerm));
 
     setSearch("");

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { KEY_SAVE_STORAGE } from "config";
 
 const authSlice = createSlice({
   name: "itemsAuth",
@@ -6,7 +7,6 @@ const authSlice = createSlice({
     email: null,
     isLogin: true,
     token: null,
-    authenticated: false,
     isLoading: false,
     message: false,
   },
@@ -21,17 +21,14 @@ const authSlice = createSlice({
     setToken(state, action) {
       state.token = action.payload;
     },
-    setAuthenticated(state, action) {
-      state.authenticated = action.payload;
-    },
+
     setIsLoading(state, action) {
       state.isLoading = action.payload;
     },
     setLogout(state) {
       state.token = null;
       state.email = null;
-      state.authenticated = false;
-      localStorage.removeItem("token");
+      localStorage.removeItem(KEY_SAVE_STORAGE);
     },
     setMessage(state, action) {
       state.message = action.payload;

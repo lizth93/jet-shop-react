@@ -5,15 +5,11 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     totalQuantity: 0,
-    changed: false,
     totalAmount: 0,
     isLoading: false,
     cartSended: false,
   },
   reducers: {
-    setChanged(state) {
-      state.changed = true;
-    },
     replaceCart(state, action) {
       state.items = action.payload.items;
     },

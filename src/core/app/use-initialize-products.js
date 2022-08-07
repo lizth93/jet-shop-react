@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 //own
 import { getProducts } from "../../store/products/get-products";
@@ -8,8 +8,14 @@ import { getProducts } from "../../store/products/get-products";
 export default function useInitializeProducts() {
   const dispatch = useDispatch();
   const category = useParams()?.category;
+  const { search } = useLocation();
 
   useEffect(() => {
+    if (category === "search") {
+      const searchParams = new URLSearchParams(search);
+      const result = searchParams?.get("q");
+      dispatch(getProducts(category, "", result));
+    }
     dispatch(getProducts(category));
-  }, [dispatch, category]);
+  }, [dispatch, category, search]);
 }

@@ -14,8 +14,8 @@ import { CART } from "config";
 const NavigationIcons = (props) => {
   const dispatch = useDispatch();
 
-  const { authenticated, quantity, items } = useSelector((state) => ({
-    authenticated: state.itemsAuth.authenticated,
+  const { token, quantity, items } = useSelector((state) => ({
+    token: state.itemsAuth.token,
     quantity: state.cartItems.totalQuantity,
     items: state.cartItems.items,
   }));
@@ -39,7 +39,7 @@ const NavigationIcons = (props) => {
           </Link>
         </li>
 
-        {!authenticated && (
+        {!token && (
           <li>
             <Link to={AUTH} className="main-nav-link">
               <UserIcon />
@@ -48,9 +48,9 @@ const NavigationIcons = (props) => {
           </li>
         )}
 
-        {authenticated && <ModalAccount />}
+        {token && <ModalAccount />}
 
-        {authenticated && (
+        {token && (
           <li>
             <Link to={AUTH} className="main-nav-link" onClick={logOutHandler}>
               <LogOut />

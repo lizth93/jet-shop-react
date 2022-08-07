@@ -33,7 +33,6 @@ export const sendCart = (email, cart) => {
 
         localStorage.removeItem("cartItems");
         dispatch(cartActions.setIsLoading(false));
-        dispatch(cartActions.setChanged());
         dispatch(cartActions.setIsSended(true));
         dispatch(cartActions.setTotalQuantity(0));
         dispatch(

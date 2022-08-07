@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 //own
 import Button from "components/general-button/button.styled";
 import useInitializeDetail from "./use-initialice-detail";
@@ -9,6 +10,7 @@ import ProductImages from "./product-images";
 
 const DetailProduct = (props) => {
   useInitializeDetail();
+  const [actionBtn, setAction] = useState("Add to Cart");
   const dispatch = useDispatch();
 
   const { productDetail, isLoading } = useSelector((state) => ({
@@ -22,6 +24,11 @@ const DetailProduct = (props) => {
 
   const handleAddToCart = () => {
     dispatch(addProduct(productDetail));
+
+    setAction("Added!");
+    setTimeout(() => {
+      setAction("Add to Cart");
+    }, 1000);
   };
 
   return (
@@ -33,7 +40,7 @@ const DetailProduct = (props) => {
         <div className="grid--3-cols">
           <ProductImages />
           <Properties>
-            <Button onClick={handleAddToCart}>Add a Cart</Button>
+            <Button onClick={handleAddToCart}>{actionBtn}</Button>
           </Properties>
 
           <div className="comments">

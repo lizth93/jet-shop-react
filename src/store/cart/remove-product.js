@@ -16,7 +16,6 @@ export default function removeProduct(productData) {
 
     dispatch(cartActions.removeItemToCart());
     dispatch(cartActions.replaceCart({ items: state.items }));
-    dispatch(cartActions.setChanged());
     dispatch(cartActions.saveItemsTemporaly());
   };
 }

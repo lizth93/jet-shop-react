@@ -7,16 +7,16 @@ import useInitialiceHistory from "./use-initialice-history";
 
 const HistoryItems = (props) => {
   const history = useHistory();
-  const { items, isLoading, email, authenticated } = useSelector((state) => ({
+  const { items, isLoading, email, token } = useSelector((state) => ({
     items: state.historyItems.items,
     isLoading: state.historyItems.isLoading,
     email: state.itemsAuth.email,
-    authenticated: state.itemsAuth.authenticated,
+    token: state.itemsAuth.token,
   }));
 
   useInitialiceHistory(email);
 
-  if (!authenticated) {
+  if (!token) {
     history.push("/auth");
   }
   if (!items) return;

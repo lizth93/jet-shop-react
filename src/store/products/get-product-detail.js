@@ -1,6 +1,5 @@
 import { productActions } from "./product-slice";
 import { API_URL } from "../../config";
-import { paginationActions } from "../pagination/pagination-slice";
 
 export const getDetail = (id = 1) => {
   return async (dispatch) => {
@@ -15,8 +14,8 @@ export const getDetail = (id = 1) => {
 
       const data = await response.json();
 
-      dispatch(paginationActions.setChanged(true));
       dispatch(productActions.setProductDetail(data));
+      console.log(data, "this is the data en get product detail");
       dispatch(productActions.setIsLoading(false));
     };
 
