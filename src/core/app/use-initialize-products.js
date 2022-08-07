@@ -15,7 +15,8 @@ export default function useInitializeProducts() {
       const searchParams = new URLSearchParams(search);
       const result = searchParams?.get("q");
       dispatch(getProducts(category, "", result));
+    } else {
+      dispatch(getProducts(category));
     }
-    dispatch(getProducts(category));
   }, [dispatch, category, search]);
 }

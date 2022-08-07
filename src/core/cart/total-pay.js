@@ -26,6 +26,7 @@ const CartTotal = () => {
       history.push("/auth");
     }
 
+    console.log(items, "from cart total");
     dispatch(sendCart(email, items));
   };
 

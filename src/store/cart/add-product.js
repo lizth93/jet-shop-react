@@ -7,6 +7,7 @@ export default function addProduct(productData) {
     const existProduct = state.items.find(
       (product) => product.id === productData.id
     );
+    console.log(productData.images, "producDAta");
 
     if (!existProduct) {
       state.items.push({
@@ -16,8 +17,9 @@ export default function addProduct(productData) {
         quantity: 1,
         price: productData.price,
         totalPrice: productData.price,
-        image: productData.img,
-        discount: productData.discount,
+        image: productData.thumbnail,
+        images: productData.images,
+        discount: productData.discountPercentage,
       });
     } else {
       existProduct.quantity++;

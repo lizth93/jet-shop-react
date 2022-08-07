@@ -1,11 +1,10 @@
-// import { API_URL_STORE } from "config";
-
 import { db } from "firebase.js";
 import { addDoc, collection } from "firebase/firestore";
 import { cartActions } from "./cart-slice";
 
 export const sendCart = (email, cart) => {
   return (dispatch) => {
+    console.log(cart, " !what cart have");
     try {
       if (!email || !cart) {
         throw new Error("For pay you need to be logged in");

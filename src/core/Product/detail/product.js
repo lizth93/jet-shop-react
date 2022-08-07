@@ -18,12 +18,11 @@ const DetailProduct = (props) => {
     isLoading: state.itemsProducts.isLoading,
   }));
 
-  if (isLoading) {
-    return <Spinner />;
-  }
+  console.log("isLoading", isLoading);
 
   const handleAddToCart = () => {
     dispatch(addProduct(productDetail));
+    console.log(productDetail, "from product, what have");
 
     setAction("Added!");
     setTimeout(() => {
@@ -31,25 +30,37 @@ const DetailProduct = (props) => {
     }, 1000);
   };
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  const shouldShowProduct = !isLoading && productDetail;
+  // TODO: use the var to show the error
+  // const shouldShowError = !isLoading && error;
+
   return (
     <div className={props.className}>
-      <div className="container detail-section">
-        <a className="preview-link" href="/">
-          &nbsp;
-        </a>
-        <div className="grid--3-cols">
-          <ProductImages />
-          <Properties>
-            <Button onClick={handleAddToCart}>{actionBtn}</Button>
-          </Properties>
+      {shouldShowProduct && (
+        <div className="container detail-section">
+          <a className="preview-link" href="/">
+            &nbsp;
+          </a>
+          <div className="grid--3-cols">
+            <ProductImages />
+            <Properties>
+              <Button onClick={handleAddToCart}>{actionBtn}</Button>
+            </Properties>
 
-          <div className="comments">
-            <h2 className="heading--2">Comments</h2>
+            <div className="comments">
+              <h2 className="heading--2">Comments</h2>
 
-            <p>BODY TO comments by User</p>
+              <p>BODY TO comments by User</p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
+      {/* TODO: show error */}
+      {/* [shouldShowError && <ErrorIndicator />] */}
     </div>
   );
 };

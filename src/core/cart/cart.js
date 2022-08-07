@@ -28,6 +28,7 @@ const Cart = (props) => {
   if (isLoading) {
     return <Spinner />;
   }
+  console.log(cartItems, "what cart items have");
 
   const removeItemHandler = (item) => {
     dispatch(removeProduct(item));

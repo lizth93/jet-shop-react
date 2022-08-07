@@ -14,8 +14,9 @@ export const getDetail = (id = 1) => {
 
       const data = await response.json();
 
+      console.log(data, "from get product detail");
+
       dispatch(productActions.setProductDetail(data));
-      console.log(data, "this is the data en get product detail");
       dispatch(productActions.setIsLoading(false));
     };
 

@@ -8,9 +8,11 @@ export const getProducts = (category = "all", skip = 0, searchTerm) => {
       dispatch(productActions.setIsLoading(true));
 
       const fetchResult = await fetchProducts(category, skip, searchTerm);
+      if (category === "search") {
+        dispatch(productActions.setSearch(searchTerm));
+      }
 
       if (fetchResult.products.length === 0) {
-        console.log("into here, ", fetchResult.products.length);
         dispatch(
           productActions.setError("No products were found, try another")
         );

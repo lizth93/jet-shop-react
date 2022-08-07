@@ -3,7 +3,7 @@ import CartItemsProperties from "./properties";
 const CartItem = (props) => {
   const { title, description, quantity, totalPrice, price, discount, image } =
     props.item;
-
+  console.log(image, "what image have");
   return (
     <li className={props.className}>
       <header>

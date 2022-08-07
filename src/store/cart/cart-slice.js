@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { KEY_SAVE_CART_ITEMS } from "config";
 
 const cartSlice = createSlice({
   name: "cartItems",
@@ -14,7 +15,7 @@ const cartSlice = createSlice({
       state.items = action.payload.items;
     },
     saveItemsTemporaly(state) {
-      localStorage.setItem("cartItems", JSON.stringify(state.items));
+      localStorage.setItem(KEY_SAVE_CART_ITEMS, JSON.stringify(state.items));
     },
 
     addItemToCart(state) {
