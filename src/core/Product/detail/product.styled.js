@@ -100,4 +100,25 @@ export default styled(DetailProduct)`
   p {
     font-size: 1.6rem;
   }
+
+  .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
+  }
+  .error-text {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2rem;
+  }
+
+  .error-icon {
+    stroke: red;
+    fill: red;
+    width: 6rem;
+    height: 6rem;
+  }
 `;

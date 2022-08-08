@@ -7,16 +7,21 @@ import Spinner from "components/Spinner/spinner.styled";
 import addProduct from "store/cart/add-product";
 import Properties from "./properties";
 import ProductImages from "./product-images";
+import Error from "components/error";
+import Comments from "./post/index.styled";
 
 const DetailProduct = (props) => {
   useInitializeDetail();
   const [actionBtn, setAction] = useState("Add to Cart");
   const dispatch = useDispatch();
 
-  const { productDetail, isLoading } = useSelector((state) => ({
-    productDetail: state.itemsProducts.productDetail,
-    isLoading: state.itemsProducts.isLoading,
-  }));
+  const { productDetail, isLoading, productComments } = useSelector(
+    (state) => ({
+      productDetail: state.itemsProducts.productDetail,
+      isLoading: state.itemsProducts.isLoading,
+      productComments: state.itemsProducts.productComments,
+    })
+  );
 
   const handleAddToCart = () => {
     dispatch(addProduct(productDetail));
@@ -32,11 +37,12 @@ const DetailProduct = (props) => {
   }
 
   const shouldShowProduct = !isLoading && productDetail;
-  // TODO: use the var to show the error
-  // const shouldShowError = !isLoading && error;
 
   return (
     <div className={props.className}>
+      {!isLoading && !productDetail && (
+        <Error>Error loading detail product, Please Try Again</Error>
+      )}
       {shouldShowProduct && (
         <div className="container detail-section">
           <a className="preview-link" href="/">
@@ -47,17 +53,11 @@ const DetailProduct = (props) => {
             <Properties>
               <Button onClick={handleAddToCart}>{actionBtn}</Button>
             </Properties>
-
-            <div className="comments">
-              <h2 className="heading--2">Comments</h2>
-
-              <p>BODY TO comments by User</p>
-            </div>
           </div>
         </div>
       )}
-      {/* TODO: show error */}
-      {/* [shouldShowError && <ErrorIndicator />] */}
+
+      {productComments && <Comments />}
     </div>
   );
 };

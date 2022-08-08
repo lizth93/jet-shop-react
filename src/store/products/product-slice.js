@@ -5,8 +5,10 @@ const productSlice = createSlice({
   initialState: {
     products: [],
     productDetail: null,
+    productComments: null,
     searchProduct: null,
     isLoading: true,
+    isLoadingComments: true,
     hasError: null,
   },
   reducers: {
@@ -18,11 +20,17 @@ const productSlice = createSlice({
     setProductDetail(state, action) {
       state.productDetail = action.payload;
     },
+    setProductComments(state, action) {
+      state.productComments = action.payload;
+    },
     setSearch(state, action) {
       state.searchProduct = action.payload;
     },
     setIsLoading(state, action) {
       state.isLoading = action.payload;
+    },
+    setIsLoadingComments(state, action) {
+      state.isLoadingComments = action.payload;
     },
 
     setClear(state) {
