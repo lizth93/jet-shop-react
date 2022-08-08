@@ -8,7 +8,6 @@ import { getDetail } from "store/products/get-product-detail";
 export default function useInitializeDetail() {
   const dispatch = useDispatch();
   const productId = useParams()?.productId;
-  console.log("productId", productId);
 
   useEffect(() => {
     dispatch(getDetail(productId));

@@ -4,17 +4,12 @@ const productSlice = createSlice({
   name: "itemsProducts",
   initialState: {
     products: [],
-    showSpinner: false,
     productDetail: null,
     searchProduct: null,
     isLoading: true,
     hasError: null,
   },
   reducers: {
-    renderSpinner(state) {
-      state.showSpinner = !state.showSpinner;
-    },
-
     replaceProducts(state, action) {
       if (action.payload.products) {
         state.products = action.payload.products;
@@ -31,7 +26,6 @@ const productSlice = createSlice({
     },
 
     setClear(state) {
-      state.showSpinner = false;
       state.productDetail = null;
       state.isLoading = true;
     },

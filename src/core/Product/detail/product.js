@@ -18,8 +18,6 @@ const DetailProduct = (props) => {
     isLoading: state.itemsProducts.isLoading,
   }));
 
-  console.log("isLoading", isLoading);
-
   const handleAddToCart = () => {
     dispatch(addProduct(productDetail));
     console.log(productDetail, "from product, what have");

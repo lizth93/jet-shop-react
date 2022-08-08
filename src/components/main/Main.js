@@ -13,14 +13,11 @@ const Main = (props) => {
 
   const dispatch = useDispatch();
 
-  const { products, renderSpinner, searchProduct, isLoading } = useSelector(
-    (state) => ({
-      products: state.itemsProducts.products,
-      renderSpinner: state.itemsProducts.showSpinner,
-      searchProduct: state.itemsProducts.searchProduct,
-      isLoading: state.itemsProducts.isLoading,
-    })
-  );
+  const { products, searchProduct, isLoading } = useSelector((state) => ({
+    products: state.itemsProducts.products,
+    searchProduct: state.itemsProducts.searchProduct,
+    isLoading: state.itemsProducts.isLoading,
+  }));
 
   if (isLoading) return <Spinner />;
 
@@ -33,9 +30,9 @@ const Main = (props) => {
   return (
     <main className={props.className}>
       <section className="section-products">
-        {renderSpinner && <Spinner />}
+        {isLoading && <Spinner />}
 
-        {!renderSpinner &&
+        {!isLoading &&
           products.length !== 0 &&
           products.map((product) => (
             <Product key={product.id} product={product} />
