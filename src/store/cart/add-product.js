@@ -7,7 +7,6 @@ export default function addProduct(productData) {
     const existProduct = state.items.find(
       (product) => product.id === productData.id
     );
-    console.log(productData.images, "producDAta");
 
     if (!existProduct) {
       state.items.push({

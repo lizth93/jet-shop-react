@@ -8,7 +8,6 @@ const ProductImages = () => {
     productDetail: state.itemsProducts.productDetail,
     isLoading: state.itemsProducts.isLoading,
   }));
-  console.log("productDetail", productDetail);
 
   useEffect(() => {
     if (isLoading) return;

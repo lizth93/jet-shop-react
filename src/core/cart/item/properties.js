@@ -1,6 +1,6 @@
 const CartItemsProperties = (props) => {
   const { description, quantity, totalPrice, price, discount, image } =
-    props.item;
+    props.items;
 
   return (
     <div className="product-properties">
@@ -16,12 +16,8 @@ const CartItemsProperties = (props) => {
             with<strong> %{discount} </strong>of discount applied
           </span>
           <span>
-            {" "}
             Total to pay:
-            <strong className="product-total">
-              {" "}
-              ${totalPrice.toFixed(2)}{" "}
-            </strong>{" "}
+            <strong className="product-total">${totalPrice.toFixed(2)}</strong>
           </span>
         </div>
         <div className="btns-cart">{props.children}</div>

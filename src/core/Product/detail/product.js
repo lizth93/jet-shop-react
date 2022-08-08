@@ -20,7 +20,6 @@ const DetailProduct = (props) => {
 
   const handleAddToCart = () => {
     dispatch(addProduct(productDetail));
-    console.log(productDetail, "from product, what have");
 
     setAction("Added!");
     setTimeout(() => {
