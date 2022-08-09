@@ -15,14 +15,16 @@ import { cartActions } from "store/cart/cart-slice";
 const Cart = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { cartItems, cartSended, isLoading } = useSelector((state) => ({
+  const { cartItems, hasError, isLoading, isSended } = useSelector((state) => ({
     cartItems: state.cartItems.items,
-    cartSended: state.cartItems.cartSended,
+    hasError: state.cartItems.hasError,
     isLoading: state.cartItems.isLoading,
+    isSended: state.cartItems.isSended,
   }));
 
   useEffect(() => {
-    dispatch(cartActions.setIsSended(false));
+    dispatch(cartActions.setIsSended(null));
+    dispatch(cartActions.setHasError(null));
   }, [dispatch]);
 
   if (isLoading) {
@@ -44,7 +46,7 @@ const Cart = (props) => {
       <div className="cart">
         <div>
           <ul>
-            {cartSended && (
+            {isSended && (
               <div className="successfully-items">
                 <p className="shopping-cart" style={{ color: "#6741d9" }}>
                   The order has been sent successfully!!! -Check the shopping
@@ -55,10 +57,10 @@ const Cart = (props) => {
                 </Button>
               </div>
             )}
-            {cartItems.length === 0 && !cartSended && (
+            {cartItems.length === 0 && !hasError && !isSended && (
               <p className="shopping-cart">The Cart is empty!</p>
             )}
-            {!cartSended &&
+            {!hasError &&
               cartItems.map((item) => (
                 <CartItem
                   key={item.id}
@@ -92,7 +94,7 @@ const Cart = (props) => {
           </ul>
         </div>
 
-        {!cartSended && cartItems.length !== 0 && <CartTotal />}
+        {!hasError && cartItems.length !== 0 && <CartTotal />}
       </div>
     </div>
   );

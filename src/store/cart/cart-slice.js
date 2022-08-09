@@ -8,7 +8,8 @@ const cartSlice = createSlice({
     totalQuantity: 0,
     totalAmount: 0,
     isLoading: false,
-    cartSended: false,
+    hasError: false,
+    isSended: false,
   },
   reducers: {
     replaceCart(state, action) {
@@ -33,8 +34,11 @@ const cartSlice = createSlice({
     setIsLoading(state, action) {
       state.isLoading = action.payload;
     },
+    setHasError(state, action) {
+      state.hasError = action.payload;
+    },
     setIsSended(state, action) {
-      state.cartSended = action.payload;
+      state.isSended = action.payload;
     },
   },
 });

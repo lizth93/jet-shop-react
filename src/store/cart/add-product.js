@@ -26,7 +26,6 @@ export default function addProduct(productData) {
     }
 
     dispatch(cartActions.addItemToCart());
-    dispatch(cartActions.setIsSended(false));
 
     dispatch(
       cartActions.replaceCart({

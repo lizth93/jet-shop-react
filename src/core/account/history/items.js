@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import CartItem from "core/cart/item/cart-item.styled";
 import Spinner from "components/Spinner/spinner.styled";
 import useInitialiceHistory from "./use-initialice-history";
+import Error from "components/error/error.styled";
 
 const HistoryItems = (props) => {
   const history = useHistory();
@@ -19,7 +20,8 @@ const HistoryItems = (props) => {
   if (!token) {
     history.push("/auth");
   }
-  if (!items) return;
+
+  console.log(items, "what itrems have");
 
   if (isLoading) {
     return <Spinner />;
@@ -29,20 +31,11 @@ const HistoryItems = (props) => {
       <h2 className="title-history">Shopping history</h2>
 
       <ul>
+        {items.length === 0 && (
+          <Error>There are no products purchased yet</Error>
+        )}
         {items.map((item) => (
-          <CartItem
-            key={item.id}
-            item={{
-              id: item.id,
-              title: item.title,
-              description: item.description,
-              quantity: item.quantity,
-              price: item.price,
-              totalPrice: item.totalPrice,
-              image: item.image,
-              discount: item.discount,
-            }}
-          />
+          <CartItem key={item.id} item={item} />
         ))}
       </ul>
     </div>

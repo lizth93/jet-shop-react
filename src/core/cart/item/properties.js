@@ -1,5 +1,5 @@
 const CartItemsProperties = (props) => {
-  const { description, quantity, totalPrice, price, discount, image } =
+  const { description, quantity, totalPrice, price, discount, image, date } =
     props.items;
 
   return (
@@ -22,6 +22,7 @@ const CartItemsProperties = (props) => {
         </div>
         <div className="btns-cart">{props.children}</div>
       </div>
+      <span>{date}</span>
     </div>
   );
 };

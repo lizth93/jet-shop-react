@@ -1,3 +1,4 @@
+import { MESSAGE_ALERT } from "config";
 import { db } from "firebase.js";
 import { addDoc, collection } from "firebase/firestore";
 import { cartActions } from "./cart-slice";
@@ -5,15 +6,17 @@ import { cartActions } from "./cart-slice";
 export const sendCart = (email, cart) => {
   return (dispatch) => {
     try {
+      dispatch(cartActions.setHasError(null));
       if (!email || !cart) {
         throw new Error("For pay you need to be logged in");
       }
 
-      const message =
-        "This action will immediately send the order, do you want to continue?";
+      const message = MESSAGE_ALERT;
       if (window.confirm(message)) {
         dispatch(cartActions.setIsLoading(true));
         const cartCollectionRef = collection(db, email);
+        const currentDate = new Date();
+        const currentDateTime = currentDate.toLocaleString();
 
         cart.map(
           async (item) =>
@@ -26,6 +29,7 @@ export const sendCart = (email, cart) => {
               quantity: item.quantity,
               title: item.title,
               totalPrice: item.totalPrice,
+              date: `${currentDateTime}`,
             })
         );
 
@@ -41,6 +45,7 @@ export const sendCart = (email, cart) => {
       }
     } catch (error) {
       console.log(error);
+      dispatch(cartActions.setHasError(error));
     }
   };
 };

@@ -28,3 +28,5 @@ export const HISTORY = "/history";
 export const REMEMBER_PWD = "/remember-pwd";
 export const KEY_SAVE_STORAGE_TOKEN = "token";
 export const KEY_SAVE_CART_ITEMS = "cartItems";
+export const MESSAGE_ALERT =
+  "This action will immediately send the order, do you want to continue?";
