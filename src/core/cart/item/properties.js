@@ -26,7 +26,7 @@ const CartItemsProperties = (props) => {
           <div className="btns-cart">{props.children}</div>
         </div>
       </div>
-      <span>Date: {date}</span>
+      {date && <span>Date: {date}</span>}
     </>
   );
 };

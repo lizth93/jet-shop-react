@@ -1,5 +1,5 @@
 import { productActions } from "./product-slice";
-import { API_URL } from "../../helpers";
+import { API_URL } from "../../config";
 
 export const getDetail = (id = 1) => {
   return async (dispatch) => {

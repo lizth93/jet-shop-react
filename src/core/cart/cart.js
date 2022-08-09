@@ -62,19 +62,7 @@ const Cart = (props) => {
             )}
             {!hasError &&
               cartItems.map((item) => (
-                <CartItem
-                  key={item.id}
-                  item={{
-                    id: item.id,
-                    title: item.title,
-                    description: item.description,
-                    quantity: item.quantity,
-                    price: item.price,
-                    totalPrice: item.totalPrice,
-                    image: item.image,
-                    discount: item.discount,
-                  }}
-                >
+                <CartItem key={item.id} item={item}>
                   <Button
                     onClick={() => {
                       removeItemHandler(item);
