@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 //own
-import { LENGTH_PASSWORD } from "../../config";
+import { LENGTH_PASSWORD } from "../../helpers";
 import Button from "../../components/general-button/button.styled";
 import useInput from "../Auth/use-input";
 import { changePassword } from "../../store/auth/change-pwd";

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 //own
-import { CATEGORIES } from "../../config";
+import { CATEGORIES } from "../../helpers";
 import { paginationActions } from "../../store/pagination/pagination-slice";
 
 const NavigationItems = (props) => {

@@ -7,7 +7,7 @@ import { authActions } from "../../store/auth/auth-slice";
 import useInput from "./use-input";
 import useClassName from "./use-classname";
 import { getAuth } from "../../store/auth/get-auth";
-import { LENGTH_PASSWORD, REMEMBER_PWD } from "../../config";
+import { LENGTH_PASSWORD, REMEMBER_PWD } from "../../helpers";
 import Spinner from "../../components/Spinner/spinner.styled";
 import { useHistory } from "react-router-dom";
 import TypeInput from "../../layout/type-input";
