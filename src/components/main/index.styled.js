@@ -1,4 +1,4 @@
-import Main from "./main";
+import Main from "./main.js";
 import styled from "styled-components";
 
 export default styled(Main)`

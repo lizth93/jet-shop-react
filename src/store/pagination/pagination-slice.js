@@ -21,7 +21,6 @@ const paginationSlice = createSlice({
     setTotalPages(state, action) {
       state.total = action.payload;
     },
-    // Check if you can centralize the invocation of this function.
     calculatePages(state) {
       state.pages = Math.ceil(state.total / state.limit);
     },

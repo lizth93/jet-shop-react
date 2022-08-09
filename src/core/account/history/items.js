@@ -21,8 +21,6 @@ const HistoryItems = (props) => {
     history.push("/auth");
   }
 
-  console.log(items, "what itrems have");
-
   if (isLoading) {
     return <Spinner />;
   }
