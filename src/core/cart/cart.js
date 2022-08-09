@@ -1,4 +1,4 @@
-import Spinner from "components/Spinner/spinner.styled";
+import Spinner from "components/spinner/spinner.styled";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";

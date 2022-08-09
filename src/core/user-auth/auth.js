@@ -8,7 +8,7 @@ import useInput from "./use-input";
 import useClassName from "./use-classname";
 import { getAuth } from "../../store/auth/get-auth";
 import { LENGTH_PASSWORD, REMEMBER_PWD } from "../../config";
-import Spinner from "../../components/Spinner/spinner.styled";
+import Spinner from "../../components/spinner/spinner.styled";
 import { useHistory } from "react-router-dom";
 import TypeInput from "../../layout/type-input";
 import LoginGoogle from "./google/login-google.styled";

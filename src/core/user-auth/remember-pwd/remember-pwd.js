@@ -6,7 +6,7 @@ import useInput from "../use-input";
 import useClassName from "../use-classname";
 import Button from "components/general-button/button.styled";
 import { rememberPwd } from "store/auth/remember-pwd";
-import Spinner from "components/Spinner/spinner.styled";
+import Spinner from "components/spinner/spinner.styled";
 
 const RememberPwd = (props) => {
   const dispatch = useDispatch();

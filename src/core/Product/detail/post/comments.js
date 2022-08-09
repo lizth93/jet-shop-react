@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 //own
-import Spinner from "components/Spinner/spinner.styled";
+import Spinner from "components/spinner/spinner.styled";
 import Error from "components/error";
 import UserIcon from "Icons/user";
 

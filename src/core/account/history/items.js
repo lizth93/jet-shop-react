@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 //own
 import CartItem from "core/cart/item/cart-item.styled";
-import Spinner from "components/Spinner/spinner.styled";
+import Spinner from "components/spinner/spinner.styled";
 import useInitialiceHistory from "./use-initialice-history";
 import Error from "components/error/error.styled";
 

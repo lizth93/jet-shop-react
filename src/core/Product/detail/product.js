@@ -3,7 +3,7 @@ import { useState } from "react";
 //own
 import Button from "components/general-button/button.styled";
 import useInitializeDetail from "./use-initialice-detail";
-import Spinner from "components/Spinner/spinner.styled";
+import Spinner from "components/spinner/spinner.styled";
 import addProduct from "store/cart/add-product";
 import Properties from "./properties";
 import ProductImages from "./product-images";

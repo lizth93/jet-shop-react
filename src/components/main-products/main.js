@@ -2,8 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 //own
 import ButtonPagination from "../pagination/button.styled";
-import Product from "../../core/Product/Products/product.styled";
-import Spinner from "../Spinner/spinner.styled";
+import Product from "../../core/product/products/product.styled";
+import Spinner from "../spinner/spinner.styled";
 import { paginationActions } from "../../store/pagination/pagination-slice";
 import { getProducts } from "../../store/products/get-products";
 import useInitializeProducts from "../../core/app/use-initialize-products";
