@@ -4,7 +4,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 
 import Main from "components/main-products/main.styled";
 import Auth from "core/user-auth/auth.styled";
-import DetailProduct from "core/product/detail/product.styled";
+import DetailProduct from "core/product/detail/index.styled";
 import ChangePassword from "core/account/index.styled";
 import Layout from "layout/layout";
 
