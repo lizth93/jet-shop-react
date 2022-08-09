@@ -7,7 +7,7 @@ import Spinner from "components/Spinner/spinner.styled";
 import addProduct from "store/cart/add-product";
 import Properties from "./properties";
 import ProductImages from "./product-images";
-import Error from "components/error";
+import Error from "components/error/error.styled";
 import Comments from "./post/index.styled";
 
 const DetailProduct = (props) => {
@@ -15,13 +15,13 @@ const DetailProduct = (props) => {
   const [actionBtn, setAction] = useState("Add to Cart");
   const dispatch = useDispatch();
 
-  const { productDetail, isLoading, productComments } = useSelector(
-    (state) => ({
+  const { productDetail, isLoading, productComments, errorComments } =
+    useSelector((state) => ({
       productDetail: state.itemsProducts.productDetail,
       isLoading: state.itemsProducts.isLoading,
       productComments: state.itemsProducts.productComments,
-    })
-  );
+      errorComments: state.itemsProducts.errorComments,
+    }));
 
   const handleAddToCart = () => {
     dispatch(addProduct(productDetail));
@@ -56,8 +56,10 @@ const DetailProduct = (props) => {
           </div>
         </div>
       )}
-
-      {productComments && <Comments />}
+      {errorComments && (
+        <Error>Error loading comments of product, Please Try Again</Error>
+      )}
+      {productComments && !errorComments && <Comments />}
     </div>
   );
 };

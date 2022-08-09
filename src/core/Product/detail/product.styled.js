@@ -22,6 +22,7 @@ export default styled(DetailProduct)`
     grid-template-columns: 10% 40% 40%;
     gap: 2.4rem;
     justify-content: space-between;
+    align-items: flex-start;
   }
   .small-images {
     display: flex;
@@ -99,26 +100,5 @@ export default styled(DetailProduct)`
 
   p {
     font-size: 1.6rem;
-  }
-
-  .error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    flex-direction: column;
-  }
-  .error-text {
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-top: 2rem;
-  }
-
-  .error-icon {
-    stroke: red;
-    fill: red;
-    width: 6rem;
-    height: 6rem;
   }
 `;

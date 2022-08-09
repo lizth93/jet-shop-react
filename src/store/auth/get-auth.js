@@ -44,6 +44,8 @@ export const getAuth = (email, password, isLogin) => {
                 "Invalid password. The password is not correct!"
               )
             );
+          } else if (codeError === "auth/user-not-found") {
+            dispatch(authActions.setMessage("The user doesn't exist yet"));
           } else {
             dispatch(authActions.setMessage(codeError));
           }

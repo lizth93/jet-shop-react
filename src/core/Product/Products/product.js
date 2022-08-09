@@ -10,8 +10,7 @@ import addProduct from "store/cart/add-product";
 
 const Product = (props) => {
   const dispatch = useDispatch();
-  const { hasError, isLoading } = useSelector((state) => ({
-    hasError: state.itemsProducts.hasError,
+  const { isLoading } = useSelector((state) => ({
     isLoading: state.itemsProducts.isLoading,
   }));
 
@@ -33,10 +32,9 @@ const Product = (props) => {
 
   return (
     <>
-      {hasError && !isLoading && <p>{hasError}</p>}
       <div className={props.className}>
         <div className="container section_product-ppal">
-          {!hasError && !isLoading && (
+          {!isLoading && (
             <div className="target-product">
               <div className="preview-link" onClick={handleClickOnProduct}>
                 <figure className="product__fig">

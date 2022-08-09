@@ -5,24 +5,28 @@ import { paginationActions } from "../pagination/pagination-slice";
 export const getProducts = (category = "all", skip = 0, searchTerm) => {
   return async (dispatch) => {
     try {
+      dispatch(productActions.setErrorProducts(null));
       dispatch(productActions.setIsLoading(true));
 
       const fetchResult = await fetchProducts(category, skip, searchTerm);
       if (category === "search") {
         dispatch(productActions.setSearch(searchTerm));
+
+        if (fetchResult.products.length === 0) {
+          dispatch(productActions.setIsLoading(false));
+          throw new Error("The product doesn't exist, please try with another");
+        }
       }
 
       if (fetchResult.products.length === 0) {
-        dispatch(
-          productActions.setError("No products were found, try another")
+        throw new Error(
+          "Something went wrong, error loading products of category"
         );
-        dispatch(productActions.setIsLoading(false));
       }
 
       if (fetchResult.products.length !== 0) {
         dispatch(paginationActions.setTotalPages(fetchResult.total));
         dispatch(paginationActions.calculatePages());
-        dispatch(productActions.setError(null));
         dispatch(
           productActions.replaceProducts({
             products: fetchResult.products || [],
@@ -32,7 +36,9 @@ export const getProducts = (category = "all", skip = 0, searchTerm) => {
         dispatch(productActions.setIsLoading(false));
       }
     } catch (error) {
-      dispatch(productActions.setError(error));
+      dispatch(productActions.setIsLoading(false));
+      dispatch(productActions.setErrorProducts(error.message));
+      console.log(error);
     }
   };
 };
@@ -41,7 +47,7 @@ async function fetchProducts(category, skip, searchTerm) {
   const response = await fetch(getUrl(category, skip, searchTerm));
 
   if (!response.ok) {
-    throw new Error("product data failed");
+    throw new Error("Error loading products");
   }
 
   return response.json();

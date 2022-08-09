@@ -9,7 +9,8 @@ const productSlice = createSlice({
     searchProduct: null,
     isLoading: true,
     isLoadingComments: true,
-    hasError: null,
+    generalError: null,
+    errorComments: null,
   },
   reducers: {
     replaceProducts(state, action) {
@@ -37,8 +38,11 @@ const productSlice = createSlice({
       state.productDetail = null;
       state.isLoading = true;
     },
-    setError(state, action) {
-      state.hasError = action.payload;
+    setErrorProducts(state, action) {
+      state.generalError = action.payload;
+    },
+    setErrorComments(state, action) {
+      state.errorComments = action.payload;
     },
   },
 });
