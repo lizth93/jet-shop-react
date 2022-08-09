@@ -3,7 +3,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 //own
 
 import Main from "components/main/main.styled";
-import Auth from "core/auth/auth.styled";
+import Auth from "core/user-auth/auth.styled";
 import DetailProduct from "core/Product/detail/product.styled";
 import ChangePassword from "core/account/index.styled";
 import Layout from "layout/layout";
@@ -24,7 +24,7 @@ import { ACCOUNT } from "config";
 import { HISTORY } from "config";
 import HistoryItems from "core/account/history/index.styled";
 import { REMEMBER_PWD } from "config";
-import RememberPwd from "core/auth/remember-pwd/index.styled";
+import RememberPwd from "core/user-auth/remember-pwd/index.styled";
 
 function App() {
   useCheckToken();

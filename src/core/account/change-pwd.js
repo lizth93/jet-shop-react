@@ -3,10 +3,10 @@ import { useHistory } from "react-router-dom";
 //own
 import { LENGTH_PASSWORD } from "../../config";
 import Button from "../../components/general-button/button.styled";
-import useInput from "../auth/use-input";
+import useInput from "../user-auth/use-input";
 import { changePassword } from "../../store/auth/change-pwd";
 import TypeInput from "../../layout/type-input";
-import useClassName from "../auth/use-classname";
+import useClassName from "../user-auth/use-classname";
 
 const ChangePassword = (props) => {
   const history = useHistory();
