@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Auth from ".";
+import Auth from "./auth";
 
 export default styled(Auth)`
   margin: 0 auto;
