@@ -4,14 +4,14 @@ import { useDispatch } from "react-redux";
 //own
 import { CATEGORIES } from "../../config";
 import { paginationActions } from "../../store/pagination/pagination-slice";
-
+import calculatePages from "store/pagination/calculate-pages";
 const NavigationItems = (props) => {
   const dispatch = useDispatch();
 
   const handleClickCategory = () => {
     dispatch(paginationActions.setSkipPages(0));
     dispatch(paginationActions.setCurrentPage(1));
-    dispatch(paginationActions.calculatePages());
+    dispatch(calculatePages());
   };
   return (
     <nav className={props.className}>

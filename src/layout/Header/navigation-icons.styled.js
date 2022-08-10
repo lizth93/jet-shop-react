@@ -11,6 +11,12 @@ export default styled(NavigationIcons)`
     color: #fff;
   }
 
+  @media (max-width: 56.25em) {
+    .main-nav-list:last-child {
+      margin-right: 6rem;
+    }
+  }
+
   .main-nav-link:link,
   .main-nav-link:visited {
     list-style: none;

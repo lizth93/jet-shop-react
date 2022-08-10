@@ -5,6 +5,10 @@ export default styled(SearchForm)`
   display: grid;
   grid-template-columns: 10.5fr 1fr;
 
+  @media (max-width: 56.25em) {
+    grid-template-columns: 13.5fr 0fr;
+  }
+
   input {
     width: 100%;
     padding: 1.2rem;
@@ -15,6 +19,10 @@ export default styled(SearchForm)`
     border-radius: 7rem;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
     color: #333;
+
+    @media (max-width: 56.25em) {
+      padding: 1rem;
+    }
   }
 
   .search-btn {

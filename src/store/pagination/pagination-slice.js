@@ -17,12 +17,11 @@ const paginationSlice = createSlice({
     setCurrentPage(state, action) {
       state.page = action.payload;
     },
-
     setTotalPages(state, action) {
       state.total = action.payload;
     },
-    calculatePages(state) {
-      state.pages = Math.ceil(state.total / state.limit);
+    setCalculatePages(state, action) {
+      state.pages = action.payload;
     },
   },
 });

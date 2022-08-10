@@ -1,6 +1,7 @@
 import { productActions } from "./product-slice";
 import { API_URL, RES_PER_PAGE } from "../../config";
 import { paginationActions } from "../pagination/pagination-slice";
+import calculatePages from "store/pagination/calculate-pages";
 
 export const getProducts = (category = "all", skip = 0, searchTerm) => {
   return async (dispatch) => {
@@ -26,7 +27,7 @@ export const getProducts = (category = "all", skip = 0, searchTerm) => {
 
       if (fetchResult.products.length !== 0) {
         dispatch(paginationActions.setTotalPages(fetchResult.total));
-        dispatch(paginationActions.calculatePages());
+        dispatch(calculatePages());
         dispatch(
           productActions.replaceProducts({
             products: fetchResult.products || [],

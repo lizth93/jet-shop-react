@@ -8,6 +8,7 @@ import { paginationActions } from "../../store/pagination/pagination-slice";
 import { SEARCH } from "config";
 import Search from "../../Icons/search";
 import { getProducts } from "store/products/get-products";
+import calculatePages from "store/pagination/calculate-pages";
 
 const SearchForm = (props) => {
   const history = useHistory();
@@ -22,7 +23,7 @@ const SearchForm = (props) => {
     ev.preventDefault();
     dispatch(paginationActions.setSkipPages(0));
     dispatch(paginationActions.setCurrentPage(1));
-    dispatch(paginationActions.calculatePages());
+    dispatch(calculatePages());
     history.push(`${SEARCH}${searchTerm}`);
 
     dispatch(getProducts("search", "", searchTerm));
