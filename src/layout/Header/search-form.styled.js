@@ -22,6 +22,7 @@ export default styled(SearchForm)`
 
     @media (max-width: 56.25em) {
       padding: 1rem;
+      margin-bottom: 1rem;
     }
   }
 
@@ -31,6 +32,11 @@ export default styled(SearchForm)`
     border-radius: 50%;
     cursor: pointer;
     transform: translate(-100%, 0%);
+
+    @media (max-width: 56.25em) {
+      padding: 0.4rem;
+      margin-bottom: 1rem;
+    }
   }
 
   .btn-icon {

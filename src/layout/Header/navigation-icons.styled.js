@@ -12,6 +12,9 @@ export default styled(NavigationIcons)`
   }
 
   @media (max-width: 56.25em) {
+    .main-nav-list {
+      justify-content: end;
+    }
     .main-nav-list:last-child {
       margin-right: 6rem;
     }

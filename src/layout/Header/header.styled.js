@@ -11,7 +11,7 @@ export default styled(Header)`
     padding: 0 4.8rem;
   }
   .logo {
-    width: 70%;
+    width: 80%;
 
     @media (max-width: 56.25em) {
       align-content: space-evenly;
@@ -25,10 +25,16 @@ export default styled(Header)`
 
   @media (max-width: 56.25em) {
     .header {
-      flex-flow: column wrap;
-      justify-content: center;
-      align-items: flex-end;
-      gap: 0.5rem;
+      display: grid;
+      grid-template-columns: 15% 85%;
+
+      a {
+        grid-row: 1/3;
+      }
+      nav {
+        grid-column: 2/3;
+        grid-row: 1/2;
+      }
     }
   }
 `;

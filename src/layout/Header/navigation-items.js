@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { CATEGORIES } from "../../config";
 import { paginationActions } from "../../store/pagination/pagination-slice";
 import calculatePages from "store/pagination/calculate-pages";
+
 const NavigationItems = (props) => {
   const dispatch = useDispatch();
 
@@ -14,21 +15,23 @@ const NavigationItems = (props) => {
     dispatch(calculatePages());
   };
   return (
-    <nav className={props.className}>
-      <ul className="main-nav-list-2">
-        {Object.keys(CATEGORIES).map((item) => (
-          <li key={item}>
-            <Link
-              className="main-nav-link"
-              to={`/products/${item.toLowerCase()}`}
-              onClick={handleClickCategory}
-            >
-              {item}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className={props.className}>
+      <nav className="main-nav">
+        <ul className="main-nav-list-2">
+          {Object.keys(CATEGORIES).map((item) => (
+            <li key={item}>
+              <Link
+                className="main-nav-link"
+                to={`/products/${item.toLowerCase()}`}
+                onClick={handleClickCategory}
+              >
+                {item}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
 };
 
