@@ -5,7 +5,7 @@ export default styled(BtnMobileNavigation)`
   background-color: #343a40;
   display: flex;
   justify-content: flex-end;
-  padding: 0.5rem;
+  padding: 1rem;
 
   .btn-mobile-nav {
     background: none;
@@ -13,6 +13,7 @@ export default styled(BtnMobileNavigation)`
     cursor: pointer;
     align-self: center;
     display: none;
+    padding: 0.5rem;
 
     button {
       border: none;
@@ -23,6 +24,11 @@ export default styled(BtnMobileNavigation)`
       display: block;
       z-index: 10;
     }
+  }
+
+  .btn-mobile-nav:hover {
+    background-color: #868e96;
+    border-radius: 50%;
   }
 
   .icon-mobile-nav {

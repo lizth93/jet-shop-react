@@ -15,23 +15,21 @@ const NavigationItems = (props) => {
     dispatch(calculatePages());
   };
   return (
-    <div className={props.className}>
-      <nav className="main-nav">
-        <ul className="main-nav-list-2">
-          {Object.keys(CATEGORIES).map((item) => (
-            <li key={item}>
-              <Link
-                className="main-nav-link"
-                to={`/products/${item.toLowerCase()}`}
-                onClick={handleClickCategory}
-              >
-                {item}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </div>
+    <nav className="main-nav">
+      <ul className="main-nav-list-2">
+        {Object.keys(CATEGORIES).map((item) => (
+          <li key={item}>
+            <Link
+              className="main-nav-link"
+              to={`/products/${item.toLowerCase()}`}
+              onClick={handleClickCategory}
+            >
+              {item}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 
