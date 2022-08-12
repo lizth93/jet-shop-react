@@ -16,3 +16,28 @@ body {
   font-weight: 400;
   color: #555;
 }
+
+/*Below 1200px landscape Tablets */
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56%;
+  }
+}
+/*Below 704 (smaller Tablets) */
+@media (max-width: 44em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 40em) {
+  html {
+    padding-bottom: 30rem;
+  }
+}
+
+@media (max-width: 34.375em) {
+  html {
+    padding-bottom: 40rem;
+  }
+}
