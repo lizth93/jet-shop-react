@@ -19,6 +19,7 @@ export default styled(DetailProduct)`
   }
   .container {
     @media (max-width: 37.5em) {
+      //600px
       margin: 4.6rem 2rem;
     }
   }
@@ -36,6 +37,7 @@ export default styled(DetailProduct)`
     align-items: flex-start;
 
     @media (max-width: 56.25em) {
+      //900px
       grid-template-columns: 1fr;
     }
   }

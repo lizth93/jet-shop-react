@@ -10,8 +10,24 @@ export default styled(CartItem)`
   list-style: none;
   margin-bottom: 2rem;
 
+  @media (max-width: 56.25em) {
+    //900px
+    max-width: 95vh;
+  }
+  @media (max-width: 21.875em) {
+    //350px
+    padding: 2rem 2rem;
+  }
+
   .product-properties {
     display: flex;
+
+    @media (max-width: 34.375em) {
+      //550px
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
   }
 
   .product-title {
@@ -26,6 +42,7 @@ export default styled(CartItem)`
   .btns-cart {
     display: flex;
     gap: 0.5rem;
+    justify-content: end;
   }
   .product-description {
     display: flex;

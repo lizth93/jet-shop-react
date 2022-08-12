@@ -27,6 +27,7 @@ export default styled(Product)`
     margin-bottom: 4rem;
 
     @media (max-width: 20em) {
+      //320px
       margin: 0 1rem;
     }
   }

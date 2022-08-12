@@ -16,7 +16,7 @@ export default styled(NavigationIcons)`
       justify-content: end;
 
       .main-nav-list:last-child {
-        margin-right: 0rem;
+        margin-right: 0.2rem;
       }
     }
 

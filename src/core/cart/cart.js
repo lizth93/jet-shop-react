@@ -45,7 +45,7 @@ const Cart = (props) => {
       <h2 className="title-cart">Your Shopping Cart</h2>
       <div className="cart">
         <div>
-          <ul>
+          <ul className="cart-items">
             {isSended && (
               <div className="successfully-items">
                 <p className="shopping-cart" style={{ color: "#6741d9" }}>
