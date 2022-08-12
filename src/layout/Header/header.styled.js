@@ -46,6 +46,7 @@ export default styled(Header)`
     min-width: 27rem;
     padding-top: 1rem;
     z-index: 9;
+    padding-left: 2rem;
   }
 
   @media (max-width: 56.25em) {

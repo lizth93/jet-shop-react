@@ -32,7 +32,7 @@ const Comments = (props) => {
                     {comment.user.username}
                   </strong>
                 </h2>
-                <p>{comment.body}</p>
+                <p className="comment_text">{comment.body}</p>
               </div>
             </div>
           </li>

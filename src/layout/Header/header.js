@@ -10,7 +10,7 @@ import CloseIcon from "Icons/close";
 import MobileNavIcon from "Icons/mobile-nav";
 
 const Header = (props) => {
-  const [navOpen, setNavOpen] = useState(true);
+  const [navOpen, setNavOpen] = useState(false);
 
   const handleMobileNavigation = () => {
     setNavOpen(true);

@@ -25,6 +25,10 @@ export default styled(Product)`
     box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.089);
     transition: all 0.3s;
     margin-bottom: 4rem;
+
+    @media (max-width: 20em) {
+      margin: 0 1rem;
+    }
   }
 
   .target-product:hover {

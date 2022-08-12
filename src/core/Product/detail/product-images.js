@@ -32,7 +32,7 @@ const ProductImages = () => {
           />
         ))}
       </div>
-      <div>
+      <div className="product-fig">
         <figure className="product_fig_detail">
           <img src={imageDetail} alt="" className="product__img" />
 
