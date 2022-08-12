@@ -14,11 +14,7 @@ export default styled(BtnMobileNavigation)`
     align-self: center;
     display: none;
     padding: 0.5rem;
-
-    button {
-      border: none;
-      background: none;
-    }
+    transition: all 0.2s;
 
     @media (max-width: 56.25em) {
       display: block;

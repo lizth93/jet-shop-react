@@ -37,7 +37,7 @@ const SearchForm = (props) => {
       <input
         type="text"
         className="search-field"
-        placeholder="what do you want to search for today?"
+        placeholder="what do you want to search?"
         onChange={handleOnChangeText}
         value={searchTerm}
         autoComplete="on"

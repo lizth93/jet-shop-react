@@ -6,7 +6,7 @@ import { CATEGORIES } from "../../config";
 import { paginationActions } from "../../store/pagination/pagination-slice";
 import calculatePages from "store/pagination/calculate-pages";
 
-const NavigationItems = (props) => {
+const NavigationItems = () => {
   const dispatch = useDispatch();
 
   const handleClickCategory = () => {

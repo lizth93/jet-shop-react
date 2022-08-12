@@ -9,14 +9,20 @@ export default styled(NavigationIcons)`
     align-items: center;
     gap: 4.8rem;
     color: #fff;
-  }
 
-  @media (max-width: 56.25em) {
-    .main-nav-list {
+    @media (max-width: 56.25em) {
+      //screen 900px
+
       justify-content: end;
+
+      .main-nav-list:last-child {
+        margin-right: 0rem;
+      }
     }
-    .main-nav-list:last-child {
-      margin-right: 6rem;
+
+    @media (max-width: 28.125em) {
+      //screen 450px
+      gap: 1.8rem;
     }
   }
 
@@ -50,8 +56,5 @@ export default styled(NavigationIcons)`
     border-radius: 30px;
     font-size: 1.4rem;
     color: #fff;
-  }
-
-  .items-cart:hover {
   }
 `;
