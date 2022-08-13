@@ -1,5 +1,5 @@
-import Footer from "layout/Footer/footer.styled";
-import Header from "layout/Header/header.styled";
+import Footer from "layout/footer/footer.styled";
+import Header from "layout/header/header.styled";
 
 const Layout = (props) => {
   return (
