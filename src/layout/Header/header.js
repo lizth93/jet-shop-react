@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 //own
 import NavigationIcons from "./navigation-icons.styled";
@@ -11,6 +12,13 @@ import MobileNavIcon from "Icons/mobile-nav";
 
 const Header = (props) => {
   const [navOpen, setNavOpen] = useState(false);
+
+  const category = useParams();
+  useEffect(() => {
+    if (category) {
+      setNavOpen(false);
+    }
+  }, [category]);
 
   const handleMobileNavigation = () => {
     setNavOpen(true);

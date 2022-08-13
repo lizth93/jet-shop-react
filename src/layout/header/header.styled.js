@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Header from "./header";
 
 export default styled(Header)`
+  overflow-x: hidden;
   .header {
     display: flex;
     justify-content: space-between;
@@ -9,6 +10,7 @@ export default styled(Header)`
     background-color: #212529;
     height: 9.6rem;
     padding: 0 4.8rem;
+    overflow: hidden;
 
     @media (max-width: 56.25em) {
       //screen 900px
@@ -68,12 +70,13 @@ export default styled(Header)`
         rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
         rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
-      transform: translateX(100%);
+      /* transform: translateX(100%); */
       padding: 2rem 0;
       opacity: 0;
       pointer-events: none;
       visibility: hidden;
       transition: all 0.5s ease-in;
+      overflow-x: hidden;
     }
 
     .nav-open .main-nav {
@@ -81,6 +84,7 @@ export default styled(Header)`
       pointer-events: auto;
       visibility: visible;
       transform: translate(0);
+      overflow-x: hidden;
     }
   }
 

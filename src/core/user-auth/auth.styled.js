@@ -2,15 +2,17 @@ import styled from "styled-components";
 import Auth from "./auth";
 
 export default styled(Auth)`
-  margin: 0 auto;
+  /* margin: 0 auto; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -62%);
+  transform: translate(0%, 0%);
+
+  @media (max-width: 31.25em) {
+    //500px
+    margin: 2rem;
+  }
 
   .error {
     margin-bottom: 2rem;

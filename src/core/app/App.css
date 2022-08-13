@@ -1,3 +1,10 @@
 .App {
   text-align: center;
 }
+
+#root {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  overflow-x: hidden;
+}

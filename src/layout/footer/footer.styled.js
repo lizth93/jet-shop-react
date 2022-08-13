@@ -5,7 +5,7 @@ export default styled(Footer)`
   color: #fff;
   padding: 1.2rem 4.8rem;
   width: 100%;
-  position: absolute;
+  margin-top: auto;
   bottom: 0;
   background-color: #212529;
 

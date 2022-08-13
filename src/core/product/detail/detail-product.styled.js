@@ -49,17 +49,18 @@ export default styled(DetailProduct)`
     align-items: center;
 
     @media (max-width: 56.25em) {
-      max-width: 20rem;
+      max-width: max-content;
       flex-direction: inherit;
       box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.089);
+      overflow-x: auto;
     }
   }
   .img-small {
     width: 50%;
 
     @media (max-width: 56.25em) {
-      box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.089);
       padding: 1rem;
+      width: 20%;
     }
   }
 

@@ -25,9 +25,6 @@ export default styled(SearchForm)`
     @media (max-width: 56.25em) {
       margin-bottom: 1rem;
       position: relative;
-    }
-
-    @media (max-width: 40em) {
       font-size: 1.5rem;
     }
   }
@@ -55,7 +52,7 @@ export default styled(SearchForm)`
 
     @media (max-width: 28.125em) {
       //screen 450px
-      right: -31px;
+      right: -36px;
     }
   }
 

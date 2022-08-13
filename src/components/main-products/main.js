@@ -32,23 +32,27 @@ const Main = (props) => {
   };
 
   return (
-    <main className={props.className}>
-      <section className="section-products">
-        {generalError && !isLoading && <Error>{generalError}</Error>}
-        {isLoading && !generalError && <Spinner />}
+    <div>
+      <main className={props.className}>
+        <section className="section-products">
+          {generalError && !isLoading && <Error>{generalError}</Error>}
+          {isLoading && !generalError && <Spinner />}
 
-        {!isLoading &&
-          !generalError &&
-          products.length !== 0 &&
-          products.map((product) => (
-            <Product key={product.id} product={product} />
-          ))}
-      </section>
+          {!isLoading &&
+            !generalError &&
+            products.length !== 0 &&
+            products.map((product) => (
+              <Product key={product.id} product={product} />
+            ))}
+        </section>
 
-      <div className="control-pagination">
-        {!generalError && <ButtonPagination onClickPag={handleClickBtnPage} />}
-      </div>
-    </main>
+        <div className="control-pagination">
+          {!generalError && (
+            <ButtonPagination onClickPag={handleClickBtnPage} />
+          )}
+        </div>
+      </main>
+    </div>
   );
 };
 
