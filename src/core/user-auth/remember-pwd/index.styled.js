@@ -2,15 +2,16 @@ import styled from "styled-components";
 import RememberPwd from "./remember-pwd";
 
 export default styled(RememberPwd)`
-  margin: 0 auto;
+  /* margin: 0 auto; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  transform: translate(0%, 0%);
+  /* position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -62%);
+  transform: translate(-50%, -62%); */
 
   .form-control {
     display: flex;
