@@ -37,6 +37,11 @@ export default styled(Header)`
       min-width: 7rem;
       max-width: 7rem;
     }
+
+    @media (max-width: 25em) {
+      //screen 400px
+      visibility: collapse;
+    }
   }
 
   .main-nav {
@@ -104,6 +109,11 @@ export default styled(Header)`
     font-weight: 500;
     color: #dee2e6;
     transition: all 0.3s;
+
+    @media (max-width: 25em) {
+      //screen 400px
+      gap: 0.5rem;
+    }
   }
 
   .main-nav-link:hover,

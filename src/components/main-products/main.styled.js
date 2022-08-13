@@ -11,5 +11,6 @@ export default styled(Main)`
   }
   .control-pagination {
     justify-content: center;
+    margin-top: 3.5rem;
   }
 `;

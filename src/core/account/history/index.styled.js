@@ -10,4 +10,7 @@ export default styled(HistoryItems)`
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
+  .history-items {
+    margin: 2rem;
+  }
 `;

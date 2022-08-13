@@ -16,7 +16,12 @@ export default styled(Comments)`
       rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 
     @media (max-width: 56.25em) {
-      margin: 4.6rem 2rem;
+      margin: 0 auto;
+      margin-bottom: 4rem;
+    }
+
+    @media (max-width: 37.5em) {
+      margin: 2rem 2rem;
     }
   }
   .comment {

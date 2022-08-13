@@ -28,7 +28,7 @@ const HistoryItems = (props) => {
     <div className={props.className}>
       <h2 className="title-history">Shopping history</h2>
 
-      <ul>
+      <ul className="history-items">
         {items.length === 0 && (
           <Error>There are no products purchased yet</Error>
         )}
