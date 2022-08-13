@@ -8,10 +8,6 @@ export default styled(RememberPwd)`
   align-items: center;
   justify-content: center;
   transform: translate(0%, 0%);
-  /* position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -62%); */
 
   .form-control {
     display: flex;
