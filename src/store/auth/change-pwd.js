@@ -1,3 +1,4 @@
+import { cartActions } from "store/cart/cart-slice";
 import { API_KEY } from "../../config";
 import { authActions } from "./auth-slice";
 
@@ -40,6 +41,7 @@ export const changePassword = (token, password) => {
           })
           .then(() => {
             dispatch(authActions.setLogout());
+            dispatch(cartActions.removeItems());
           })
 
           .catch((err) => {

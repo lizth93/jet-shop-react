@@ -6,6 +6,7 @@ import CartIcon from "../../Icons/cart";
 import UserIcon from "../../Icons/user";
 import LogOut from "../../Icons/log-out";
 import { authActions } from "../../store/auth/auth-slice";
+import { cartActions } from "store/cart/cart-slice";
 import setTotalQuantity from "store/cart/set-total-quantity";
 import { AUTH } from "config";
 import ModalAccount from "./modal-account/index.styled";
@@ -26,6 +27,7 @@ const NavigationIcons = (props) => {
 
   const logOutHandler = () => {
     dispatch(authActions.setLogout());
+    dispatch(cartActions.removeItems());
   };
 
   return (

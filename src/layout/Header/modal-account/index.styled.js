@@ -37,6 +37,11 @@ export default styled(ModalAccount)`
     transition: all 0.1s;
     overflow-y: auto;
     list-style: none;
+
+    @media (max-width: 28.125em) {
+      //450px
+      right: 12rem;
+    }
   }
 
   .account-modal:hover,

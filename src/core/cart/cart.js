@@ -22,6 +22,9 @@ const Cart = (props) => {
     isSended: state.cartItems.isSended,
   }));
 
+  // useEffect(() => {
+  //   if (cartItems === 0);
+  // }, [cartItems]);
   useEffect(() => {
     dispatch(cartActions.setIsSended(null));
     dispatch(cartActions.setHasError(null));

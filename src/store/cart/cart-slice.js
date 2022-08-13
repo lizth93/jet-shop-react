@@ -18,6 +18,11 @@ const cartSlice = createSlice({
     saveItemsTemporaly(state) {
       localStorage.setItem(KEY_SAVE_CART_ITEMS, JSON.stringify(state.items));
     },
+    removeItems(state) {
+      state.items = [];
+      state.totalQuantity = 0;
+      localStorage.removeItem(KEY_SAVE_CART_ITEMS);
+    },
 
     addItemToCart(state) {
       state.totalQuantity++;

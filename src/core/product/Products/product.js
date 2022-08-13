@@ -60,7 +60,7 @@ const Product = (props) => {
                     ))}
 
                     <label className="discount" htmlFor="discount">
-                      With <strong>discount </strong>of discount:
+                      With <strong>discount </strong>of:
                       <span> {props.product.discountPercentage} %</span>
                     </label>
                   </ul>

@@ -23,6 +23,9 @@ export default styled(NavigationIcons)`
     @media (max-width: 28.125em) {
       //screen 450px
       gap: 1.8rem;
+      .main-nav-list:last-child {
+        margin-right: 1.5rem;
+      }
     }
   }
 
